@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "F/37Opy6pZOS6+eOg/5NSRrm9dBmC9+3+4yHrPFs71rhfJ7/Mytk9KXCsmPSV8lgTEYaeL6ezjxIAUyAuq+1Ug==",
+  "success": true,
+  "projectFilePath": "/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.iOS/InspectionManager.iOS.csproj",
+  "expectedPackageFiles": [
+    "/Users/david/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "/Users/david/.nuget/packages/xamarin.forms/4.8.0.1451/xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}
