@@ -16,5 +16,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modelo\" />
+    <Folder Include="Servicios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Servicios\" />
   </ItemGroup>
 </Project>

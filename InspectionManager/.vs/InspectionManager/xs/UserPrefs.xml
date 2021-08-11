@@ -1,23 +1,19 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7AD972AE-B6F5-48A2-96C8-C84BB6408CE4" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Modelo/Bloque.cs">
-    <Files>
-      <File FileName="InspectionManager/Modelo/Inspector.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/Plantilla.cs" Line="13" Column="59" />
-      <File FileName="InspectionManager/Modelo/Pregunta.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/Bloque.cs" Line="21" Column="23" />
-      <File FileName="InspectionManager/Modelo/Respuesta.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Modelo" expanded="True">
-                <Node name="Bloque.cs" selected="True" />
+              <Node name="Servicios" expanded="True" />
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="InspectionManager.Android" expanded="True">
+              <Node name="Properties" expanded="True">
+                <Node name="AndroidManifest.xml" selected="True" />
               </Node>
             </Node>
-            <Node name="InspectionManager.Android" expanded="True" />
             <Node name="InspectionManager.iOS" expanded="True" />
           </Node>
         </State>
