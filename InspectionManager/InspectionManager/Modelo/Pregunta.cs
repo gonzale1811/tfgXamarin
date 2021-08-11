@@ -1,7 +1,7 @@
 ﻿using System;
 namespace InspectionManager.Modelo
 {
-    interface IPregunta<T>
+    public interface IPregunta<T>
     {
         Guid IdPregunta
         {

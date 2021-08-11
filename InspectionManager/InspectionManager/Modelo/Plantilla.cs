@@ -24,8 +24,16 @@ namespace InspectionManager.Modelo
 
         public void ActualizarVersion(string nuevaVersion)
         {
-            Versiones.Add(VersionActual);
-            VersionActual = nuevaVersion;
+            if (!Versiones.Contains(nuevaVersion)&&!VersionActual.Equals(nuevaVersion))
+            {
+                Versiones.Add(VersionActual);
+                VersionActual = nuevaVersion;
+            }
+        }
+
+        public void AddBloque(Bloque bloque)
+        {
+            BloquesPlantilla.Add(bloque);
         }
     }
 }
