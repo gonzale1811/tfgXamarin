@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "kY+J6IYFnmeMEBpegOn2PGB2D3DjVi+eRLs3VNoJXRz/M9lnU9WPTGd8UR7tgUa54CPeAQySIA1pCKXrhmwwAg==",
+  "dgSpecHash": "qOxkCZGe9MsDklqULe5naEVARIzHBUUmtckuaksrOIRAlifdZQz2nV5nq0z7f+XrJqm9eEBxOR+GAMTRd1L3QQ==",
   "success": true,
   "projectFilePath": "/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.iOS/InspectionManager.iOS.csproj",
   "expectedPackageFiles": [
+    "/Users/david/.nuget/packages/xamarin.auth/1.7.0/xamarin.auth.1.7.0.nupkg.sha512",
+    "/Users/david/.nuget/packages/xamarin.build.download/0.10.0/xamarin.build.download.0.10.0.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "/Users/david/.nuget/packages/xamarin.firebase.ios.auth/6.9.2/xamarin.firebase.ios.auth.6.9.2.nupkg.sha512",
+    "/Users/david/.nuget/packages/xamarin.firebase.ios.core/6.10.4/xamarin.firebase.ios.core.6.10.4.nupkg.sha512",
+    "/Users/david/.nuget/packages/xamarin.firebase.ios.database/6.6.0/xamarin.firebase.ios.database.6.6.0.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.forms/4.8.0.1451/xamarin.forms.4.8.0.1451.nupkg.sha512"
   ],
   "logs": []

@@ -36,9 +36,21 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
+            },
+            "Xamarin.Firebase.iOS.Auth": {
+              "target": "Package",
+              "version": "[6.9.2, )"
+            },
+            "Xamarin.Firebase.iOS.Database": {
+              "target": "Package",
+              "version": "[6.6.0, )"
             },
             "Xamarin.Forms": {
               "target": "Package",

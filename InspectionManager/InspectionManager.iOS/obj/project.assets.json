@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Xamarin.Auth/1.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Json"
+        ],
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -13,6 +32,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Database/6.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
         }
       },
       "Xamarin.Forms/4.8.0.1451": {
@@ -152,6 +221,25 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Xamarin.Auth/1.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Json"
+        ],
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -163,6 +251,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Database/6.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
         }
       },
       "Xamarin.Forms/4.8.0.1451": {
@@ -302,6 +440,25 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Xamarin.Auth/1.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Json"
+        ],
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -313,6 +470,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Database/6.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
         }
       },
       "Xamarin.Forms/4.8.0.1451": {
@@ -452,6 +659,25 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Xamarin.Auth/1.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Json"
+        ],
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Auth.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -463,6 +689,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Database/6.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Database.dll": {}
         }
       },
       "Xamarin.Forms/4.8.0.1451": {
@@ -603,6 +879,52 @@
     }
   },
   "libraries": {
+    "Xamarin.Auth/1.7.0": {
+      "sha512": "F5yMDdHmcBRochGOeeyIRJ2fangsCEodSbOwg4TQT5kJnsT/CjP6ieXbFfFF9ccni66EgbQ7NTTjvajUlD3IGQ==",
+      "type": "package",
+      "path": "xamarin.auth/1.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Xamarin.Auth.dll",
+        "lib/MonoAndroid10/Xamarin.Auth.pdb",
+        "lib/Xamarin.iOS10/Xamarin.Auth.dll",
+        "lib/Xamarin.iOS10/Xamarin.Auth.pdb",
+        "lib/netstandard1.0/Xamarin.Auth.dll",
+        "lib/netstandard1.6/Xamarin.Auth.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+XamarinIOS10/Xamarin.Auth.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+XamarinIOS10/Xamarin.Auth.pdb",
+        "lib/uap10.0/Xamarin.Auth.dll",
+        "lib/uap10.0/Xamarin.Auth.pdb",
+        "lib/uap10.0/Xamarin.Auth.pri",
+        "lib/uap10.0/Xamarin.Auth/WebAuthenticatorPage.xbf",
+        "lib/uap10.0/Xamarin.Auth/Xamarin.Auth.xr.xml",
+        "xamarin.auth.1.7.0.nupkg.sha512",
+        "xamarin.auth.nuspec"
+      ]
+    },
+    "Xamarin.Build.Download/0.10.0": {
+      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.5.3.2": {
       "sha512": "BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
       "type": "package",
@@ -649,6 +971,53 @@
         "readme.txt",
         "xamarin.essentials.1.5.3.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Auth/6.9.2": {
+      "sha512": "cyu7neK0nFTDAmx8fVg7SrCqFE3GBe4BQaABrLXVx5RwZ5oUN0g+HnKTkikXPhTjOSQLQSalf5yp2CbBCgwjQQ==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.auth/6.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "firebaseiosauth_128x128.png",
+        "lib/xamarinios10/Firebase.Auth.dll",
+        "xamarin.firebase.ios.auth.6.9.2.nupkg.sha512",
+        "xamarin.firebase.ios.auth.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Core/6.10.4": {
+      "sha512": "b/cy0xmGUGlT/RxQt2mvlB9lL/tiNRcfsZsWH20lP7FI6H/xABAGAQU0MDKM84KTTOx8NN9CB95eY74NWKGQtw==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.core/6.10.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Firebase.iOS.Core.targets",
+        "buildTransitive/Xamarin.Firebase.iOS.Core.targets",
+        "firebaseioscore_128x128.png",
+        "lib/xamarinios10/Firebase.Core.dll",
+        "xamarin.firebase.ios.core.6.10.4.nupkg.sha512",
+        "xamarin.firebase.ios.core.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Database/6.6.0": {
+      "sha512": "vgGBt5gkWIypkuEapFRPzc+Tw2AOVySZFLPGEWsWUX4tvOhvPYCt7/45gUQDdlTJ9M/4c9vie1NfWaXMjx9cRQ==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.database/6.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "firebaseiosdatabase_128x128.png",
+        "lib/xamarinios10/Firebase.Database.dll",
+        "xamarin.firebase.ios.database.6.6.0.nupkg.sha512",
+        "xamarin.firebase.ios.database.nuspec"
       ]
     },
     "Xamarin.Forms/4.8.0.1451": {
@@ -976,7 +1345,10 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "InspectionManager >= 1.0.0",
+      "Xamarin.Auth >= 1.7.0",
       "Xamarin.Essentials >= 1.5.3.2",
+      "Xamarin.Firebase.iOS.Auth >= 6.9.2",
+      "Xamarin.Firebase.iOS.Database >= 6.6.0",
       "Xamarin.Forms >= 4.8.0.1451"
     ]
   },
@@ -1015,9 +1387,21 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "Xamarin.Auth": {
+            "target": "Package",
+            "version": "[1.7.0, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"
+          },
+          "Xamarin.Firebase.iOS.Auth": {
+            "target": "Package",
+            "version": "[6.9.2, )"
+          },
+          "Xamarin.Firebase.iOS.Database": {
+            "target": "Package",
+            "version": "[6.6.0, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

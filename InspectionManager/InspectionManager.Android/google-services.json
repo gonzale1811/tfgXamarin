@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "128769436570",
+    "project_id": "inspection-manager-609e2",
+    "storage_bucket": "inspection-manager-609e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128769436570:android:f77e04f7260560a5d9e823",
+        "android_client_info": {
+          "package_name": "com.companyname.inspection_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128769436570-a99pjukofu5rrq26p0sfvjlq84cel0s4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.inspection_manager",
+            "certificate_hash": "c42352642ebea111172c2aef109e5a4e31862d2b"
+          }
+        },
+        {
+          "client_id": "128769436570-vrkri0qm14q8vj6ubpqavk931nmsjimh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU0_ZBKeSNvdZMvpWnsBQW8zXQqZEEDD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128769436570-vrkri0qm14q8vj6ubpqavk931nmsjimh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
