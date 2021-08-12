@@ -1,34 +1,46 @@
 ﻿using System;
 using System.Threading.Tasks;
-using InspectionManager.Modelo;
+using Android.Gms.Extensions;
 using InspectionManager.Servicios;
 
 namespace InspectionManager.Droid.Servicios
 {
     public class FirebaseAuthService: IFirebaseAuthService
     {
+        public static string KEY_AUTH = "auth";
+
         public FirebaseAuthService()
         {
         }
 
         public string GetAuthKey()
         {
-            throw new NotImplementedException();
+            return KEY_AUTH;
         }
 
         public string GetUserId()
         {
-            throw new NotImplementedException();
+            return Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CurrentUser.Uid;
         }
 
         public bool IsUserSigned()
         {
-            throw new NotImplementedException();
+            var user = Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CurrentUser;
+            var signedIn = user != null;
+            return signedIn;
         }
 
-        public Task<bool> SignIn(string username, string password)
+        public async Task<bool> SignIn(string username, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).SignInWithEmailAndPasswordAsync(username, password);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public void SignInWithGoogle()
@@ -41,14 +53,28 @@ namespace InspectionManager.Droid.Servicios
             throw new NotImplementedException();
         }
 
-        public Task<bool> SignOut()
+        public async Task<bool> LogOut()
         {
-            throw new NotImplementedException();
+            try
+            {
+                Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).SignOut();
+                return true;
+            }catch(Exception e)
+            {
+                return false;
+            }
         }
 
-        public Task<bool> SignUp(Inspector inspector)
+        public async Task<bool> SignUp(string username, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CreateUserWithEmailAndPasswordAsync(username, password);
+                return true;
+            }catch(Exception e)
+            {
+                return false;
+            }
         }
     }
 }

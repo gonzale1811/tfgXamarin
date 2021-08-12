@@ -1,34 +1,48 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
-using InspectionManager.Modelo;
+using Firebase.Auth;
+using Foundation;
 using InspectionManager.Servicios;
+using Xamarin.Auth;
 
 namespace InspectionManager.iOS.Servicios
 {
     public class FirebaseAuthService: IFirebaseAuthService
     {
+        public static string KEY_AUTH = "auth";
+
         public FirebaseAuthService()
         {
         }
 
         public string GetAuthKey()
         {
-            throw new NotImplementedException();
+            return KEY_AUTH;
         }
 
         public string GetUserId()
         {
-            throw new NotImplementedException();
+            var user = Auth.DefaultInstance.CurrentUser;
+            return user.Uid;
         }
 
         public bool IsUserSigned()
         {
-            throw new NotImplementedException();
+            var user = Auth.DefaultInstance.CurrentUser;
+            return user != null;
         }
 
-        public Task<bool> SignIn(string username, string password)
+        public async Task<bool> SignIn(string username, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await Auth.DefaultInstance.SignInWithPasswordAsync(username, password);
+                return true;
+            }catch(Exception e)
+            {
+                return false;
+            }
         }
 
         public void SignInWithGoogle()
@@ -41,14 +55,29 @@ namespace InspectionManager.iOS.Servicios
             throw new NotImplementedException();
         }
 
-        public Task<bool> SignOut()
+        public async Task<bool> LogOut()
         {
-            throw new NotImplementedException();
+            NSError error;
+            var signedOut = Auth.DefaultInstance.SignOut(out error);
+
+            if (!signedOut)
+            {
+                return false;
+            }
+
+            return true;
         }
 
-        public Task<bool> SignUp(Inspector inspector)
+        public async Task<bool> SignUp(string username, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await Auth.DefaultInstance.CreateUserAsync(username, password);
+                return true;
+            }catch(Exception e)
+            {
+                return false;
+            }
         }
     }
 }

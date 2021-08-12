@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using InspectionManager.Modelo;
 
 namespace InspectionManager.Servicios
 {
@@ -10,7 +9,7 @@ namespace InspectionManager.Servicios
 
         bool IsUserSigned();
 
-        Task<bool> SignUp(Inspector inspector);
+        Task<bool> SignUp(string username, string password);
 
         Task<bool> SignIn(string username, string password);
 
@@ -20,6 +19,6 @@ namespace InspectionManager.Servicios
 
         string GetUserId();
 
-        Task<bool> SignOut();
+        Task<bool> LogOut();
     }
 }
