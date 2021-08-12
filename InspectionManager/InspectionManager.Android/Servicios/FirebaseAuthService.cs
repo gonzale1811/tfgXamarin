@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using InspectionManager.Modelo;
+using InspectionManager.Servicios;
 
-namespace InspectionManager.Servicios
+namespace InspectionManager.Droid.Servicios
 {
     public class FirebaseAuthService: IFirebaseAuthService
     {
