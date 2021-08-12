@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Android.Gms.Extensions;
+using InspectionManager.Droid.Servicios;
 using InspectionManager.Servicios;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(FirebaseAuthService))]
 namespace InspectionManager.Droid.Servicios
 {
     public class FirebaseAuthService: IFirebaseAuthService

@@ -3,9 +3,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Firebase.Auth;
 using Foundation;
+using InspectionManager.iOS.Servicios;
 using InspectionManager.Servicios;
 using Xamarin.Auth;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(FirebaseAuthService))]
 namespace InspectionManager.iOS.Servicios
 {
     public class FirebaseAuthService: IFirebaseAuthService
