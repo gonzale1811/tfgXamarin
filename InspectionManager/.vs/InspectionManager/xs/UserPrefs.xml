@@ -1,6 +1,11 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7AD972AE-B6F5-48A2-96C8-C84BB6408CE4" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.iOS/AppDelegate.cs">
+    <Files>
+      <File FileName="InspectionManager/Servicios/FirebaseAuthService.cs" Line="1" Column="1" />
+      <File FileName="InspectionManager.Android/MainActivity.cs" Line="16" Column="39" />
+      <File FileName="InspectionManager.iOS/AppDelegate.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -15,7 +20,7 @@
             <Node name="InspectionManager.iOS" expanded="True">
               <Node name="Properties" expanded="True" />
               <Node name="Resources" expanded="True" />
-              <Node name="Entitlements.plist" selected="True" />
+              <Node name="AppDelegate.cs" selected="True" />
             </Node>
           </Node>
         </State>
