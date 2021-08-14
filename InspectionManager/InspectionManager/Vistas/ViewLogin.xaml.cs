@@ -11,5 +11,10 @@ namespace InspectionManager.Vistas
         {
             InitializeComponent();
         }
+
+        void ProcesarLogin(System.Object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

@@ -3,7 +3,6 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/bin/Debug/netstandard2.0/ref/InspectionManager.dll
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/bin/Debug/netstandard2.0/InspectionManager.pdb
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/App.xaml.g.cs
-/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/Vistas/ViewLogin.xaml.g.cs
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.AssemblyInfoInputs.cache
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.AssemblyInfo.cs
@@ -12,3 +11,4 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.dll
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/ref/InspectionManager.dll
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.pdb
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.csproj.AssemblyReference.cache

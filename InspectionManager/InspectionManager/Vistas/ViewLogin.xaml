@@ -18,7 +18,7 @@
                 <Label Text="Inicio de sesión" TextColor="Black" HorizontalOptions="Center"/>
                 <BoxView Color="Gray" HeightRequest="1" WidthRequest="100"
                      HorizontalOptions="Center"/>
-                <Image Source="outline_account_box_black_48pt_3x"
+                <Image Source="login-icon"
                        WidthRequest="{OnPlatform iOS=300, Android=250}"
                        HorizontalOptions="Center"/>
             </StackLayout>
@@ -27,7 +27,7 @@
                 <Entry Placeholder="Correo electronico"/>
                 <Entry Placeholder="Contraseña" IsPassword="True"/>
 
-                <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Large"/>
+                <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Large" Clicked="ProcesarLogin"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
