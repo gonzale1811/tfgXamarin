@@ -4,6 +4,31 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="InspectionManager.Vistas.ViewLogin">
     <ContentPage.Content>
-        
+        <Grid x:Name="gridLogin" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout x:Name="stackLayoutLogin1" VerticalOptions="Center" Spacing="20">
+                <Label Text="Inicio de sesión" TextColor="Black" HorizontalOptions="Center"/>
+                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100"
+                     HorizontalOptions="Center"/>
+                <Image Source="outline_account_box_black_48pt_3x"
+                       WidthRequest="{OnPlatform iOS=300, Android=250}"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout x:Name="stackLayoutLogin2" Grid.Row="1">
+                <Entry Placeholder="Correo electronico"/>
+                <Entry Placeholder="Contraseña" IsPassword="True"/>
+
+                <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Large"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

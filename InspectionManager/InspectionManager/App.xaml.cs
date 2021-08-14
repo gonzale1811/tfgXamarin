@@ -1,4 +1,5 @@
 ﻿using System;
+using InspectionManager.Vistas;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace InspectionManager
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ViewLogin();
         }
 
         protected override void OnStart()

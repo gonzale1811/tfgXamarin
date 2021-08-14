@@ -116,6 +116,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\outline_account_box_black_48pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
