@@ -11,7 +11,7 @@ namespace InspectionManager
         {
             InitializeComponent();
 
-            MainPage = new ViewLogin();
+            MainPage = new NavigationPage(new ViewLogin());
         }
 
         protected override void OnStart()

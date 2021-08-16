@@ -1348,6 +1348,7 @@
       "Xamarin.Auth >= 1.7.0",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Firebase.iOS.Auth >= 6.9.2",
+      "Xamarin.Firebase.iOS.Core >= 6.10.4",
       "Xamarin.Firebase.iOS.Database >= 6.6.0",
       "Xamarin.Forms >= 4.8.0.1451"
     ]
@@ -1398,6 +1399,10 @@
           "Xamarin.Firebase.iOS.Auth": {
             "target": "Package",
             "version": "[6.9.2, )"
+          },
+          "Xamarin.Firebase.iOS.Core": {
+            "target": "Package",
+            "version": "[6.10.4, )"
           },
           "Xamarin.Firebase.iOS.Database": {
             "target": "Package",

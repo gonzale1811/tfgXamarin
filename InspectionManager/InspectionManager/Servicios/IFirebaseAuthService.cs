@@ -11,7 +11,7 @@ namespace InspectionManager.Servicios
 
         Task<bool> SignUp(string username, string password);
 
-        Task<bool> SignIn(string username, string password);
+        Task<string> SignIn(string username, string password);
 
         void SignInWithGoogle();
 

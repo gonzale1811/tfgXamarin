@@ -36,15 +36,15 @@ namespace InspectionManager.iOS.Servicios
             return user != null;
         }
 
-        public async Task<bool> SignIn(string username, string password)
+        public async Task<string> SignIn(string username, string password)
         {
             try
             {
-                await Auth.DefaultInstance.SignInWithPasswordAsync(username, password);
-                return true;
+                var result = await Auth.DefaultInstance.SignInWithPasswordAsync(username, password);
+                return await result.User.GetIdTokenAsync();
             }catch(Exception e)
             {
-                return false;
+                return string.Empty;
             }
         }
 

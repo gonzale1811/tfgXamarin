@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[6.9.2, )"
             },
+            "Xamarin.Firebase.iOS.Core": {
+              "target": "Package",
+              "version": "[6.10.4, )"
+            },
             "Xamarin.Firebase.iOS.Database": {
               "target": "Package",
               "version": "[6.6.0, )"

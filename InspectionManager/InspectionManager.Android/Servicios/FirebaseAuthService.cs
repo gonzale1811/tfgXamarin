@@ -33,16 +33,17 @@ namespace InspectionManager.Droid.Servicios
             return signedIn;
         }
 
-        public async Task<bool> SignIn(string username, string password)
+        public async Task<string> SignIn(string username, string password)
         {
             try
             {
-                await Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).SignInWithEmailAndPasswordAsync(username, password);
-                return true;
+                var result = await Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).SignInWithEmailAndPasswordAsync(username, password);
+                var token = await result.User.GetIdToken(false);
+                return token.ToString();
             }
             catch (Exception e)
             {
-                return false;
+                return string.Empty;
             }
         }
 

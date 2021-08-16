@@ -24,8 +24,13 @@
             </StackLayout>
 
             <StackLayout x:Name="stackLayoutLogin2" Grid.Row="1">
-                <Entry Placeholder="Correo electronico"/>
-                <Entry Placeholder="Contraseña" IsPassword="True"/>
+                <Label x:Name="errorLabel" IsVisible="false" HorizontalOptions="Center" VerticalOptions="End" HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout x:Name="stackLayoutLogin3" Grid.Row="2">
+                <Entry x:Name="usernameInput" Placeholder="Correo electronico"/>
+                <Entry x:Name="passwordInput" Placeholder="Contraseña" IsPassword="True"/>
 
                 <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Large" Clicked="ProcesarLogin"/>
             </StackLayout>
