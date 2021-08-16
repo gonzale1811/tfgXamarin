@@ -18,7 +18,7 @@
                 <Label Text="Inicio de sesión" TextColor="Black" HorizontalOptions="Center"/>
                 <BoxView Color="Gray" HeightRequest="1" WidthRequest="100"
                      HorizontalOptions="Center"/>
-                <Image Source="login-icon"
+                <Image Source="login"
                        WidthRequest="{OnPlatform iOS=300, Android=250}"
                        HorizontalOptions="Center"/>
             </StackLayout>

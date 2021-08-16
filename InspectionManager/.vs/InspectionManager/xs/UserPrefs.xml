@@ -1,10 +1,10 @@
-﻿<Properties StartupConfiguration="{98917E44-BBB5-49DF-98C3-BC083EB85374}|Default">
+﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget." />
   <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewLogin.xaml">
     <Files>
       <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="29" Column="35" />
       <File FileName="InspectionManager.iOS/Servicios/FirebaseAuthService.cs" />
-      <File FileName="InspectionManager/Vistas/ViewLogin.xaml" Line="30" Column="91" />
+      <File FileName="InspectionManager/Vistas/ViewLogin.xaml" Line="21" Column="37" />
       <File FileName="InspectionManager/Vistas/ViewLogin.xaml.cs" />
       <File FileName="InspectionManager/App.xaml" />
     </Files>

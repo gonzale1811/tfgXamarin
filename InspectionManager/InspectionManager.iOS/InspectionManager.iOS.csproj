@@ -116,8 +116,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\login-icon.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\login-icon.imageset\outline_account_box_black_48pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\login.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\login.imageset\outline_account_box_black_48pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -152,6 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Servicios\" />
-    <Folder Include="Assets.xcassets\login-icon.imageset\" />
+    <Folder Include="Assets.xcassets\login.imageset\" />
   </ItemGroup>
 </Project>
