@@ -41,6 +41,7 @@ namespace InspectionManager.iOS.Servicios
             try
             {
                 var result = await Auth.DefaultInstance.SignInWithPasswordAsync(username, password);
+                Console.WriteLine(result);
                 return await result.User.GetIdTokenAsync();
             }catch(Exception e)
             {

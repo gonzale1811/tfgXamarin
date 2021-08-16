@@ -4,7 +4,7 @@
 <dict>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.companyname.Inspection-Manager</string>
+		<string>com.companyname.Inspection-Manager</string>
 	</array>
 </dict>
 </plist>

@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{98917E44-BBB5-49DF-98C3-BC083EB85374}|Default">
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B5F1B58F-0D1E-4FDA-A9C4-6CB1A4D3F256" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/Servicios/FirebaseAuthService.cs">
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C6C74B66-DF89-4A1F-91DA-443679A30284" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.iOS/Info.plist">
     <Files>
-      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="42" Column="40" />
-      <File FileName="InspectionManager.iOS/Servicios/FirebaseAuthService.cs" Line="47" Column="37" />
-      <File FileName="InspectionManager.iOS/AppDelegate.cs" Line="26" Column="43" />
-      <File FileName="InspectionManager/Servicios/IFirebaseAuthService.cs" Line="14" Column="20" />
+      <File FileName="InspectionManager.iOS/AppDelegate.cs" Line="27" Column="43" />
+      <File FileName="InspectionManager/Servicios/IFirebaseAuthService.cs" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="7" Column="40" />
+      <File FileName="InspectionManager.iOS/Servicios/FirebaseAuthService.cs" Line="44" Column="43" />
+      <File FileName="InspectionManager.iOS/Entitlements.plist" />
+      <File FileName="InspectionManager.iOS/Info.plist" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,13 +24,13 @@
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
               </Node>
-              <Node name="Servicios" expanded="True">
-                <Node name="FirebaseAuthService.cs" selected="True" />
-              </Node>
+              <Node name="Servicios" expanded="True" />
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">
-              <Node name="Packages" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Resources" expanded="True" />
               <Node name="Servicios" expanded="True" />
+              <Node name="Info.plist" selected="True" />
             </Node>
           </Node>
         </State>
