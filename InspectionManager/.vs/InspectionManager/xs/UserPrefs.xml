@@ -1,28 +1,30 @@
-﻿<Properties StartupConfiguration="{98917E44-BBB5-49DF-98C3-BC083EB85374}|Default">
+﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C6C74B66-DF89-4A1F-91DA-443679A30284" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.iOS/Info.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewRegistrarse.xaml.cs">
     <Files>
-      <File FileName="InspectionManager.iOS/AppDelegate.cs" Line="27" Column="43" />
-      <File FileName="InspectionManager/Servicios/IFirebaseAuthService.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="7" Column="40" />
-      <File FileName="InspectionManager.iOS/Servicios/FirebaseAuthService.cs" Line="44" Column="43" />
-      <File FileName="InspectionManager.iOS/Entitlements.plist" />
-      <File FileName="InspectionManager.iOS/Info.plist" />
+      <File FileName="InspectionManager/Vistas/ViewLogin.xaml" Line="36" Column="104" />
+      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml" Line="17" Column="111" />
+      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="26" Column="16" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewLogin.xaml.cs" Line="17" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
                 <Node name="ViewLogin.xaml" expanded="True" />
+                <Node name="ViewRegistrarse.xaml" expanded="True">
+                  <Node name="ViewRegistrarse.xaml.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
               <Node name="Properties" expanded="True" />
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
+                <Node name="values" expanded="True" />
               </Node>
               <Node name="Servicios" expanded="True" />
             </Node>
@@ -30,13 +32,9 @@
               <Node name="Properties" expanded="True" />
               <Node name="Resources" expanded="True" />
               <Node name="Servicios" expanded="True" />
-              <Node name="Info.plist" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
@@ -46,5 +44,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg2" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg3" />
 </Properties>

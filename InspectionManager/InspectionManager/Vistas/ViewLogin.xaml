@@ -32,7 +32,8 @@
                 <Entry x:Name="usernameInput" Placeholder="Correo electronico"/>
                 <Entry x:Name="passwordInput" Placeholder="Contraseña" IsPassword="True"/>
 
-                <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Large" Clicked="ProcesarLogin"/>
+                <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Medium" Clicked="ProcesarLogin"/>
+                <Button Text="Registrarse" BackgroundColor="Azure" TextColor="Black" FontSize="Medium" Clicked="ProcesarRegistro"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

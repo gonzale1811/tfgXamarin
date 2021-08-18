@@ -16,7 +16,7 @@ namespace InspectionManager.Vistas
             auth = DependencyService.Get<IFirebaseAuthService>();
         }
 
-        async void ProcesarLogin(object sender, EventArgs e)
+        public async void ProcesarLogin(object sender, EventArgs e)
         {
             if(usernameInput.Placeholder.Equals("Correo electronico"))
             {
@@ -40,7 +40,12 @@ namespace InspectionManager.Vistas
             }
         }
 
-        void MostrarErrorLogin(string error)
+        public async void ProcesarRegistro(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ViewRegistrarse());
+        }
+
+        private void MostrarErrorLogin(string error)
         {
             errorLabel.Text = error;
             errorLabel.TextColor = Color.Red;
