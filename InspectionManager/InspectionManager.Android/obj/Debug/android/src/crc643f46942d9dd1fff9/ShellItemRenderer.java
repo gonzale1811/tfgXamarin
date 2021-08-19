@@ -1,7 +1,7 @@
 package crc643f46942d9dd1fff9;
 
 
-public abstract class ShellItemRenderer
+public class ShellItemRenderer
 	extends crc643f46942d9dd1fff9.ShellItemRendererBase
 	implements
 		mono.android.IGCUserPeer,
