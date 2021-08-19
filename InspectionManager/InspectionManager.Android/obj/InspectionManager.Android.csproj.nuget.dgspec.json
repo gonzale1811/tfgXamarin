@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[119.7.0, )"
             },
+            "Xamarin.Firebase.Firestore": {
+              "target": "Package",
+              "version": "[123.0.2, )"
+            },
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.8.0.1451, )"

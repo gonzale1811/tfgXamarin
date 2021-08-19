@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/Servicios/FirebaseConsultService.cs">
-    <Files>
-      <File FileName="InspectionManager/Vistas/ViewLogin.xaml" Line="36" Column="104" />
-      <File FileName="InspectionManager/Vistas/ViewLogin.xaml.cs" Line="17" Column="10" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml" Line="7" Column="120" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="23" Column="72" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="19" Column="13" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="8" Column="52" />
-      <File FileName="InspectionManager.Android/MainActivity.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -21,13 +12,15 @@
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
+              <Node name="Packages" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
                 <Node name="values" expanded="True" />
               </Node>
-              <Node name="Servicios" expanded="True" />
-              <Node name="MainActivity.cs" selected="True" />
+              <Node name="Servicios" expanded="True">
+                <Node name="DatabaseConnection.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">
               <Node name="Properties" expanded="True" />
@@ -45,5 +38,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.CoworkersMatch" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg3" />
 </Properties>

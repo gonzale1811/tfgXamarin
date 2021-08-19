@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "128769436570",
+    "firebase_url": "https://inspection-manager-609e2-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "inspection-manager-609e2",
     "storage_bucket": "inspection-manager-609e2.appspot.com"
   },
@@ -37,6 +38,13 @@
             {
               "client_id": "128769436570-vrkri0qm14q8vj6ubpqavk931nmsjimh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "128769436570-rvv9kfv413dhjccfs9gied951hdet193.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.Inspection-Manager"
+              }
             }
           ]
         }

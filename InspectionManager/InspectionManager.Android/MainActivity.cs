@@ -36,12 +36,14 @@ namespace InspectionManager.Droid
         private void InitFirebaseAuth()
         {
             var options = new FirebaseOptions.Builder().
-                SetApplicationId("inspection-manager-609e2").
-                SetApiKey("AIzaSyCU0_ZBKeSNvdZMvpWnsBQW8zXQqZEEDD4")
-                .SetDatabaseUrl("https://inspection-manager-609e2-default-rtdb.europe-west1.firebasedatabase.app/").Build();
+                SetProjectId("inspection-manager-609e2").
+                SetApplicationId("1:128769436570:android:f77e04f7260560a5d9e823").
+                SetApiKey("AIzaSyCU0_ZBKeSNvdZMvpWnsBQW8zXQqZEEDD4").
+                SetDatabaseUrl("https://inspection-manager-609e2-default-rtdb.europe-west1.firebasedatabase.app").
+                SetStorageBucket("inspection-manager-609e2.appspot.com").Build();
 
             if (app == null)
-                app = FirebaseApp.InitializeApp(this, options, "FirebaseSample");
+                app = FirebaseApp.InitializeApp(this, options, "InspectorManager");
         }
     }
 }

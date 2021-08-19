@@ -1,7 +1,7 @@
 package crc64720bb2db43a66fe9;
 
 
-public class TabbedPageRenderer
+public abstract class TabbedPageRenderer
 	extends crc643f46942d9dd1fff9.VisualElementRenderer_1
 	implements
 		mono.android.IGCUserPeer,
