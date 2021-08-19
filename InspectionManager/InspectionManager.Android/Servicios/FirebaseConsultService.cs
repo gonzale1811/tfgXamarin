@@ -16,7 +16,7 @@ namespace InspectionManager.Droid.Servicios
 
         public Task<bool> AddInspector(Inspector inspector)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
