@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C6C74B66-DF89-4A1F-91DA-443679A30284" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewRegistrarse.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/MainActivity.cs">
     <Files>
       <File FileName="InspectionManager/Vistas/ViewLogin.xaml" Line="36" Column="104" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml" Line="17" Column="111" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="26" Column="16" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="1" Column="1" />
       <File FileName="InspectionManager/Vistas/ViewLogin.xaml.cs" Line="17" Column="10" />
+      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml" Line="7" Column="120" />
+      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="23" Column="72" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="19" Column="13" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="8" Column="52" />
+      <File FileName="InspectionManager.Android/MainActivity.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
+              <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
                 <Node name="ViewLogin.xaml" expanded="True" />
-                <Node name="ViewRegistrarse.xaml" expanded="True">
-                  <Node name="ViewRegistrarse.xaml.cs" selected="True" />
-                </Node>
+                <Node name="ViewRegistrarse.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
@@ -27,6 +28,7 @@
                 <Node name="values" expanded="True" />
               </Node>
               <Node name="Servicios" expanded="True" />
+              <Node name="MainActivity.cs" selected="True" />
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">
               <Node name="Properties" expanded="True" />

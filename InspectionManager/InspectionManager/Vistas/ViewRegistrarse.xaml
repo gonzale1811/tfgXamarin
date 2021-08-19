@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="InspectionManager.Vistas.ViewRegistrarse">
     <ContentPage.Content>
-        <StackLayout x:Name="stackLayoutRegistro" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+        <StackLayout x:Name="stackLayoutRegistro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="Registro de usuario" TextColor="Black" FontSize="Large" VerticalOptions="Center"
                 HorizontalOptions="Center"/>
             <Entry x:Name="dniEntry" Placeholder="DNI"/>
