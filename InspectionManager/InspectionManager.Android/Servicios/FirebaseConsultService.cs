@@ -13,7 +13,11 @@ namespace InspectionManager.Droid.Servicios
     {
         private FirebaseFirestore database;
 
-        public FirebaseConsultService(Android.Content.Context context)
+        public FirebaseConsultService()
+        {
+        }
+
+        public void initInstance(Android.Content.Context context)
         {
             DatabaseConnection.Init(context);
             database = DatabaseConnection.GetInstance;
