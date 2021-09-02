@@ -22,6 +22,7 @@ com.google.android.material.appbar.AppBarLayout;/Users/david/Documents/David/Uni
 com.google.android.material.bottomnavigation.BottomNavigationView;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/lp/61/jl/res/layout/bottomtablayout.xml
 com.google.android.material.tabs.TabLayout;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/lp/61/jl/res/layout/rootlayout.xml
 com.google.android.material.tabs.TabLayout;obj/Debug/res/layout/tabbar.xml
+crc64720bb2db43a66fe9.FormsViewPager;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/lp/61/jl/res/layout/rootlayout.xml
 declare-styleable;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/lp/61/jl/res/values/attrs.xml
 external-cache-path;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/lp/51/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
 external-path;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/lp/51/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
