@@ -40,7 +40,8 @@ namespace InspectionManager.Vistas
 
                 if (registro)
                 {
-
+                    consult.AddInspector(inspector);
+                    await Navigation.PushAsync(new ViewLogin());
                 }
                 else
                 {

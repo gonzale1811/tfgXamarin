@@ -25,7 +25,7 @@ namespace InspectionManager.Droid.Servicios
                 SetApiKey("AIzaSyCU0_ZBKeSNvdZMvpWnsBQW8zXQqZEEDD4").
                 SetDatabaseUrl("https://inspection-manager-609e2-default-rtdb.europe-west1.firebasedatabase.app").
                 SetStorageBucket("inspection-manager-609e2.appspot.com").Build();
-            app = FirebaseApp.InitializeApp(context, options, "InspectorManager");
+            app = FirebaseApp.InitializeApp(context, options, "InspectionManager");
         }
     }
 }

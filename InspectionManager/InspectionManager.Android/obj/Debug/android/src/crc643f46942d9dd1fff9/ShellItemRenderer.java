@@ -1,7 +1,7 @@
 package crc643f46942d9dd1fff9;
 
 
-public abstract class ShellItemRenderer
+public class ShellItemRenderer
 	extends crc643f46942d9dd1fff9.ShellItemRendererBase
 	implements
 		mono.android.IGCUserPeer,
@@ -13,6 +13,7 @@ public abstract class ShellItemRenderer
 		__md_methods = 
 			"n_onCreateView:(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;:GetOnCreateView_Landroid_view_LayoutInflater_Landroid_view_ViewGroup_Landroid_os_Bundle_Handler\n" +
 			"n_onDestroy:()V:GetOnDestroyHandler\n" +
+			"n_onNavigationItemSelected:(Landroid/view/MenuItem;)Z:GetOnNavigationItemSelected_Landroid_view_MenuItem_Handler:Google.Android.Material.BottomNavigation.BottomNavigationView/IOnNavigationItemSelectedListenerInvoker, Xamarin.Google.Android.Material\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.ShellItemRenderer, Xamarin.Forms.Platform.Android", ShellItemRenderer.class, __md_methods);
 	}
@@ -48,6 +49,14 @@ public abstract class ShellItemRenderer
 	}
 
 	private native void n_onDestroy ();
+
+
+	public boolean onNavigationItemSelected (android.view.MenuItem p0)
+	{
+		return n_onNavigationItemSelected (p0);
+	}
+
+	private native boolean n_onNavigationItemSelected (android.view.MenuItem p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

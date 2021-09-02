@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Firebase;
+using InspectionManager.Droid.Servicios;
 
 namespace InspectionManager.Droid
 {
@@ -22,6 +23,7 @@ namespace InspectionManager.Droid
 
             base.OnCreate(savedInstanceState);
             InitFirebaseAuth();
+            DatabaseConnection.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

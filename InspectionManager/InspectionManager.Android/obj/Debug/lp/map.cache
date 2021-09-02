@@ -1,4 +1,5 @@
 FormsViewGroup.dll
+Plugin.CloudFirestore.dll
 Square.OkHttp.dll
 Square.OkIO.dll
 Xamarin.AndroidX.Activity.dll
@@ -12,8 +13,8 @@ Xamarin.AndroidX.AsyncLayoutInflater.dll
 Xamarin.AndroidX.Browser.dll
 Xamarin.AndroidX.CardView.dll
 Xamarin.AndroidX.Collection.dll
-Xamarin.AndroidX.ConstraintLayout.Core.dll
 Xamarin.AndroidX.ConstraintLayout.dll
+Xamarin.AndroidX.ConstraintLayout.Solver.dll
 Xamarin.AndroidX.CoordinatorLayout.dll
 Xamarin.AndroidX.Core.dll
 Xamarin.AndroidX.CursorAdapter.dll

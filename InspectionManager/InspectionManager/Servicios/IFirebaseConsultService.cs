@@ -6,6 +6,6 @@ namespace InspectionManager.Servicios
 {
     public interface IFirebaseConsultService
     {
-        Task<bool> AddInspector(Inspector inspector);
+        void AddInspector(Inspector inspector);
     }
 }
