@@ -2,13 +2,12 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/Servicios/FirebaseConsultService.cs">
     <Files>
       <File FileName="InspectionManager.Android/Servicios/DatabaseConnection.cs" Line="28" Column="74" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="35" Column="14" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="29" Column="48" />
       <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="43" Column="1" />
-      <File FileName="InspectionManager/Modelo/Inspeccion.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/Direccion.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/Bloque.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="9" Column="13" />
-      <File FileName="InspectionManager/Vistas/ViewLogin.xaml.cs" Line="34" Column="14" />
+      <File FileName="InspectionManager/Modelo/Inspeccion.cs" Line="13" Column="27" />
+      <File FileName="InspectionManager/Modelo/Direccion.cs" />
+      <File FileName="InspectionManager/Modelo/Bloque.cs" />
+      <File FileName="InspectionManager/Modelo/Inspector.cs" Line="2" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

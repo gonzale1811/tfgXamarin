@@ -21,17 +21,17 @@ namespace InspectionManager.Droid.Servicios
         public void AddInspector(Inspector inspector)
         {
             DocumentReference document = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
-            Dictionary<string, object> inspectorNuevo = new Dictionary<string, object>
+            var inspectorNuevo = new Dictionary<string, Java.Lang.Object>
             {
                 { "Apellidos", inspector.Apellidos },
                 { "DNI", inspector.Dni },
-                { "FechaNacimiento", inspector.FechaNacimiento },
-                { "Inspecciones", inspector.Inspecciones },
+                { "FechaNacimiento", inspector.FechaNacimiento.ToString() },
+                { "Inspecciones", new ArrayList()},
                 { "Nombre", inspector.Nombre },
                 { "Password", inspector.Password },
                 { "Username", inspector.Usuario }
             };
-            document.Set(new HashMap(inspectorNuevo)).Wait();
+            document.Set(new HashMap(inspectorNuevo));
         }
     }
 }
