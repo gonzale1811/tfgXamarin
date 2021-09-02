@@ -32,7 +32,7 @@ namespace InspectionManager.Vistas
 
             if (!Token.Equals(string.Empty))
             {
-                await Navigation.PushAsync(new ViewMenuPrincipal());
+                App.Current.MainPage = new ViewMenuPrincipal();
             }
             else
             {

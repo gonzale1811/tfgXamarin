@@ -4,6 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="InspectionManager.Vistas.ViewMenuPrincipal">
     <ContentPage.Content>
-        <Label Text="Sesion iniciada"/>
+        <StackLayout>
+            <Label Text="Sesion iniciada"/>
+            <Button Text="Cerrar sesion" Clicked="ProcesarCerrarSesion"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
