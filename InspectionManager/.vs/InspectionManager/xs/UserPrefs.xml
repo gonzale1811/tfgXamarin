@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewMenuPrincipal.xaml">
-    <Files>
-      <File FileName="InspectionManager.Android/Servicios/DatabaseConnection.cs" Line="28" Column="84" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="34" Column="54" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="43" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewLogin.xaml.cs" Line="35" Column="64" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="8" Column="22" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -16,8 +7,8 @@
             <Node name="InspectionManager" expanded="True">
               <Node name="Vistas" expanded="True">
                 <Node name="ViewLogin.xaml" expanded="True" />
-                <Node name="ViewMenuPrincipal.xaml" expanded="True" selected="True" />
-                <Node name="ViewRegistrarse.xaml" expanded="True" />
+                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+                <Node name="ViewRegistrarse.xaml" expanded="True" selected="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
             </Node>
