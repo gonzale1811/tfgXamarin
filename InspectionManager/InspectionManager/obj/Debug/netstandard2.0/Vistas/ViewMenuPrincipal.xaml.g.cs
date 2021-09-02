@@ -14,7 +14,7 @@ namespace InspectionManager.Vistas {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Vistas/ViewMenuPrincipal.xaml")]
-    public partial class ViewMenuPrincipal : global::Xamarin.Forms.ContentPage {
+    public partial class ViewMenuPrincipal : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {

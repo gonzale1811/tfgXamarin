@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace InspectionManager.Vistas
 {
-    public partial class ViewMenuPrincipal : ContentPage
+    public partial class ViewMenuPrincipal : TabbedPage
     {
         private IFirebaseAuthService auth;
 
