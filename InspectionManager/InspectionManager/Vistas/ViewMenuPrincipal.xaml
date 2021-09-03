@@ -6,11 +6,32 @@
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     android:TabbedPage.ToolbarPlacement="Bottom">
     <TabbedPage.Children>
-        <ContentPage>
+        <ContentPage Title="Mis Inspecciones">
+            <StackLayout>
+                <Label Text="Mis Inspecciones"/>
+            </StackLayout>
+        </ContentPage>
+        <ContentPage Title="Nueva Inspeccion">
             <StackLayout>
                 <Label Text="Sesion iniciada"/>
-                <Button Text="Cerrar sesion" Clicked="ProcesarCerrarSesion"/>
             </StackLayout>
+        </ContentPage>
+        <ContentPage Title="Mi Perfil" IconImageSource="options_black.png">
+            <StackLayout x:Name="stackLayoutPerfil" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Mis Datos" TextColor="Black" FontSize="Large" VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <Entry x:Name="dniEntry" IsEnabled="False"/>
+            <Entry x:Name="nombreEntry" IsEnabled="False"/>
+            <Entry x:Name="apellidosEntry" IsEnabled="False"/>
+            <Entry x:Name="usernameEntry" IsEnabled="False"/>
+            <Entry x:Name="passwordEntry" IsEnabled="False"/>
+            <Entry x:Name="passwordConfirmEntry" IsEnabled="False"/>
+            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False"/>
+            <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
+            <Button x:Name="editarPerfilButton" Text="Editar perfil" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
+            <Label Text="" IsVisible="False"/>
+            <Label x:Name="labelError" Text="" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+        </StackLayout>
         </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>

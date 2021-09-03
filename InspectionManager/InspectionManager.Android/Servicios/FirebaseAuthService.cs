@@ -21,9 +21,9 @@ namespace InspectionManager.Droid.Servicios
             return KEY_AUTH;
         }
 
-        public string GetUserId()
+        public string GetUserEmail()
         {
-            return Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CurrentUser.Uid;
+            return Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CurrentUser.Email;
         }
 
         public bool IsUserSigned()

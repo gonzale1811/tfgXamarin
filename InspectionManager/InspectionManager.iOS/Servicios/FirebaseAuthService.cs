@@ -24,7 +24,7 @@ namespace InspectionManager.iOS.Servicios
             return KEY_AUTH;
         }
 
-        public string GetUserId()
+        public string GetUserEmail()
         {
             var user = Auth.DefaultInstance.CurrentUser;
             return user.Uid;

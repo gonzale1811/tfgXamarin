@@ -7,5 +7,7 @@ namespace InspectionManager.Servicios
     public interface IFirebaseConsultService
     {
         void AddInspector(Inspector inspector);
+
+        Task<Inspector> GetInspectorByEmail(string email);
     }
 }

@@ -17,7 +17,7 @@ namespace InspectionManager.Servicios
 
         Task<bool> SignInWithGoogle(string token);
 
-        string GetUserId();
+        string GetUserEmail();
 
         Task<bool> LogOut();
     }

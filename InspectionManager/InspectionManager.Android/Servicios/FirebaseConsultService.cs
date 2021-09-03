@@ -33,5 +33,11 @@ namespace InspectionManager.Droid.Servicios
             };
             document.Set(new HashMap(inspectorNuevo));
         }
+
+        public async Task<Inspector> GetInspectorByEmail(string email)
+        {
+            CollectionReference collection = DatabaseConnection.GetInstance.Collection("Inspectores");
+            Query query = collection.WhereEqualTo("Username", email);
+        }
     }
 }
