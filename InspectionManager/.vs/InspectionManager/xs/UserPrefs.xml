@@ -2,28 +2,28 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Servicios/IFirebaseConsultService.cs">
     <Files>
       <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="30" Column="81" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="20" Column="46" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="11" Column="45" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="14" Column="51" />
+      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="19" Column="1" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="43" Column="10" />
       <File FileName="InspectionManager/Servicios/IFirebaseAuthService.cs" Line="20" Column="28" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="12" Column="1" />
+      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="11" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
+              <Node name="Modelo" expanded="True" />
               <Node name="Servicios" expanded="True">
                 <Node name="IFirebaseConsultService.cs" selected="True" />
               </Node>
               <Node name="Vistas" expanded="True">
-                <Node name="ViewLogin.xaml" expanded="True" />
                 <Node name="ViewMenuPrincipal.xaml" expanded="True" />
-                <Node name="ViewRegistrarse.xaml" expanded="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
+              <Node name="Resources" expanded="True" />
               <Node name="Servicios" expanded="True" />
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">
@@ -40,5 +40,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg3" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android Xamarin.HotReload.DebuggerTimeoutException.InspectionManager.Android.HideInfoBar="True" PreferredExecutionTarget="Android.tfg3" />
 </Properties>

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using InspectionManager.Modelo;
 
 namespace InspectionManager.Servicios
@@ -8,6 +8,6 @@ namespace InspectionManager.Servicios
     {
         void AddInspector(Inspector inspector);
 
-        Task<Inspector> GetInspectorByEmail(string email);
+        List<Inspector> GetInspectores();
     }
 }

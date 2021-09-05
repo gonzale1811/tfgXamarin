@@ -220,5 +220,4 @@
 	--reference=/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/bin/Debug/netstandard2.0/InspectionManager.dll \
 	--reference=/Users/david/.nuget/packages/xamarin.forms/4.8.0.1451/buildTransitive/XCODE11/Xamarin.Forms.Platform.iOS.dll \
 	@/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.iOS/obj/iPhoneSimulator/Debug/response-file.rsp \
-	-registrar:static \
 	'--gcc_flags=-ObjC -lc++ -lsqlite3 -lz' \

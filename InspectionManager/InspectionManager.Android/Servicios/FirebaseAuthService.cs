@@ -41,7 +41,7 @@ namespace InspectionManager.Droid.Servicios
                 var token = await result.User.GetIdToken(false);
                 return token.ToString();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return string.Empty;
             }
@@ -57,15 +57,15 @@ namespace InspectionManager.Droid.Servicios
             throw new NotImplementedException();
         }
 
-        public async Task<bool> LogOut()
+        public Task<bool> LogOut()
         {
             try
             {
                 Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).SignOut();
-                return true;
-            }catch(Exception e)
+                return Task.FromResult(true);
+            }catch (Exception)
             {
-                return false;
+                return Task.FromResult(false);
             }
         }
 
@@ -75,7 +75,7 @@ namespace InspectionManager.Droid.Servicios
             {
                 await Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CreateUserWithEmailAndPasswordAsync(username, password);
                 return true;
-            }catch(Exception e)
+            }catch(Exception)
             {
                 return false;
             }
