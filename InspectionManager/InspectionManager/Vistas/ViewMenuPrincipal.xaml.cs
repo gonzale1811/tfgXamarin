@@ -18,20 +18,9 @@ namespace InspectionManager.Vistas
             auth = DependencyService.Get<IFirebaseAuthService>();
             consult = DependencyService.Get<IFirebaseConsultService>();
 
-            List<Inspector> usuarios = consult.GetInspectores();
-
             string emailUsuario = auth.GetUserEmail();
 
-            Inspector usuarioActual;
-
-            foreach(Inspector i in usuarios)
-            {
-                if (i.Usuario == emailUsuario)
-                {
-                    usuarioActual = i;
-                    dniEntry.Text = usuarioActual.Dni;
-                }
-            }
+            Inspector usuario = consult.GetInspectorByEmail(emailUsuario);
         }
 
         public async void ProcesarCerrarSesion(object sender, EventArgs e)

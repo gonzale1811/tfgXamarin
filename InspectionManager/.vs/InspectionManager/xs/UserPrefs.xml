@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Servicios/IFirebaseConsultService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/Servicios/FirebaseConsultService.cs">
     <Files>
       <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="30" Column="81" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="19" Column="1" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="43" Column="10" />
+      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="25" Column="1" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseAuthService.cs" Line="44" Column="29" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="45" Column="116" />
       <File FileName="InspectionManager/Servicios/IFirebaseAuthService.cs" Line="20" Column="28" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="11" Column="31" />
+      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="11" Column="9" />
+      <File FileName="InspectionManager/Modelo/Inspector.cs" Line="25" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,17 +15,18 @@
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
               <Node name="Modelo" expanded="True" />
-              <Node name="Servicios" expanded="True">
-                <Node name="IFirebaseConsultService.cs" selected="True" />
-              </Node>
+              <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
+                <Node name="ViewLogin.xaml" expanded="True" />
                 <Node name="ViewMenuPrincipal.xaml" expanded="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
               <Node name="Resources" expanded="True" />
-              <Node name="Servicios" expanded="True" />
+              <Node name="Servicios" expanded="True">
+                <Node name="FirebaseConsultService.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">
               <Node name="Servicios" expanded="True" />

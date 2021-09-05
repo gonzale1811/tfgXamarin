@@ -8,6 +8,6 @@ namespace InspectionManager.Servicios
     {
         void AddInspector(Inspector inspector);
 
-        List<Inspector> GetInspectores();
+        Inspector GetInspectorByEmail(string email);
     }
 }

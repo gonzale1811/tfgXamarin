@@ -14,3 +14,4 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.dll
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/ref/InspectionManager.dll
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.pdb
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/InspectionManager.csproj.AssemblyReference.cache

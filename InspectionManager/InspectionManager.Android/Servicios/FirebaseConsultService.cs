@@ -15,12 +15,12 @@ namespace InspectionManager.Droid.Servicios
     public class FirebaseConsultService : Java.Lang.Object, IFirebaseConsultService, IOnSuccessListener
     {
 
-        private List<Inspector> inspectores;
+        private Inspector inspectorActual;
         private readonly string TAG = "MYAPP";
+        private string emailActual = "";
 
         public FirebaseConsultService()
         {
-            inspectores = new List<Inspector>();
         }
 
         public void AddInspector(Inspector inspector)
@@ -39,10 +39,12 @@ namespace InspectionManager.Droid.Servicios
             document.Set(new HashMap(inspectorNuevo));
         }
 
-        public List<Inspector> GetInspectores()
+        public Inspector GetInspectorByEmail(string email)
         {
-            DatabaseConnection.GetInstance.Collection("Inspectores").Get().AddOnSuccessListener(this);
-            return inspectores;
+            emailActual = email;
+            Task tarea = DatabaseConnection.GetInstance.Collection("Inspectores").Get().AddOnSuccessListener(this);
+
+            return inspectorActual;
         }
 
         public void OnSuccess(Java.Lang.Object result)
@@ -53,24 +55,29 @@ namespace InspectionManager.Droid.Servicios
             {
                 var documents = snapshot.Documents;
 
-                inspectores.Clear();
-
                 foreach(DocumentSnapshot item in documents)
                 {
-                    var fecha = item.Get("FechaNacimiento").ToString();
-                    Log.Info(TAG, "Se ha encontrado la fecha: " + fecha);
+                    var emailObtenido = item.Get("Username").ToString();
 
-                    string[] valores = fecha.Split("/");
+                    if (emailObtenido == emailActual)
+                    {
+                        var fecha = item.Get("FechaNacimiento").ToString();
 
-                    string[] otrosValores = valores[2].Split(" ");
+                        string[] valores = fecha.Split("/");
 
-                    DateTime fechaNacimiento = new DateTime(Convert.ToInt32(otrosValores[0]), Convert.ToInt32(valores[1]), Convert.ToInt32(valores[0]));
+                        string[] otrosValores = valores[2].Split(" ");
 
-                    Log.Info(TAG, "Fecha tras haberla convertido: " + fechaNacimiento);
+                        DateTime fechaNacimiento = new DateTime(Convert.ToInt32(otrosValores[0]), Convert.ToInt32(valores[1]), Convert.ToInt32(valores[0]));
 
-                    Inspector inspector = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), item.Get("Username").ToString(), item.Get("Password").ToString(), fechaNacimiento);
+                        inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fechaNacimiento);
 
-                    inspectores.Add(inspector);
+                        Log.Info(TAG, "DNI: " + inspectorActual.Dni);
+                        Log.Info(TAG, "Nombre: " + inspectorActual.Nombre);
+                        Log.Info(TAG, "Apellidos: " + inspectorActual.Apellidos);
+                        Log.Info(TAG, "Correo: " + inspectorActual.Usuario);
+                        Log.Info(TAG, "Password: " + inspectorActual.Password);
+                        Log.Info(TAG, "Fecha nacimiento: " + inspectorActual.FechaNacimiento);
+                    }
                 }
             }
             else
