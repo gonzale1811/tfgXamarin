@@ -25,12 +25,12 @@ namespace InspectionManager.Droid.Servicios
 
         public void AddInspector(Inspector inspector)
         {
-            DocumentReference document = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
+            DocumentReference document = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Usuario);
             var inspectorNuevo = new Dictionary<string, Java.Lang.Object>
             {
                 { "Apellidos", inspector.Apellidos },
                 { "DNI", inspector.Dni },
-                { "FechaNacimiento", inspector.FechaNacimiento.ToString() },
+                { "FechaNacimiento", inspector.FechaNacimiento },
                 { "Inspecciones", new ArrayList()},
                 { "Nombre", inspector.Nombre },
                 { "Password", inspector.Password },
@@ -67,9 +67,9 @@ namespace InspectionManager.Droid.Servicios
 
                         string[] otrosValores = valores[2].Split(" ");
 
-                        DateTime fechaNacimiento = new DateTime(Convert.ToInt32(otrosValores[0]), Convert.ToInt32(valores[1]), Convert.ToInt32(valores[0]));
+                        //DateTime fechaNacimiento = new DateTime(Convert.ToInt32(otrosValores[0]), Convert.ToInt32(valores[1]), Convert.ToInt32(valores[0]));
 
-                        inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fechaNacimiento);
+                        inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fecha/*Nacimiento*/);
 
                         Log.Info(TAG, "DNI: " + inspectorActual.Dni);
                         Log.Info(TAG, "Nombre: " + inspectorActual.Nombre);

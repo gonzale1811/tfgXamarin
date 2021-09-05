@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
 

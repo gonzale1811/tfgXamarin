@@ -87,6 +87,10 @@
     <Compile Include="Servicios\FirebaseAuthService.cs" />
     <Compile Include="Servicios\FirebaseConsultService.cs" />
     <Compile Include="Servicios\DatabaseConnection.cs" />
+    <Compile Include="EventListeners\OnCompleteEventHandlerListener.cs" />
+    <Compile Include="Extensiones\FirestoreExtension.cs" />
+    <Compile Include="Extensiones\JavaObjectExtension.cs" />
+    <Compile Include="Servicios\FirebaseRetrieveInspector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -130,6 +134,8 @@
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Servicios\" />
+    <Folder Include="EventListeners\" />
+    <Folder Include="Extensiones\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InspectionManager\InspectionManager.csproj">

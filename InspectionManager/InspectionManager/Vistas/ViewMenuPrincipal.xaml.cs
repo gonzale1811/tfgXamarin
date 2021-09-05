@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace InspectionManager.Vistas
 {
@@ -10,6 +11,7 @@ namespace InspectionManager.Vistas
     {
         private IFirebaseAuthService auth;
         private IFirebaseConsultService consult;
+        private IFirebaseRetrieve<Inspector> repositoryInspectores;
 
         public ViewMenuPrincipal()
         {
@@ -17,10 +19,13 @@ namespace InspectionManager.Vistas
 
             auth = DependencyService.Get<IFirebaseAuthService>();
             consult = DependencyService.Get<IFirebaseConsultService>();
+            repositoryInspectores = DependencyService.Get<IFirebaseRetrieve<Inspector>>();
 
             string emailUsuario = auth.GetUserEmail();
 
-            Inspector usuario = consult.GetInspectorByEmail(emailUsuario);
+            var inspector = repositoryInspectores.GetOne(emailUsuario);
+
+            //Inspector usuario = consult.GetInspectorByEmail(emailUsuario);
         }
 
         public async void ProcesarCerrarSesion(object sender, EventArgs e)
