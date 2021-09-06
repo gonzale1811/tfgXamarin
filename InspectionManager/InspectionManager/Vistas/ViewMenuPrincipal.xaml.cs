@@ -55,7 +55,7 @@ namespace InspectionManager.Vistas
 
         }
 
-        public async void ProcesarCrearInspeccionAsync(object sender, EventArgs e)
+        public async void ProcesarCrearInspeccion(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ViewDatosInspeccion());
         }
