@@ -26,12 +26,17 @@ namespace InspectionManager.Droid.Servicios
         public void AddInspector(Inspector inspector)
         {
             DocumentReference document = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
+
+            HashMap mapaPrueba = new HashMap();
+            mapaPrueba.Put("0", "inspeccion1");
+            mapaPrueba.Put("1", "inspeccion2");
+
             var inspectorNuevo = new Dictionary<string, Java.Lang.Object>
             {
                 { "Apellidos", inspector.Apellidos },
                 { "DNI", inspector.Dni },
                 { "FechaNacimiento", inspector.FechaNacimiento.ToString() },
-                { "Inspecciones", new ArrayList()},
+                { "Inspecciones", mapaPrueba},
                 { "Nombre", inspector.Nombre },
                 { "Password", inspector.Password },
                 { "Username", inspector.Usuario }
@@ -77,6 +82,27 @@ namespace InspectionManager.Droid.Servicios
                         Log.Info(TAG, "Correo: " + inspectorActual.Usuario);
                         Log.Info(TAG, "Password: " + inspectorActual.Password);
                         Log.Info(TAG, "Fecha nacimiento: " + inspectorActual.FechaNacimiento);
+
+                        List<string> inspeccionesObtenidas = new List<string>();
+
+                        var inspecciones = item.Get("Inspecciones") != null ? item.Get("Inspecciones") : null;
+
+                        if (inspecciones != null)
+                        {
+                            var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(inspecciones.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                            foreach (KeyValuePair<string, string> value in dictionaryFromHashmap)
+                            {
+                                inspeccionesObtenidas.Add(value.Value);
+                            }
+                        }
+
+                        inspectorActual.Inspecciones = inspeccionesObtenidas;
+
+                        foreach(string inspeccionS in inspectorActual.Inspecciones)
+                        {
+                            Log.Info(TAG, "Inspeccion: " + inspeccionS);
+                        }
                     }
                 }
             }

@@ -29,7 +29,7 @@ namespace InspectionManager.Vistas
 
             if (logout)
             {
-                App.Current.MainPage = new ViewLogin();
+                await Navigation.PushAsync(new ViewLogin());
             }
             else
             {

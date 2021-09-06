@@ -18,11 +18,11 @@ namespace InspectionManager
 
             if (auth.IsUserSigned())
             {
-                MainPage = new ViewMenuPrincipal();
+                MainPage = new NavigationPage(new ViewMenuPrincipal());
             }
             else
             {
-                MainPage = new ViewLogin();
+            MainPage = new NavigationPage(new ViewLogin());
             }
         }
 
