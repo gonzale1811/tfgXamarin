@@ -23,7 +23,9 @@ namespace InspectionManager.Vistas
 
             string emailUsuario = auth.GetUserEmail();
 
-            var inspector = repositoryInspectores.GetOne(emailUsuario);
+            Inspector inspector = repositoryInspectores.GetOne(emailUsuario);
+
+            dniEntry.Text = inspector.Dni;
 
             //Inspector usuario = consult.GetInspectorByEmail(emailUsuario);
         }

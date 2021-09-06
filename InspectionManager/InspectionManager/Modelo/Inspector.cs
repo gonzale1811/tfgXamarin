@@ -10,7 +10,7 @@ namespace InspectionManager.Modelo
         public string Usuario { get; set; }
         public string Password { get; set; }
         public string FechaNacimiento { get; set; }
-        public List<string> Inspecciones { get; set; }
+        //public List<string> Inspecciones { get; set; }
 
         public Inspector(string dni, string nombre, string apellidos, string usuario, string password, string fechaNacimiento)
         {
@@ -20,7 +20,7 @@ namespace InspectionManager.Modelo
             Usuario = usuario;
             Password = password;
             FechaNacimiento = fechaNacimiento;
-            Inspecciones = new List<string>();
+            //Inspecciones = new List<string>();
         }
     }
 }

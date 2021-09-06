@@ -1,15 +1,5 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Modelo/Inspector.cs">
-    <Files>
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="26" Column="29" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="28" Column="125" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="11" Column="9" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseRetrieveInspector.cs" Line="41" Column="20" />
-      <File FileName="InspectionManager.Android/Extensiones/FirestoreExtension.cs" Line="17" Column="69" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/Inspector.cs" Line="12" Column="21" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
