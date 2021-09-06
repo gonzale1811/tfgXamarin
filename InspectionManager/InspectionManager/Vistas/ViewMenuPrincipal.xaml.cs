@@ -11,6 +11,7 @@ namespace InspectionManager.Vistas
     {
         private IFirebaseAuthService auth;
         private IFirebaseConsultService consult;
+        private Inspector usuario;
 
         public ViewMenuPrincipal()
         {
@@ -23,7 +24,7 @@ namespace InspectionManager.Vistas
 
             string emailUsuario = auth.GetUserEmail();
 
-            Inspector usuario = consult.GetInspectorByEmail(emailUsuario);
+            usuario = consult.GetInspectorByEmail(emailUsuario);
 
             if (usuario != null)
             {
@@ -57,7 +58,7 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCrearInspeccion(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ViewDatosInspeccion());
+            await Navigation.PushAsync(new ViewDatosInspeccion(usuario));
         }
 
         public void ProcesarCrearPlantilla(object sender, EventArgs e)

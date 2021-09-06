@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/Servicios/FirebaseConsultService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs">
     <Files>
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="19" Column="110" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="58" Column="50" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="69" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewDatosInspeccion.xaml" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewDatosInspeccion.xaml.cs" Line="10" Column="55" />
+      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="14" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,16 +12,16 @@
             <Node name="InspectionManager" expanded="True">
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+                <Node name="ViewMenuPrincipal.xaml" expanded="True">
+                  <Node name="ViewMenuPrincipal.xaml.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
               </Node>
-              <Node name="Servicios" expanded="True">
-                <Node name="FirebaseConsultService.cs" selected="True" />
-              </Node>
+              <Node name="Servicios" expanded="True" />
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">
               <Node name="Servicios" expanded="True" />
