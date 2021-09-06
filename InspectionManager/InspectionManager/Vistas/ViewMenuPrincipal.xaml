@@ -4,16 +4,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="InspectionManager.Vistas.ViewMenuPrincipal"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-    android:TabbedPage.ToolbarPlacement="Bottom">
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    Title="Menu principal">
     <TabbedPage.Children>
-        <ContentPage Title="Mis Inspecciones">
+        <ContentPage Title="Mis Inspecciones" IconImageSource="list_black.png">
             <StackLayout>
                 <Label Text="Mis Inspecciones"/>
             </StackLayout>
         </ContentPage>
-        <ContentPage Title="Nueva Inspeccion">
-            <StackLayout>
-                <Label Text="Sesion iniciada"/>
+        <ContentPage Title="Nueva Inspeccion" IconImageSource="add_black.png">
+            <StackLayout x:Name="stackLayoutMainPage" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Seleccione una accion" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <StackLayout Orientation="Vertical">
+                    <Button x:Name="addInspeccionButton" ContentLayout="Top,0" Text="Crear nueva inspeccion" Clicked="ProcesarCrearInspeccion" VerticalOptions="Start" ImageSource="add_inspeccion_black.png"/>
+                    <Button x:Name="addPlantillaButton" ContentLayout="Top,0" Text="Crear nueva plantilla" Clicked="ProcesarCrearPlantilla" VerticalOptions="End" ImageSource="add_plantilla_black.png"/>
+                </StackLayout>
             </StackLayout>
         </ContentPage>
         <ContentPage Title="Mi Perfil" IconImageSource="options_black.png">
@@ -24,13 +29,12 @@
             <Entry x:Name="nombreEntry" IsEnabled="False"/>
             <Entry x:Name="apellidosEntry" IsEnabled="False"/>
             <Entry x:Name="usernameEntry" IsEnabled="False"/>
-            <Entry x:Name="passwordEntry" IsEnabled="False"/>
-            <Entry x:Name="passwordConfirmEntry" IsEnabled="False"/>
+            <Entry x:Name="passwordEntry" IsEnabled="False" IsPassword="True"/>
             <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False"/>
-            <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
-            <Button x:Name="editarPerfilButton" Text="Editar perfil" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
-            <Label Text="" IsVisible="False"/>
-            <Label x:Name="labelError" Text="" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
+                <Button x:Name="editarPerfilButton" Text="Editar perfil" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
+            </StackLayout>
         </StackLayout>
         </ContentPage>
     </TabbedPage.Children>
