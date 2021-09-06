@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace InspectionManager.Modelo
 {
     public class Inspector

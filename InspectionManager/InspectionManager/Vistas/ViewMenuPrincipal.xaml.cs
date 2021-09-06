@@ -21,6 +21,11 @@ namespace InspectionManager.Vistas
             string emailUsuario = auth.GetUserEmail();
 
             Inspector usuario = consult.GetInspectorByEmail(emailUsuario);
+
+            dniEntry.Text = usuario.Dni;
+            nombreEntry.Text = usuario.Nombre;
+            apellidosEntry.Text = usuario.Apellidos;
+
         }
 
         public async void ProcesarCerrarSesion(object sender, EventArgs e)
