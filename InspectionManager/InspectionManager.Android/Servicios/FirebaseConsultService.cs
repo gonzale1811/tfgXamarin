@@ -119,7 +119,18 @@ namespace InspectionManager.Droid.Servicios
 
         public void AddInspeccionToInspector(Inspector inspector, Inspeccion inspeccion)
         {
-            throw new NotImplementedException();
+            DocumentReference document = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
+            int cont = 0;
+            HashMap listaResultado = new HashMap();
+            foreach(string posicion in inspector.Inspecciones)
+            {
+                if (posicion != null)
+                {
+                    listaResultado.Put(cont.ToString(), posicion);
+                    cont++;
+                }
+            }
+            document.Update("Inspecciones", listaResultado);
         }
     }
 }

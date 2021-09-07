@@ -7,7 +7,7 @@
       <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" />
       <File FileName="InspectionManager/Modelo/Inspeccion.cs" />
       <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="29" Column="1" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="133" Column="61" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
