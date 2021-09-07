@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using InspectionManager.Modelo;
 using Xamarin.Forms;
 
@@ -17,7 +18,9 @@ namespace InspectionManager.Vistas
             propietario = inspector;
 
             fechaInicioPicker.MinimumDate = DateTime.Today;
+            fechaInicio = DateTime.Today;
             fechaFinPicker.MinimumDate = fechaInicioPicker.Date.AddDays(1);
+            fechaFin = fechaInicioPicker.Date.AddDays(1);
         }
 
         public void FechaSeleccionadaInicio(object sender, DateChangedEventArgs e)
@@ -36,14 +39,72 @@ namespace InspectionManager.Vistas
             await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
         }
 
-        public void ProcesarAddBloque(object sender, EventArgs e)
+        public async void ProcesarAddBloque(object sender, EventArgs e)
         {
+            ocultarError();
 
+            if (comprobarCampos())
+            {
+                Direccion direccionInspeccion;
+                if (String.IsNullOrWhiteSpace(numeroEntry.Text))
+                {
+                    direccionInspeccion = new Direccion(calleEntry.Text, "Sin numero", localidadEntry.Text, codigoPostalEntry.Text);
+                }
+                else
+                {
+                    direccionInspeccion = new Direccion(calleEntry.Text, numeroEntry.Text, localidadEntry.Text, codigoPostalEntry.Text);
+                }
+
+                Inspeccion nuevaInspeccion = new Inspeccion(nombreEntry.Text, fechaInicio, fechaFin, direccionInspeccion);
+                propietario.Inspecciones.Add(nuevaInspeccion.IdInspeccion.ToString());
+            }
+            else
+            {
+                await DisplayAlert("Error", "Alguno de los campos no ha sido cumplimentado", "Ok");
+            }
         }
 
         public void ProcesarGuardarInspeccion(object sender, EventArgs e)
         {
 
+        }
+
+        private bool comprobarCampos()
+        {
+            if (String.IsNullOrWhiteSpace(nombreEntry.Text))
+            {
+                mostrarError("nombre");
+                return false;
+            }
+            if (String.IsNullOrWhiteSpace(calleEntry.Text))
+            {
+                mostrarError("calle");
+                return false;
+            }
+            if (String.IsNullOrWhiteSpace(localidadEntry.Text))
+            {
+                mostrarError("localidad");
+                return false;
+            }
+            if (String.IsNullOrWhiteSpace(codigoPostalEntry.Text))
+            {
+                mostrarError("codigo postal");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void mostrarError(string error)
+        {
+            errorLabel.Text = "El campo "+error+" no puede estar vacio.";
+            errorLabel.TextColor = Color.Red;
+            errorLabel.IsVisible = true;
+        }
+
+        private void ocultarError()
+        {
+            errorLabel.IsVisible = false;
         }
     }
 }

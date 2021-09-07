@@ -44,7 +44,7 @@ namespace InspectionManager.Droid.Servicios
         {
             Inspector inspectorActual = null;
             emailActual = email;
-            var tarea = DatabaseConnection.GetInstance.Collection("Inspectores").Get();//.AddOnSuccessListener(this);
+            var tarea = DatabaseConnection.GetInstance.Collection("Inspectores").Get();
             while (!tarea.IsSuccessful)
             {
 
@@ -94,6 +94,16 @@ namespace InspectionManager.Droid.Servicios
             }
 
             return inspectorActual;
+        }
+
+        public void AddInspeccion(Inspeccion inspeccion)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddInspeccionToInspector(Inspector inspector, Inspeccion inspeccion)
+        {
+            throw new NotImplementedException();
         }
     }
 }

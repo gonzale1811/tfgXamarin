@@ -10,7 +10,7 @@ namespace InspectionManager.Modelo
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public Direccion DireccionInspeccion { get; set; }
-        public List<Bloque> Bloques { get; set; }
+        public List<string> Bloques { get; set; }
 
         public Inspeccion(string nombre, DateTime fechaInicio, DateTime fechaFin, Direccion direccionInspeccion)
         {
@@ -19,7 +19,7 @@ namespace InspectionManager.Modelo
             FechaInicio = fechaInicio;
             FechaFin = fechaFin;
             DireccionInspeccion = direccionInspeccion;
-            Bloques = new List<Bloque>();
+            Bloques = new List<string>();
         }
     }
 }
