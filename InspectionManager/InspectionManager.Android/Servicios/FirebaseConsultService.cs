@@ -98,7 +98,23 @@ namespace InspectionManager.Droid.Servicios
 
         public void AddInspeccion(Inspeccion inspeccion)
         {
-            throw new NotImplementedException();
+            DocumentReference document = DatabaseConnection.GetInstance.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString());
+            HashMap direccion = new HashMap();
+            direccion.Put("calle", inspeccion.DireccionInspeccion.Calle);
+            direccion.Put("numero", inspeccion.DireccionInspeccion.Numero);
+            direccion.Put("localidad", inspeccion.DireccionInspeccion.Localidad);
+            direccion.Put("codigoPostal", inspeccion.DireccionInspeccion.CodigoPostal);
+            HashMap bloques = new HashMap();
+            var inspeccionNueva = new Dictionary<string, Java.Lang.Object>
+            {
+                {"idInspeccion",inspeccion.IdInspeccion.ToString() },
+                {"nombre", inspeccion.Nombre },
+                {"fechaInicio", inspeccion.FechaInicio.ToString() },
+                {"fechaFin", inspeccion.FechaFin.ToString() },
+                {"direccion", direccion },
+                {"bloques", bloques }
+            };
+            document.Set(new HashMap(inspeccionNueva));
         }
 
         public void AddInspeccionToInspector(Inspector inspector, Inspeccion inspeccion)

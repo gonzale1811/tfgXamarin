@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using InspectionManager.Modelo;
+using InspectionManager.Servicios;
 using Xamarin.Forms;
 
 namespace InspectionManager.Vistas
 {
     public partial class ViewDatosInspeccion : ContentPage
     {
+        private IFirebaseConsultService consult;
         private Inspector propietario;
         private DateTime fechaInicio;
         private DateTime fechaFin;
@@ -15,6 +17,9 @@ namespace InspectionManager.Vistas
         public ViewDatosInspeccion(Inspector inspector)
         {
             InitializeComponent();
+
+            consult = DependencyService.Get<IFirebaseConsultService>();
+
             propietario = inspector;
 
             fechaInicioPicker.MinimumDate = DateTime.Today;
@@ -57,6 +62,7 @@ namespace InspectionManager.Vistas
 
                 Inspeccion nuevaInspeccion = new Inspeccion(nombreEntry.Text, fechaInicio, fechaFin, direccionInspeccion);
                 propietario.Inspecciones.Add(nuevaInspeccion.IdInspeccion.ToString());
+                consult.AddInspeccion(nuevaInspeccion);
             }
             else
             {
