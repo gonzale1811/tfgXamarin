@@ -17,7 +17,7 @@ namespace InspectionManager.Vistas
         private IFirebaseConsultService consult;
         private List<Plantilla> plantillas;
 
-        public ObservableCollection<Button> Items { get; set; }
+        public ObservableCollection<PlantillaListViewModel> Items { get; set; }
 
         public ViewPlantillas()
         {
@@ -26,19 +26,15 @@ namespace InspectionManager.Vistas
             consult = DependencyService.Get<IFirebaseConsultService>();
 
             plantillas = consult.GetPlantillas();
-        }
+            List<PlantillaListViewModel> modelo = new List<PlantillaListViewModel>();
 
-        protected override async void OnAppearing()
-        {
-            LlenarLista();
-            await Task.Yield();
-        }
+            foreach(Plantilla p in plantillas)
+            {
+                PlantillaListViewModel modeloPlantilla = new PlantillaListViewModel(p.IdPlantilla.ToString(),p.Nombre,p.VersionActual,p.Trabajo);
+                modelo.Add(modeloPlantilla);
+            }
 
-        public async void LlenarLista()
-        {
-            ListViewPlantillas lista = new ListViewPlantillas();
-            listViewPlantillas.ItemsSource = null;
-            listViewPlantillas.ItemsSource = lista.ObtenerListaPlantillas(plantillas);
+            listViewPlantillas.ItemsSource = modelo;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)

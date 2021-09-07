@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="InspectionManager.Vistas.ViewPlantillas">
+             x:Class="InspectionManager.Vistas.ViewPlantillas"
+             Title="Lista de Plantillas">
   <ListView x:Name="listViewPlantillas"
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
@@ -10,7 +11,12 @@
     <!--Built in Cells-->
     <ListView.ItemTemplate>
         <DataTemplate>
-            <TextCell Text="{Binding .}" />
+            <ViewCell>
+                <StackLayout x:Name="cellLayout" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="{Binding TrabajoImagen}" HorizontalOptions="Start"/>
+                    <Label Text="{Binding Nombre}" HorizontalOptions="Center"/>
+                </StackLayout>
+            </ViewCell>
         </DataTemplate>
     </ListView.ItemTemplate>
     

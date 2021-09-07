@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/App.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPlantillas.xaml">
     <Files>
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="185" Column="30" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="153" Column="1" />
       <File FileName="InspectionManager/Modelo/Plantilla.cs" Line="8" Column="44" />
-      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml.cs" Line="35" Column="1" />
-      <File FileName="InspectionManager/Modelo/ListViewPlantillas.cs" Line="29" Column="1" />
-      <File FileName="InspectionManager/App.xaml.cs" Line="17" Column="13" />
+      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml" Line="5" Column="39" />
+      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml.cs" Line="34" Column="45" />
+      <File FileName="InspectionManager/Modelo/PlantillaListViewModel.cs" Line="16" Column="64" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,11 +16,9 @@
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
                 <Node name="ViewDatosInspeccion.xaml" expanded="True" />
-                <Node name="ViewPlantillas.xaml" expanded="True" />
+                <Node name="ViewPlantillas.xaml" expanded="True" selected="True" />
               </Node>
-              <Node name="App.xaml" expanded="True">
-                <Node name="App.xaml.cs" selected="True" />
-              </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
               <Node name="Resources" expanded="True">

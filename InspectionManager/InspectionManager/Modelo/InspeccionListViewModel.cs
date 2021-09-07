@@ -1,9 +1,9 @@
 ﻿using System;
 namespace InspectionManager.Modelo
 {
-    public class ListViewInspecciones
+    public class InspeccionListViewModel
     {
-        public ListViewInspecciones()
+        public InspeccionListViewModel()
         {
         }
     }
