@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using InspectionManager.Modelo;
 
 namespace InspectionManager.Servicios
@@ -12,5 +13,7 @@ namespace InspectionManager.Servicios
         void AddInspeccionToInspector(Inspector inspector, Inspeccion inspeccion);
 
         void AddInspeccion(Inspeccion inspeccion);
+
+        List<Plantilla> GetPlantillas();
     }
 }

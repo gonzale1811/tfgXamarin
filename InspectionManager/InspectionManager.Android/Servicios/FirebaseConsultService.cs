@@ -132,5 +132,74 @@ namespace InspectionManager.Droid.Servicios
             }
             document.Update("Inspecciones", listaResultado);
         }
+
+        public List<Plantilla> GetPlantillas()
+        {
+            List<Plantilla> resultado = new List<Plantilla>();
+            var task = DatabaseConnection.GetInstance.Collection("Plantillas").Get();
+            while (!task.IsSuccessful)
+            {
+
+            }
+            var snapshot = (QuerySnapshot)task.Result;
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    TipoTrabajo tipo = GetTipoTrabajoByString(document.Get("tipoTrabajo").ToString());
+                    Plantilla nueva = new Plantilla(document.Get("nombre").ToString(), tipo, document.Get("versionActual").ToString());
+                    nueva.IdPlantilla = Guid.Parse(document.Get("idPlantilla").ToString());
+
+                    List<string> versionesObtenidas = new List<string>();
+                    List<string> bloquesObtenidos = new List<string>();
+
+                    var versiones = document.Get("versiones") != null ? document.Get("versiones") : null;
+                    var bloques = document.Get("bloques") != null ? document.Get("bloques") : null;
+
+                    if (versiones != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(versiones.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach (KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            versionesObtenidas.Add(value.Value);
+                        }
+                    }
+
+                    if (bloques != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(bloques.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach (KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            bloquesObtenidos.Add(value.Value);
+                        }
+                    }
+
+                    resultado.Add(nueva);
+                }
+            }
+
+            return resultado;
+        }
+
+        private TipoTrabajo GetTipoTrabajoByString(string tipo)
+        {
+            switch (tipo)
+            {
+                case "Obra":
+                    return TipoTrabajo.Obra;
+                case "Oficina":
+                    return TipoTrabajo.Oficina;
+                case "Fabrica":
+                    return TipoTrabajo.Fabrica;
+                case "Servicios":
+                    return TipoTrabajo.Servicios;
+                default:
+                    return TipoTrabajo.Oficina;
+            }
+        }
     }
 }

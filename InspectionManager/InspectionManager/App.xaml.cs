@@ -14,7 +14,7 @@ namespace InspectionManager
         {
             InitializeComponent();
 
-            auth = DependencyService.Get<IFirebaseAuthService>();
+            /*auth = DependencyService.Get<IFirebaseAuthService>();
 
             if (auth.IsUserSigned())
             {
@@ -23,7 +23,8 @@ namespace InspectionManager
             else
             {
                 MainPage = new NavigationPage(new ViewLogin());
-            }
+            }*/
+            MainPage = new ViewPlantillas();
         }
 
         protected override void OnStart()
