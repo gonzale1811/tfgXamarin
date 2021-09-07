@@ -32,7 +32,7 @@ namespace InspectionManager.Vistas
 
             if (!Token.Equals(string.Empty))
             {
-                App.Current.MainPage = new ViewMenuPrincipal();
+                App.Current.MainPage = new NavigationPage(new ViewMenuPrincipal());
             }
             else
             {

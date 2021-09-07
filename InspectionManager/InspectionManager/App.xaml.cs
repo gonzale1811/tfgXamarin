@@ -22,7 +22,7 @@ namespace InspectionManager
             }
             else
             {
-            MainPage = new NavigationPage(new ViewLogin());
+                MainPage = new NavigationPage(new ViewLogin());
             }
         }
 
