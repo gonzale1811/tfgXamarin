@@ -11,7 +11,7 @@ namespace InspectionManager.Modelo
             RespuestaPregunta = null;
         }
 
-        public Guid IdPregunta { get; }
+        public Guid IdPregunta { get; set; }
         public string Nombre { get; set; }
         public string PuestoTrabajo { get; set; }
         public IRespuesta<int> RespuestaPregunta { get; set; }

@@ -6,6 +6,7 @@ namespace InspectionManager.Modelo
         Guid IdPregunta
         {
             get;
+            set;
         }
 
         string Nombre

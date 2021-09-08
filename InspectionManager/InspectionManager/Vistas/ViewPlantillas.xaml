@@ -3,43 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InspectionManager.Vistas.ViewPlantillas"
              Title="Lista de Plantillas">
-  <ListView x:Name="listViewPlantillas"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement"
-            RowHeight="100"
-            SeparatorVisibility="Default"
-            SeparatorColor="Black">
+    <StackLayout>
+        <ListView x:Name="listViewPlantillas"
+                ItemsSource="{Binding Items}"
+                ItemTapped="Handle_ItemTapped"
+                CachingStrategy="RecycleElement"
+                RowHeight="100"
+                SeparatorVisibility="Default"
+                SeparatorColor="Black">
             
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <StackLayout x:Name="cellLayout" Orientation="Horizontal">
-                    <Image Source="{Binding TrabajoImagen}" HorizontalOptions="Start"/>
-                    <StackLayout>
-                        <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
-                        <Label Text="{Binding Version}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout x:Name="cellLayout" Orientation="Horizontal">
+                        <Image Source="{Binding TrabajoImagen}" HorizontalOptions="Start"/>
+                        <StackLayout>
+                            <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Version}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>
-            </ViewCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        </ListView>
+        <Button Text="Cancelar" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+    </StackLayout>
 </ContentPage>

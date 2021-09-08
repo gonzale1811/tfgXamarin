@@ -185,6 +185,73 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
+        public List<Bloque> GetBloquesByPlantilla(Plantilla p)
+        {
+            List<Bloque> resultado = new List<Bloque>();
+            var task = DatabaseConnection.GetInstance.Collection("Bloques").Get();
+            while (!task.IsSuccessful)
+            {
+
+            }
+            var snapshot = (QuerySnapshot)task.Result;
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    Bloque obtenido = new Bloque(document.Get("nombre").ToString());
+                    obtenido.IdBloque = Guid.Parse(document.Get("idBloque").ToString());
+
+                    List<string> preguntasTextoObtenidas = new List<string>();
+                    List<string> preguntasBooleanObtenidas = new List<string>();
+                    List<string> preguntasValorObtenidas = new List<string>();
+
+                    var preguntasTexto = document.Get("preguntasTexto") != null ? document.Get("preguntasTexto") : null;
+                    var preguntasBoolean = document.Get("preguntasBoolean") != null ? document.Get("preguntasBoolean") : null;
+                    var preguntasValor = document.Get("preguntasValor") != null ? document.Get("preguntasValor") : null;
+
+                    if (preguntasTexto != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(preguntasTexto.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach (KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            preguntasTextoObtenidas.Add(value.Value);
+                        }
+                    }
+
+                    if (preguntasBoolean != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(preguntasBoolean.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach (KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            preguntasBooleanObtenidas.Add(value.Value);
+                        }
+                    }
+
+                    if (preguntasTexto != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(preguntasValor.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach (KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            preguntasValorObtenidas.Add(value.Value);
+                        }
+                    }
+
+                    obtenido.PreguntasTexto = preguntasTextoObtenidas;
+                    obtenido.PreguntasBoolean = preguntasBooleanObtenidas;
+                    obtenido.PreguntasValor = preguntasValorObtenidas;
+
+                    resultado.Add(obtenido);
+                }
+            }
+
+            return resultado;
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)

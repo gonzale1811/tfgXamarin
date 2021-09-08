@@ -24,7 +24,7 @@ namespace InspectionManager
             {
                 MainPage = new NavigationPage(new ViewLogin());
             }*/
-            MainPage = new ViewPlantillas();
+            MainPage = new NavigationPage(new ViewPlantillas());
         }
 
         protected override void OnStart()

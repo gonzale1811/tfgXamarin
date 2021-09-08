@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
@@ -39,14 +36,22 @@ namespace InspectionManager.Vistas
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item == null)
-                return;
+            //((ListView)sender).SelectedItem = null;
+            string idSeleccionado = ((PlantillaListViewModel)((ListView)sender).SelectedItem).Id;
+            Console.WriteLine("ESTE ES EL ID: " + idSeleccionado);
+            foreach(Plantilla p in plantillas)
+            {
+                if (p.IdPlantilla.ToString() == idSeleccionado)
+                {
+                    await Navigation.PushAsync(new ViewBloques(p));
+                }
+            }
+            
+        }
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
-            //((PlantillaListViewModel)((ListView)sender).SelectedItem)
+        public async void ProcesarCancelar(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
         }
     }
 }

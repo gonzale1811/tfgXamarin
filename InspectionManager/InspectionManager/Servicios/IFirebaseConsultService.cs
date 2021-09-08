@@ -15,5 +15,7 @@ namespace InspectionManager.Servicios
         void AddInspeccion(Inspeccion inspeccion);
 
         List<Plantilla> GetPlantillas();
+
+        List<Bloque> GetBloquesByPlantilla(Plantilla plantilla);
     }
 }
