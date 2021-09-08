@@ -11,6 +11,7 @@ namespace InspectionManager.Modelo
         public List<string> PreguntasTexto { get; set; }
         public List<string> PreguntasBoolean { get; set; }
         public List<string> PreguntasValor { get; set; }
+        public List<string> Fotografias { get; set; }
 
         public Bloque(string nombre, string puestoTrabajo)
         {
