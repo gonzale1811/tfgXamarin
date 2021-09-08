@@ -781,3 +781,7 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/dc7abde8-7852-4bb6-b763-0d78b33d319c.txt
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/f4ce7f27-285a-499f-b181-fa23c3a3975c.txt
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/ff944cbc-1b84-4367-af0c-15783e013678.txt
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/fabrica_black.png
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/obra_black.png
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/oficina_black.png
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/servicios_black.png

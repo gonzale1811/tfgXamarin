@@ -6,15 +6,21 @@
   <ListView x:Name="listViewPlantillas"
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
+            CachingStrategy="RecycleElement"
+            RowHeight="100"
+            SeparatorVisibility="Default"
+            SeparatorColor="Black">
             
     <!--Built in Cells-->
     <ListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>
-                <StackLayout x:Name="cellLayout" HorizontalOptions="Center" VerticalOptions="Center">
+                <StackLayout x:Name="cellLayout" Orientation="Horizontal">
                     <Image Source="{Binding TrabajoImagen}" HorizontalOptions="Start"/>
-                    <Label Text="{Binding Nombre}" HorizontalOptions="Center"/>
+                    <StackLayout>
+                        <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{Binding Version}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
                 </StackLayout>
             </ViewCell>
         </DataTemplate>

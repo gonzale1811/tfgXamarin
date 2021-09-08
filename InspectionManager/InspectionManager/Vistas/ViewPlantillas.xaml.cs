@@ -46,6 +46,7 @@ namespace InspectionManager.Vistas
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
+            //((PlantillaListViewModel)((ListView)sender).SelectedItem)
         }
     }
 }

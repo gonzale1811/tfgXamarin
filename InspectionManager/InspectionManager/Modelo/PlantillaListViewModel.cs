@@ -12,7 +12,7 @@ namespace InspectionManager.Modelo
         {
             this.Id = Id;
             this.Nombre = Nombre;
-            this.Version = Version;
+            this.Version = "Version de la plantilla: "+Version;
             this.TrabajoImagen = GetImagenTrabajo(TrabajoImagen);
         }
 
@@ -21,7 +21,7 @@ namespace InspectionManager.Modelo
             switch (trabajo)
             {
                 case TipoTrabajo.Obra:
-                    return "obra_blak.png";
+                    return "obra_black.png";
                 case TipoTrabajo.Oficina:
                     return "oficina_black.png";
                 case TipoTrabajo.Fabrica:
