@@ -1,5 +1,6 @@
 FormsViewGroup.dll
 Plugin.CloudFirestore.dll
+Plugin.Media.dll
 Square.OkHttp.dll
 Square.OkIO.dll
 Xamarin.AndroidX.Activity.dll
@@ -139,4 +140,3 @@ firebaseauthinterop-20.0.0.aar
 firebasefirestore-23.0.2.aar
 firebasedatabase-19.7.0.aar
 firebaseauth-21.0.1.aar
-Plugin.Media.dll

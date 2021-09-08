@@ -1,16 +1,7 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../../../../.nuget/packages/xam.plugin.media/5.0.1/readme.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPregunta.xaml.cs">
     <Files>
-      <File FileName="InspectionManager/Modelo/Pregunta.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/PreguntaBoolean.cs" Line="16" Column="36" />
-      <File FileName="InspectionManager/Modelo/PreguntaTexto.cs" Line="17" Column="41" />
-      <File FileName="InspectionManager/Modelo/PreguntaValor.cs" Line="18" Column="33" />
-      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml" Line="10" Column="23" />
-      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="93" Column="1" />
-      <File FileName="InspectionManager/Modelo/Fotografias.cs" Line="15" Column="41" />
-      <File FileName="InspectionManager/Modelo/Bloque.cs" Line="14" Column="52" />
-      <File FileName="../../../../../../../../../.nuget/packages/xam.plugin.media/5.0.1/readme.txt" Line="1" Column="1" />
-      <File FileName="InspectionManager.Android/Properties/AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="94" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,12 +10,14 @@
             <Node name="InspectionManager" expanded="True">
               <Node name="Modelo" expanded="True" />
               <Node name="Servicios" expanded="True" />
-              <Node name="Vistas" expanded="True" />
+              <Node name="Vistas" expanded="True">
+                <Node name="ViewPregunta.xaml" expanded="True">
+                  <Node name="ViewPregunta.xaml.cs" selected="True" />
+                </Node>
+              </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Properties" expanded="True">
-                <Node name="AndroidManifest.xml" selected="True" />
-              </Node>
+              <Node name="Properties" expanded="True" />
               <Node name="Servicios" expanded="True" />
             </Node>
             <Node name="InspectionManager.iOS" expanded="True">

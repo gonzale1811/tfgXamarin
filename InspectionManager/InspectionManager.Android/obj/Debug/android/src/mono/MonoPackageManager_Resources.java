@@ -6,6 +6,7 @@ public class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"InspectionManager.dll",
 		"Plugin.CloudFirestore.dll",
+		"Plugin.Media.dll",
 		"Square.OkHttp.dll",
 		"Square.OkIO.dll",
 		"System.Reactive.dll",

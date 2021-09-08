@@ -91,7 +91,7 @@ namespace InspectionManager.Vistas
             Button foto = new Button
             {
 
-            }
+            };
 
             Button aceptar = new Button
             {
