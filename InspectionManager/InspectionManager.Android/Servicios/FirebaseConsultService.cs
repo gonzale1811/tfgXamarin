@@ -265,18 +265,93 @@ namespace InspectionManager.Droid.Servicios
 
         public List<IPregunta<string>> GetPreguntasTextoByBloque(Bloque bloque)
         {
-            //var token = DatabaseConnection.GetInstance.Collection
-            return null;
+            List<IPregunta<string>> resultado = new List<IPregunta<string>>();
+            var task = DatabaseConnection.GetInstance.Collection("PreguntasTexto").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    IPregunta<string> nueva = new PreguntaTexto(document.Get("nombre").ToString());
+                    nueva.IdPregunta = Guid.Parse(document.Get("idPregunta").ToString());
+
+                    if (bloque.PreguntasTexto.Contains(nueva.IdPregunta.ToString()))
+                    {
+                        resultado.Add(nueva);
+                    }
+                }
+            }
+
+            return resultado;
         }
 
         public List<IPregunta<bool>> GetPreguntasBooleanByBloque(Bloque bloque)
         {
-            throw new NotImplementedException();
+            List<IPregunta<bool>> resultado = new List<IPregunta<bool>>();
+            var task = DatabaseConnection.GetInstance.Collection("PreguntasBoolean").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    IPregunta<bool> nueva = new PreguntaBoolean(Guid.Parse(document.Get("idPregunta").ToString()), document.Get("nombre").ToString());
+
+                    if (bloque.PreguntasBoolean.Contains(nueva.IdPregunta.ToString()))
+                    {
+                        resultado.Add(nueva);
+                    }
+                }
+            }
+
+            return resultado;
         }
 
         public List<IPregunta<int>> GetPreguntasValorByBloque(Bloque bloque)
         {
-            throw new NotImplementedException();
+            List<IPregunta<int>> resultado = new List<IPregunta<int>>();
+            var task = DatabaseConnection.GetInstance.Collection("PreguntasValor").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    IPregunta<int> nueva = new PreguntaValor(Guid.Parse(document.Get("idPregunta").ToString()), document.Get("nombre").ToString());
+
+                    if (bloque.PreguntasValor.Contains(nueva.IdPregunta.ToString()))
+                    {
+                        resultado.Add(nueva);
+                    }
+                }
+            }
+
+            return resultado;
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)

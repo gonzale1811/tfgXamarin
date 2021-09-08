@@ -1,28 +1,24 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewBloques.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPregunta.xaml.cs">
     <Files>
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="194" Column="24" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="25" Column="71" />
       <File FileName="InspectionManager/Modelo/Pregunta.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/PreguntaBoolean.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/PreguntaTexto.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/PreguntaValor.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml.cs" Line="44" Column="18" />
-      <File FileName="InspectionManager/Vistas/ViewBloques.xaml.cs" Line="27" Column="40" />
+      <File FileName="InspectionManager/Modelo/PreguntaBoolean.cs" Line="16" Column="36" />
+      <File FileName="InspectionManager/Modelo/PreguntaTexto.cs" Line="17" Column="41" />
+      <File FileName="InspectionManager/Modelo/PreguntaValor.cs" Line="18" Column="33" />
+      <File FileName="InspectionManager/Vistas/ViewBloques.xaml.cs" Line="26" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="10" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Modelo" expanded="True" />
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewBloques.xaml" expanded="True">
-                  <Node name="ViewBloques.xaml.cs" selected="True" />
+                <Node name="ViewPregunta.xaml" expanded="True">
+                  <Node name="ViewPregunta.xaml.cs" selected="True" />
                 </Node>
-                <Node name="ViewPlantillas.xaml" expanded="True" />
-                <Node name="ViewPregunta.xaml" expanded="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
             </Node>
