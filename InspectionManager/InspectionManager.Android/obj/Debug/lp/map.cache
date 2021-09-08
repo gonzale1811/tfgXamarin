@@ -1,6 +1,8 @@
 FormsViewGroup.dll
 Plugin.CloudFirestore.dll
+Plugin.CurrentActivity.dll
 Plugin.Media.dll
+Plugin.Permissions.dll
 Square.OkHttp.dll
 Square.OkIO.dll
 Xamarin.AndroidX.Activity.dll

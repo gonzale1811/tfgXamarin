@@ -14,6 +14,8 @@ namespace InspectionManager
         {
             InitializeComponent();
 
+            Plugin.Media.CrossMedia.Current.Initialize();
+
             /*auth = DependencyService.Get<IFirebaseAuthService>();
 
             if (auth.IsUserSigned())

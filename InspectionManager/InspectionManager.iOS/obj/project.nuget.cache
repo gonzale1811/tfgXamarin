@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3VDe5g7gugxwVUacJjQWEtUqA/setCNsvSx8FSBVt1PKoY7y2WF6qo0Xyunbj/vxttWMeD1HoB+ZSDIlwqMJBw==",
+  "dgSpecHash": "UTrYQ6VUvjtVeazX6cirVhHJXrAOwN+Q5FDSEQ1k3rnBb1tJlx69vUYyxwfiR/Qa+HgrgDQetnRXgRyHRYhoDg==",
   "success": true,
   "projectFilePath": "/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.iOS/InspectionManager.iOS.csproj",
   "expectedPackageFiles": [
-    "/Users/david/.nuget/packages/xam.plugin.media/5.0.1/xam.plugin.media.5.0.1.nupkg.sha512",
+    "/Users/david/.nuget/packages/plugin.permissions/3.0.0.12/plugin.permissions.3.0.0.12.nupkg.sha512",
+    "/Users/david/.nuget/packages/xam.plugin.media/4.0.1.5/xam.plugin.media.4.0.1.5.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.auth/1.7.0/xamarin.auth.1.7.0.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.build.download/0.10.0/xamarin.build.download.0.10.0.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",

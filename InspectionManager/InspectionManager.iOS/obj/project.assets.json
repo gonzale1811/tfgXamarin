@@ -2,14 +2,20 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
-      "Xam.Plugin.Media/5.0.1": {
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.2"
+          "Plugin.Permissions": "3.0.0.12"
         },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
         "compile": {
           "lib/xamarinios10/Plugin.Media.dll": {}
         },
@@ -224,7 +230,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1451"
         },
@@ -237,14 +243,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
-      "Xam.Plugin.Media/5.0.1": {
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.2"
+          "Plugin.Permissions": "3.0.0.12"
         },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
         "compile": {
           "lib/xamarinios10/Plugin.Media.dll": {}
         },
@@ -459,7 +471,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1451"
         },
@@ -472,14 +484,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
-      "Xam.Plugin.Media/5.0.1": {
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.2"
+          "Plugin.Permissions": "3.0.0.12"
         },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
         "compile": {
           "lib/xamarinios10/Plugin.Media.dll": {}
         },
@@ -694,7 +712,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1451"
         },
@@ -707,14 +725,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
-      "Xam.Plugin.Media/5.0.1": {
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Permissions.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.2"
+          "Plugin.Permissions": "3.0.0.12"
         },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
         "compile": {
           "lib/xamarinios10/Plugin.Media.dll": {}
         },
@@ -929,7 +953,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1451"
         },
@@ -943,43 +967,51 @@
     }
   },
   "libraries": {
-    "Xam.Plugin.Media/5.0.1": {
-      "sha512": "UUR31EEnhDVa4IXgVfQIAL3u9v6YAyppsb5UlO9MNJ4quGGkfcWX++JexjB1nMGqvCzsjAT2t32drKDIXoW4SQ==",
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
       "type": "package",
-      "path": "xam.plugin.media/5.0.1",
+      "path": "plugin.permissions/3.0.0.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/monoandroid10.0/Plugin.Media.dll",
-        "lib/monoandroid10.0/Plugin.Media.pdb",
-        "lib/monoandroid10.0/Plugin.Media.xml",
-        "lib/monoandroid80/Plugin.Media.dll",
-        "lib/monoandroid80/Plugin.Media.pdb",
-        "lib/monoandroid80/Plugin.Media.xml",
-        "lib/monoandroid81/Plugin.Media.dll",
-        "lib/monoandroid81/Plugin.Media.pdb",
-        "lib/monoandroid81/Plugin.Media.xml",
-        "lib/monoandroid90/Plugin.Media.dll",
-        "lib/monoandroid90/Plugin.Media.pdb",
-        "lib/monoandroid90/Plugin.Media.xml",
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
+      ]
+    },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
         "lib/netstandard1.0/Plugin.Media.dll",
-        "lib/netstandard1.0/Plugin.Media.pdb",
         "lib/netstandard1.0/Plugin.Media.xml",
         "lib/netstandard2.0/Plugin.Media.dll",
-        "lib/netstandard2.0/Plugin.Media.pdb",
         "lib/netstandard2.0/Plugin.Media.xml",
         "lib/tizen40/Plugin.Media.dll",
-        "lib/tizen40/Plugin.Media.pdb",
         "lib/tizen40/Plugin.Media.xml",
-        "lib/uap10.0.16299/Plugin.Media.dll",
-        "lib/uap10.0.16299/Plugin.Media.pdb",
-        "lib/uap10.0.16299/Plugin.Media.pri",
-        "lib/uap10.0.16299/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
         "lib/xamarinios10/Plugin.Media.dll",
-        "lib/xamarinios10/Plugin.Media.pdb",
         "lib/xamarinios10/Plugin.Media.xml",
         "readme.txt",
-        "xam.plugin.media.5.0.1.nupkg.sha512",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
         "xam.plugin.media.nuspec"
       ]
     },
@@ -1449,7 +1481,7 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "InspectionManager >= 1.0.0",
-      "Xam.Plugin.Media >= 5.0.1",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Auth >= 1.7.0",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Firebase.iOS.Auth >= 6.9.2",
@@ -1495,7 +1527,7 @@
         "dependencies": {
           "Xam.Plugin.Media": {
             "target": "Package",
-            "version": "[5.0.1, )"
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Auth": {
             "target": "Package",

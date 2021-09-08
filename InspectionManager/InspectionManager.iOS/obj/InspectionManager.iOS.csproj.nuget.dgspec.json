@@ -38,7 +38,7 @@
           "dependencies": {
             "Xam.Plugin.Media": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.Auth": {
               "target": "Package",
@@ -121,7 +121,7 @@
             },
             "Xam.Plugin.Media": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

@@ -40,9 +40,13 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "Plugin.CurrentActivity": {
+              "target": "Package",
+              "version": "[2.1.0.4, )"
+            },
             "Xam.Plugin.Media": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.AndroidX.Legacy.Support.V4": {
               "target": "Package",
@@ -126,7 +130,7 @@
             },
             "Xam.Plugin.Media": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

@@ -10,7 +10,7 @@
       "InspectionManager/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1451"
         },
@@ -24,6 +24,14 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
+      "Plugin.Permissions/3.0.0.12": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "runtime": {
           "lib/netstandard2.0/System.Numerics.Vectors.dll": {
@@ -32,9 +40,9 @@
           }
         }
       },
-      "Xam.Plugin.Media/5.0.1": {
+      "Xam.Plugin.Media/4.0.1.5": {
         "dependencies": {
-          "Xamarin.Essentials": "1.5.3.2"
+          "Plugin.Permissions": "3.0.0.12"
         },
         "runtime": {
           "lib/netstandard2.0/Plugin.Media.dll": {
@@ -92,6 +100,13 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "Plugin.Permissions/3.0.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "path": "plugin.permissions/3.0.0.12",
+      "hashPath": "plugin.permissions.3.0.0.12.nupkg.sha512"
+    },
     "System.Numerics.Vectors/4.5.0": {
       "type": "package",
       "serviceable": true,
@@ -99,12 +114,12 @@
       "path": "system.numerics.vectors/4.5.0",
       "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
     },
-    "Xam.Plugin.Media/5.0.1": {
+    "Xam.Plugin.Media/4.0.1.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UUR31EEnhDVa4IXgVfQIAL3u9v6YAyppsb5UlO9MNJ4quGGkfcWX++JexjB1nMGqvCzsjAT2t32drKDIXoW4SQ==",
-      "path": "xam.plugin.media/5.0.1",
-      "hashPath": "xam.plugin.media.5.0.1.nupkg.sha512"
+      "sha512": "sha512-a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "path": "xam.plugin.media/4.0.1.5",
+      "hashPath": "xam.plugin.media.4.0.1.5.nupkg.sha512"
     },
     "Xamarin.Essentials/1.5.3.2": {
       "type": "package",

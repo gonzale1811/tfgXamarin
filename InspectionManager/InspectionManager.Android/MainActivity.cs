@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Firebase;
 using InspectionManager.Droid.Servicios;
+using Plugin.CurrentActivity;
 
 namespace InspectionManager.Droid
 {
@@ -24,6 +25,9 @@ namespace InspectionManager.Droid
             base.OnCreate(savedInstanceState);
             InitFirebaseAuth();
             DatabaseConnection.Init(this);
+
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
@@ -31,6 +35,8 @@ namespace InspectionManager.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }

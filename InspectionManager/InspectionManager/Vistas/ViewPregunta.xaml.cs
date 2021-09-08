@@ -9,6 +9,7 @@ namespace InspectionManager.Vistas
     public partial class ViewPregunta : ContentPage
     {
         private IFirebaseConsultService consult;
+        private CameraService camera;
         private List<IPregunta<string>> preguntasString;
         private List<IPregunta<bool>> preguntasBoolean;
         private List<IPregunta<int>> preguntasInt;
@@ -19,6 +20,8 @@ namespace InspectionManager.Vistas
         public ViewPregunta(Bloque bloqueSeleccionado)
         {
             InitializeComponent();
+
+            camera = new CameraService();
 
             consult = DependencyService.Get<IFirebaseConsultService>();
 
@@ -90,7 +93,8 @@ namespace InspectionManager.Vistas
 
             Button foto = new Button
             {
-
+                Text = "Foto",
+                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
             Button aceptar = new Button
@@ -100,9 +104,11 @@ namespace InspectionManager.Vistas
             };
 
             cancelar.Clicked += ProcesarCancelar;
+            foto.Clicked += ProcesarFotografia;
             aceptar.Clicked += ProcesarAceptar;
 
             botones.Children.Add(cancelar);
+            botones.Children.Add(foto);
             botones.Children.Add(aceptar);
             layoutPreguntas.Children.Add(botones);
         }
@@ -110,6 +116,19 @@ namespace InspectionManager.Vistas
         public void ProcesarAceptar(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        public async void ProcesarFotografia(object sender, EventArgs e)
+        {
+            try
+            {
+                var resultado = await camera.TakePhoto();
+                await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Error", "Error en la camara", "Ok");
+            }
         }
 
         public async void ProcesarCancelar(object sender, EventArgs e)
