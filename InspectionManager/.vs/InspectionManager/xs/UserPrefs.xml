@@ -1,8 +1,5 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPregunta.xaml.cs">
-    <Files>
-      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="94" Column="15" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
