@@ -24,8 +24,15 @@ namespace InspectionManager.Vistas
 
             consult = DependencyService.Get<IFirebaseConsultService>();
 
+            int cont = 1;
+            foreach (string s in plantilla.BloquesPlantilla)
+            {
+                Console.WriteLine("Bloque " + cont + " = " + s);
+                cont++;
+            }
+
             this.plantilla = plantilla;
-            bloques = consult.GetBloquesByPlantilla(this.plantilla);
+            bloques = consult.GetBloquesByPlantilla(plantilla);
 
             List<BloqueListViewModel> items = new List<BloqueListViewModel>();
 
@@ -40,13 +47,14 @@ namespace InspectionManager.Vistas
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+            string idSeleccionado = ((BloqueListViewModel)((ListView)sender).SelectedItem).Id;
+            foreach (Bloque b in bloques)
+            {
+                if (b.IdBloque.ToString() == idSeleccionado)
+                {
+                    await Navigation.PushAsync(new NavigationPage(new ViewPregunta(b)));
+                }
+            }
         }
 
         public async void ProcesarCancelar(object sender, EventArgs e)

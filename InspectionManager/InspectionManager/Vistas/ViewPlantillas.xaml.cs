@@ -27,6 +27,7 @@ namespace InspectionManager.Vistas
 
             foreach(Plantilla p in plantillas)
             {
+                Console.WriteLine("Id de la plantilla = "+p.IdPlantilla.ToString());
                 PlantillaListViewModel modeloPlantilla = new PlantillaListViewModel(p.IdPlantilla.ToString(),p.Nombre,p.VersionActual,p.Trabajo);
                 modelo.Add(modeloPlantilla);
             }
@@ -38,7 +39,6 @@ namespace InspectionManager.Vistas
         {
             //((ListView)sender).SelectedItem = null;
             string idSeleccionado = ((PlantillaListViewModel)((ListView)sender).SelectedItem).Id;
-            Console.WriteLine("ESTE ES EL ID: " + idSeleccionado);
             foreach(Plantilla p in plantillas)
             {
                 if (p.IdPlantilla.ToString() == idSeleccionado)

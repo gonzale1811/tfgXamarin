@@ -17,5 +17,11 @@ namespace InspectionManager.Servicios
         List<Plantilla> GetPlantillas();
 
         List<Bloque> GetBloquesByPlantilla(Plantilla plantilla);
+
+        List<IPregunta<string>> GetPreguntasTextoByBloque(Bloque bloque);
+
+        List<IPregunta<bool>> GetPreguntasBooleanByBloque(Bloque bloque);
+
+        List<IPregunta<int>> GetPreguntasValorByBloque(Bloque bloque);
     }
 }

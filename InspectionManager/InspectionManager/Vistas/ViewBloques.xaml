@@ -8,7 +8,7 @@
                 ItemsSource="{Binding Items}"
                 ItemTapped="Handle_ItemTapped"
                 CachingStrategy="RecycleElement"
-                RowHeight="100"
+                RowHeight="150"
                 SeparatorVisibility="Default"
                 SeparatorColor="Black">
             

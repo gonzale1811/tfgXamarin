@@ -178,6 +178,9 @@ namespace InspectionManager.Droid.Servicios
                         }
                     }
 
+                    nueva.Versiones = versionesObtenidas;
+                    nueva.BloquesPlantilla = bloquesObtenidos;
+
                     resultado.Add(nueva);
                 }
             }
@@ -245,11 +248,35 @@ namespace InspectionManager.Droid.Servicios
                     obtenido.PreguntasBoolean = preguntasBooleanObtenidas;
                     obtenido.PreguntasValor = preguntasValorObtenidas;
 
-                    resultado.Add(obtenido);
+                    if (p.BloquesPlantilla.Contains(obtenido.IdBloque.ToString()))
+                    {
+                        Log.Info(TAG, "ESTE ES DE LA PLANTILLA");
+                        resultado.Add(obtenido);
+                    }
+                    else
+                    {
+                        Log.Info(TAG, "ESTE NO ES DE LA PLANTILLA");
+                    }
                 }
             }
 
             return resultado;
+        }
+
+        public List<IPregunta<string>> GetPreguntasTextoByBloque(Bloque bloque)
+        {
+            //var token = DatabaseConnection.GetInstance.Collection
+            return null;
+        }
+
+        public List<IPregunta<bool>> GetPreguntasBooleanByBloque(Bloque bloque)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IPregunta<int>> GetPreguntasValorByBloque(Bloque bloque)
+        {
+            throw new NotImplementedException();
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
