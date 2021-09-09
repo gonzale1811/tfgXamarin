@@ -355,13 +355,8 @@ namespace InspectionManager.Droid.Servicios
         {
             if(imagen != null)
             {
-                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child("evidencia-"+foto+".jpg").PutAsync(imagen);
-                while (!task.GetAwaiter().IsCompleted)
-                {
-
-                }
-                //Log.Info(TAG, "RUTA DE LA IMAGEN OBTENIDA: " + task.TargetUrl);
-                return task.TargetUrl;
+                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child("evidencia-"+foto+".jpg").PutAsync(imagen).TargetUrl;
+                return task;
             }
             else
             {

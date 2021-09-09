@@ -21,6 +21,7 @@ namespace InspectionManager.Modelo
             PreguntasTexto = new List<string>();
             PreguntasBoolean = new List<string>();
             PreguntasValor = new List<string>();
+            Fotografias = new List<string>();
         }
 
         public Bloque(string nombre)
@@ -31,6 +32,7 @@ namespace InspectionManager.Modelo
             PreguntasTexto = new List<string>();
             PreguntasBoolean = new List<string>();
             PreguntasValor = new List<string>();
+            Fotografias = new List<string>();
         }
 
         public void AddPreguntaTexto(string pregunta)

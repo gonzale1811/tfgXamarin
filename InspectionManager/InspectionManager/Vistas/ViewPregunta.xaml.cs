@@ -277,16 +277,10 @@ namespace InspectionManager.Vistas
             {
                 var resultado = await camera.TakePhoto();
                 var subida = resultado;
-                string url = "";
 
-                if (subida != null)
-                {
-                    var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(inspeccionProceso.IdInspeccion.ToString()).Child("evidencia-" + contadorFotos + ".jpg").PutAsync(subida);
-                    //Log.Info(TAG, "RUTA DE LA IMAGEN OBTENIDA: " + task.TargetUrl);
-                    bloqueInspeccion.Fotografias.Add(task);
-                    Console.WriteLine("RUTA PARA LA IMAGEN ALMACENADA = " + task);
-                    url = task;
-                }
+                var url = consult.UploadFoto(inspeccionProceso.IdInspeccion.ToString(), bloqueInspeccion.IdBloque.ToString() + "_" + bloqueInspeccion.PuestoTrabajo, contadorFotos, subida);
+
+                bloqueInspeccion.Fotografias.Add(url);
 
                 contadorFotos++;
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
