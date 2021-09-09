@@ -52,6 +52,7 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
+            consult.CancelarCreacionInspeccion(nuevaInspeccion,null);
             await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
         }
     }

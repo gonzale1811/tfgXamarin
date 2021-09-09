@@ -285,16 +285,15 @@ namespace InspectionManager.Vistas
                 contadorFotos++;
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                //await DisplayAlert("Error", exception.Message, "Ok");
-                Console.WriteLine("ERROR CAMARA");
-                Console.WriteLine(exception.StackTrace);
+                await DisplayAlert("Error", "Se ha producido un error al realizar la foto.", "Ok");
             }
         }
 
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
+            consult.CancelarCreacionInspeccion(inspeccionProceso, bloquesInspeccion);
             await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
         }
     }

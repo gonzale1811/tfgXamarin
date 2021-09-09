@@ -36,5 +36,7 @@ namespace InspectionManager.Servicios
         void AddPreguntasValor(List<IPregunta<int>> preguntasValor);
 
         void SetBloquesToInspeccion(Inspeccion inspeccion);
+
+        void CancelarCreacionInspeccion(Inspeccion inspeccion, List<Bloque> bloques);
     }
 }

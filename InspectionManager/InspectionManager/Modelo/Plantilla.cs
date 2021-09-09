@@ -68,13 +68,13 @@ namespace InspectionManager.Modelo
             switch (Trabajo)
             {
                 case TipoTrabajo.Oficina:
-                    return new List<string>() { "Secretario/a", "Oficinista", "Jefe de proyecto", "Jefe de equipo" };
+                    return new List<string>() { "Secretario", "Oficinista", "Jefe de proyecto", "Jefe de equipo" };
                 case TipoTrabajo.Obra:
                     return new List<string>() { "Peon", "Oficial", "Encargado", "Jefe de obra" };
                 case TipoTrabajo.Fabrica:
                     return new List<string>() { "Peon", "Maquinista", "Encargado" };
                 case TipoTrabajo.Servicios:
-                    return new List<string>() { "Hosteleria", "Turismo", "Medico/a", "Profesor/a" };
+                    return new List<string>() { "Hosteleria", "Turismo", "Medico", "Profesor" };
                 default:
                     return new List<string>();
             }

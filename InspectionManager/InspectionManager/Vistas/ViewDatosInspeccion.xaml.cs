@@ -76,22 +76,27 @@ namespace InspectionManager.Vistas
         {
             if (String.IsNullOrWhiteSpace(nombreEntry.Text))
             {
-                mostrarError("nombre");
+                mostrarError("El campo nombre no puede estar vacio.");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(calleEntry.Text))
             {
-                mostrarError("calle");
+                mostrarError("El campo calle no puede estar vacio.");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(localidadEntry.Text))
             {
-                mostrarError("localidad");
+                mostrarError("El campo localidad no puede estar vacio.");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(codigoPostalEntry.Text))
             {
-                mostrarError("codigo postal");
+                mostrarError("El campo codigo postal no puede estar vacio.");
+                return false;
+            }
+            if(codigoPostalEntry.Text.Length != 5)
+            {
+                mostrarError("El codigo postal debe tener una longitud de 5 digitos.");
                 return false;
             }
 
@@ -100,7 +105,7 @@ namespace InspectionManager.Vistas
 
         private void mostrarError(string error)
         {
-            errorLabel.Text = "El campo "+error+" no puede estar vacio.";
+            errorLabel.Text = error;
             errorLabel.TextColor = Color.Red;
             errorLabel.IsVisible = true;
         }

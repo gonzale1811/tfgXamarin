@@ -6,7 +6,6 @@
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Modelo" expanded="True" />
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
                 <Node name="ViewBloques.xaml" expanded="True" />

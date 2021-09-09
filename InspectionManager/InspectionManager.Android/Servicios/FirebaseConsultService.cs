@@ -355,7 +355,7 @@ namespace InspectionManager.Droid.Servicios
         {
             if(imagen != null)
             {
-                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child("evidencia-"+foto+".jpg").PutAsync(imagen).TargetUrl;
+                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child(idBloque).Child("evidencia-"+foto+".jpg").PutAsync(imagen).TargetUrl;
                 return task;
             }
             else
@@ -482,6 +482,61 @@ namespace InspectionManager.Droid.Servicios
             }
 
             documentReference.Update("bloques", bloques);
+        }
+
+        public void CancelarCreacionInspeccion(Inspeccion inspeccion, List<Bloque> bloques)
+        {
+            FirebaseFirestore instancia = DatabaseConnection.GetInstance;
+            FirebaseStorage instanciaStorage = new FirebaseStorage("inspection-manager-609e2.appspot.com");
+
+            if (bloques != null)
+            {
+                if (bloques.Count > 0)
+                {
+                    foreach(Bloque b in bloques)
+                    {
+                        if (b.PreguntasBoolean.Count > 0)
+                        {
+                            foreach(string pB in b.PreguntasBoolean)
+                            {
+                                instancia.Collection("PreguntasBooleanInspeccion").Document(pB).Delete();
+                            }
+                        }
+
+                        if(b.PreguntasTexto.Count > 0)
+                        {
+                            foreach(string pT in b.PreguntasTexto)
+                            {
+                                instancia.Collection("PreguntasTextoInspeccion").Document(pT).Delete();
+                            }
+                        }
+
+                        if(b.PreguntasValor.Count > 0)
+                        {
+                            foreach(string pV in b.PreguntasValor)
+                            {
+                                instancia.Collection("PreguntasValorInspeccion").Document(pV).Delete();
+                            }
+                        }
+
+                        if (b.Fotografias.Count > 0)
+                        {
+                            instanciaStorage.Child(inspeccion.IdInspeccion.ToString()).Child(b.IdBloque.ToString() + "_" + b.PuestoTrabajo).DeleteAsync();
+                        }
+
+                        instancia.Collection("BloquesInspeccion").Document(b.IdBloque.ToString() + "_" + b.PuestoTrabajo).Delete();
+                    }
+                }
+            }
+
+            instancia.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString()).Delete();
+
+            var carpeta = instanciaStorage.Child(inspeccion.IdInspeccion.ToString());
+
+            if (carpeta != null)
+            {
+                carpeta.DeleteAsync();
+            }
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
