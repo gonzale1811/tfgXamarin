@@ -24,13 +24,6 @@ namespace InspectionManager.Vistas
 
             consult = DependencyService.Get<IFirebaseConsultService>();
 
-            int cont = 1;
-            foreach (string s in plantilla.BloquesPlantilla)
-            {
-                Console.WriteLine("Bloque " + cont + " = " + s);
-                cont++;
-            }
-
             this.plantilla = plantilla;
             bloques = consult.GetBloquesByPlantilla(plantilla);
 
@@ -52,7 +45,7 @@ namespace InspectionManager.Vistas
             {
                 if (b.IdBloque.ToString() == idSeleccionado)
                 {
-                    await Navigation.PushAsync(new NavigationPage(new ViewPregunta(b)));
+                    await Navigation.PushAsync(new NavigationPage(new ViewPregunta(plantilla,b)));
                 }
             }
         }

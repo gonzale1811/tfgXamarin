@@ -25,6 +25,6 @@ namespace InspectionManager.Servicios
 
         List<IPregunta<int>> GetPreguntasValorByBloque(Bloque bloque);
 
-        void UploadFoto(Stream image);
+        string UploadFoto(Stream image);
     }
 }

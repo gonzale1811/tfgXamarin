@@ -828,3 +828,5 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/ee4296b9-7fc9-46b0-9dd9-c1080e2d975b.txt
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/f4483143-1149-4377-82cb-70367ffec626.txt
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/f7dfdeeb-5291-40af-b44c-5c7d8739bc60.txt
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/add_foto_black.png
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/add_foto_white.png

@@ -62,5 +62,22 @@ namespace InspectionManager.Modelo
                     return null;
             }
         }
+
+        public List<string> PuestosDelTipoTrabajo()
+        {
+            switch (Trabajo)
+            {
+                case TipoTrabajo.Oficina:
+                    return new List<string>() { "Secretario/a", "Oficinista", "Jefe de proyecto", "Jefe de equipo" };
+                case TipoTrabajo.Obra:
+                    return new List<string>() { "Peon", "Oficial", "Encargado", "Jefe de obra" };
+                case TipoTrabajo.Fabrica:
+                    return new List<string>() { "Peon", "Maquinista", "Encargado" };
+                case TipoTrabajo.Servicios:
+                    return new List<string>() { "Hosteleria", "Turismo", "Medico/a", "Profesor/a" };
+                default:
+                    return new List<string>();
+            }
+        }
     }
 }

@@ -357,11 +357,16 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
-        public async void UploadFoto(Stream imagen)
+        public string UploadFoto(Stream imagen)
         {
             if(imagen != null)
             {
-                var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child("prueba").Child("image.jpg").PutAsync(imagen);
+                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child("prueba").Child("image2.jpg").PutAsync(imagen).TargetUrl;
+                return task;
+            }
+            else
+            {
+                return null;
             }
         }
 

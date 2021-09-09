@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using FFImageLoading;
-using FFImageLoading.Work;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
@@ -17,14 +13,25 @@ namespace InspectionManager.Vistas
         private List<IPregunta<string>> preguntasString;
         private List<IPregunta<bool>> preguntasBoolean;
         private List<IPregunta<int>> preguntasInt;
+        private Plantilla plantillaEmpleada;
         private Bloque bloque;
-        private Image imagen;
+        private Bloque bloqueInspeccion;
+        private Picker picker;
+        private Label puesto;
+        private Button puestoSeleccionado;
 
         private readonly string MENSAJE = "Responde aqui a la pregunta";
 
-        public ViewPregunta(Bloque bloqueSeleccionado)
+        public ViewPregunta(Plantilla plantilla, Bloque bloqueSeleccionado)
         {
             InitializeComponent();
+
+            plantillaEmpleada = plantilla;
+
+            bloqueInspeccion = new Bloque(bloqueSeleccionado.Nombre);
+            bloqueInspeccion.PreguntasTexto = bloqueSeleccionado.PreguntasTexto;
+            bloqueInspeccion.PreguntasBoolean = bloqueSeleccionado.PreguntasBoolean;
+            bloqueInspeccion.PreguntasValor = bloqueSeleccionado.PreguntasValor;
 
             camera = new CameraService();
 
@@ -34,12 +41,66 @@ namespace InspectionManager.Vistas
             preguntasBoolean = consult.GetPreguntasBooleanByBloque(bloqueSeleccionado);
             preguntasInt = consult.GetPreguntasValorByBloque(bloqueSeleccionado);
 
+            puesto = new Label
+            {
+                Text = "Seleccione el puesto para el que rellena el bloque.",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center
+            };
+
+            puesto.FontSize = 24;
+
+            layoutPreguntas.Children.Add(puesto);
+
+            List<string> opcionesPicker = plantillaEmpleada.PuestosDelTipoTrabajo();
+
+            picker = new Picker();
+
+            picker.ItemsSource = opcionesPicker;
+            picker.Title = "Seleccione el puesto de trabajo";
+
+            layoutPreguntas.Children.Add(picker);
+
+            puestoSeleccionado = new Button
+            {
+                Text = "Seleccionar",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+
+            puestoSeleccionado.Clicked += ProcesarPuestoSeleccionado;
+
+            layoutPreguntas.Children.Add(puestoSeleccionado);
+        }
+
+        public async void ProcesarPuestoSeleccionado(object sender, EventArgs e)
+        {
+            if (picker.SelectedItem == null)
+            {
+                await DisplayAlert("Error", "Para continuar seleccione un puesto de trabajo", "Ok");
+            }
+            else
+            {
+                bloqueInspeccion.PuestoTrabajo = picker.SelectedItem.ToString();
+                layoutPreguntas.Children.Remove(puesto);
+                layoutPreguntas.Children.Remove(picker);
+                layoutPreguntas.Children.Remove(puestoSeleccionado);
+
+                CargarPreguntasDelBloque();
+            }
+        }
+
+        private void CargarPreguntasDelBloque()
+        {
             Label tituloTexto = new Label();
             tituloTexto.Text = "Preguntas de texto";
+            tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
             tituloTexto.FontSize = 24;
             layoutPreguntas.Children.Add(tituloTexto);
 
-            foreach(IPregunta<string> pregunta in preguntasString)
+            foreach (IPregunta<string> pregunta in preguntasString)
             {
                 Label texto = new Label();
                 texto.Text = pregunta.Nombre;
@@ -52,6 +113,7 @@ namespace InspectionManager.Vistas
 
             Label tituloBoolean = new Label();
             tituloBoolean.Text = "Preguntas de verdadero/falso";
+            tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
             tituloBoolean.FontSize = 24;
             Label explicacion = new Label();
             explicacion.Text = "Marque los check si es verdadero.";
@@ -59,7 +121,7 @@ namespace InspectionManager.Vistas
             layoutPreguntas.Children.Add(tituloBoolean);
             layoutPreguntas.Children.Add(explicacion);
 
-            foreach(IPregunta<bool> pregunta1 in preguntasBoolean)
+            foreach (IPregunta<bool> pregunta1 in preguntasBoolean)
             {
                 Label texto = new Label();
                 texto.Text = pregunta1.Nombre;
@@ -71,10 +133,11 @@ namespace InspectionManager.Vistas
 
             Label tituloValor = new Label();
             tituloValor.Text = "Preguntas numericas";
+            tituloValor.HorizontalTextAlignment = TextAlignment.Center;
             tituloValor.FontSize = 24;
             layoutPreguntas.Children.Add(tituloValor);
 
-            foreach(IPregunta<int> pregunta2 in preguntasInt)
+            foreach (IPregunta<int> pregunta2 in preguntasInt)
             {
                 Label texto = new Label();
                 texto.Text = pregunta2.Nombre;
@@ -98,7 +161,7 @@ namespace InspectionManager.Vistas
 
             Button foto = new Button
             {
-                Text = "Foto",
+                ImageSource = "add_foto_black.png",
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
@@ -108,36 +171,29 @@ namespace InspectionManager.Vistas
                 HorizontalOptions = LayoutOptions.EndAndExpand,
             };
 
-            Button descargar = new Button
-            {
-                Text = "Descargar",
-                HorizontalOptions = LayoutOptions.FillAndExpand
-            };
-
             cancelar.Clicked += ProcesarCancelar;
             foto.Clicked += ProcesarFotografia;
             aceptar.Clicked += ProcesarAceptar;
-            descargar.Clicked += ProcesarDescargar;
-
-            imagen = new Image();
 
             botones.Children.Add(cancelar);
             botones.Children.Add(foto);
             botones.Children.Add(aceptar);
-            botones.Children.Add(descargar);
 
             layoutPreguntas.Children.Add(botones);
-            layoutPreguntas.Children.Add(imagen);
-        }
-
-        private void ProcesarDescargar(object sender, EventArgs e)
-        {
-            imagen.Source = Xamarin.Forms.ImageSource.FromUri(new Uri("https://firebasestorage.googleapis.com/v0/b/inspection-manager-609e2.appspot.com/o/prueba%2Fcomo_extraer_un_texto_de_una_imagen.jpg?alt=media&token=69167d0b-dc25-462e-bd8f-1993ad124c65"));
         }
 
         public void ProcesarAceptar(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int numeroPreguntasTexto = 
+
+            foreach(View v in layoutPreguntas.Children)
+            {
+                Type tipo = v.GetType();
+                if (tipo.Equals(typeof(Entry)))
+                {
+
+                }
+            }
         }
 
         public async void ProcesarFotografia(object sender, EventArgs e)
@@ -146,7 +202,8 @@ namespace InspectionManager.Vistas
             {
                 var resultado = await camera.TakePhoto();
                 var subida = resultado;
-                consult.UploadFoto(subida);
+                string url = consult.UploadFoto(subida);
+                bloqueInspeccion.Fotografias.Add(url);
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
             }
             catch (Exception)
@@ -158,17 +215,6 @@ namespace InspectionManager.Vistas
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
-        }
-
-        private byte[] ImageSourceToByteArray(Xamarin.Forms.ImageSource imagen)
-        {
-            StreamImageSource streamImageSource = (StreamImageSource)imagen;
-            System.Threading.CancellationToken cancellationToken = System.Threading.CancellationToken.None;
-            Task<Stream> task = streamImageSource.Stream(cancellationToken);
-            Stream stream = task.Result;
-            byte[] bytesAvaliable = new byte[stream.Length];
-            stream.Read(bytesAvaliable, 0, bytesAvaliable.Length);
-            return bytesAvaliable;
         }
     }
 }
