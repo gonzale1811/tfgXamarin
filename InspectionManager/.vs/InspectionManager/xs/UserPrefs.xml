@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPregunta.xaml.cs">
     <Files>
-      <File FileName="InspectionManager.Android/MainActivity.cs" Line="29" Column="73" />
       <File FileName="InspectionManager/App.xaml.cs" Line="17" Column="58" />
-      <File FileName="../../../../../../../../../.nuget/packages/xam.plugin.media/4.0.1.5/readme.txt" Line="1" Column="1" />
-      <File FileName="InspectionManager.Android/MainApplication.cs" Line="27" Column="53" />
-      <File FileName="InspectionManager/Servicios/CameraService.cs" Line="90" Column="55" />
-      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="93" Column="1" />
+      <File FileName="InspectionManager/Servicios/CameraService.cs" />
+      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="112" Column="14" />
+      <File FileName="InspectionManager.Android/Servicios/DatabaseConnection.cs" />
+      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" />
+      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,8 +20,12 @@
                   <Node name="ViewPregunta.xaml.cs" selected="True" />
                 </Node>
               </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
-            <Node name="InspectionManager.Android" expanded="True" />
+            <Node name="InspectionManager.Android" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="Servicios" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -33,5 +37,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android AndroidDesignerPreferredTheme="MainTheme" PreferredExecutionTarget="Android.CoworkersMatch" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android AndroidDesignerPreferredTheme="MainTheme" PreferredExecutionTarget="Android.tfg3" />
 </Properties>

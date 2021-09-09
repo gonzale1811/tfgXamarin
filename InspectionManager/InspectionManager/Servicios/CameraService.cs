@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Plugin.Media;
@@ -15,7 +16,7 @@ namespace InspectionManager.Servicios
         {
         }
 
-        public async Task<ImageSource> TakePhoto()
+        public async Task<Stream> TakePhoto()
         {
             if(!CrossMedia.Current.IsCameraAvailable ||
                 !CrossMedia.Current.IsTakePhotoSupported)
@@ -44,14 +45,10 @@ namespace InspectionManager.Servicios
                 return null;
             }
 
-            var imageSource = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                return stream;
-            });
+            var imagen = file.GetStream();
 
 
-            return imageSource;
+            return imagen;
         }
 
         private async Task<bool> RequestCameraAndGalleryPermissions()
@@ -73,27 +70,6 @@ namespace InspectionManager.Servicios
                     cameraResult != PermissionStatus.Denied &&
                     storageResult != PermissionStatus.Denied &&
                     photosResult != PermissionStatus.Denied);
-            }
-
-            return true;
-        }
-
-        private async Task<bool> RequestPermissions(List<Permission> permissionList)
-        {
-            List<PermissionStatus> permissionStatuses = new List<PermissionStatus>();
-            foreach (var permission in permissionList)
-            {
-                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(permission);
-                permissionStatuses.Add(status);
-            }
-
-            var requiresRequesst = permissionStatuses.Any(x => x != PermissionStatus.Granted);
-
-            if (requiresRequesst)
-            {
-                var permissionRequestResult = await CrossPermissions.Current.RequestPermissionsAsync(permissionList.ToArray());
-
-                return permissionRequestResult.All(x => x.Value != PermissionStatus.Denied);
             }
 
             return true;

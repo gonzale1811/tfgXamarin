@@ -7,11 +7,14 @@ using InspectionManager.Servicios;
 using Java.Util;
 using Xamarin.Forms;
 using Android.Util;
+using Android.Gms.Tasks;
+using Firebase.Storage;
+using System.IO;
 
 [assembly: Dependency(typeof(FirebaseConsultService))]
 namespace InspectionManager.Droid.Servicios
 {
-    public class FirebaseConsultService : Java.Lang.Object, IFirebaseConsultService
+    public class FirebaseConsultService : Java.Lang.Object, IFirebaseConsultService, IOnSuccessListener, IOnFailureListener
     {
 
         private readonly string TAG = "MYAPP";
@@ -354,6 +357,14 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
+        public async void UploadFoto(Stream imagen)
+        {
+            if(imagen != null)
+            {
+                var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child("prueba").Child("image.jpg").PutAsync(imagen);
+            }
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)
@@ -369,6 +380,16 @@ namespace InspectionManager.Droid.Servicios
                 default:
                     return TipoTrabajo.Oficina;
             }
+        }
+
+        void IOnSuccessListener.OnSuccess(Java.Lang.Object result)
+        {
+            Log.Info(TAG, "SE HA SUBIDO LA IMAGEN CORRECTAMENTE");
+        }
+
+        void IOnFailureListener.OnFailure(Java.Lang.Exception e)
+        {
+            Log.Info(TAG, "NO SE HA PODIDO SUBIR LA IMAGEN, CAUSA = "+e.Message);
         }
     }
 }

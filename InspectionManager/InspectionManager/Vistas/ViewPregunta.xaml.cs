@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using FFImageLoading;
+using FFImageLoading.Work;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
@@ -14,6 +18,7 @@ namespace InspectionManager.Vistas
         private List<IPregunta<bool>> preguntasBoolean;
         private List<IPregunta<int>> preguntasInt;
         private Bloque bloque;
+        private Image imagen;
 
         private readonly string MENSAJE = "Responde aqui a la pregunta";
 
@@ -103,14 +108,31 @@ namespace InspectionManager.Vistas
                 HorizontalOptions = LayoutOptions.EndAndExpand,
             };
 
+            Button descargar = new Button
+            {
+                Text = "Descargar",
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
             cancelar.Clicked += ProcesarCancelar;
             foto.Clicked += ProcesarFotografia;
             aceptar.Clicked += ProcesarAceptar;
+            descargar.Clicked += ProcesarDescargar;
+
+            imagen = new Image();
 
             botones.Children.Add(cancelar);
             botones.Children.Add(foto);
             botones.Children.Add(aceptar);
+            botones.Children.Add(descargar);
+
             layoutPreguntas.Children.Add(botones);
+            layoutPreguntas.Children.Add(imagen);
+        }
+
+        private void ProcesarDescargar(object sender, EventArgs e)
+        {
+            imagen.Source = Xamarin.Forms.ImageSource.FromUri(new Uri("https://firebasestorage.googleapis.com/v0/b/inspection-manager-609e2.appspot.com/o/prueba%2Fcomo_extraer_un_texto_de_una_imagen.jpg?alt=media&token=69167d0b-dc25-462e-bd8f-1993ad124c65"));
         }
 
         public void ProcesarAceptar(object sender, EventArgs e)
@@ -123,6 +145,8 @@ namespace InspectionManager.Vistas
             try
             {
                 var resultado = await camera.TakePhoto();
+                var subida = resultado;
+                consult.UploadFoto(subida);
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
             }
             catch (Exception)
@@ -134,6 +158,17 @@ namespace InspectionManager.Vistas
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+        }
+
+        private byte[] ImageSourceToByteArray(Xamarin.Forms.ImageSource imagen)
+        {
+            StreamImageSource streamImageSource = (StreamImageSource)imagen;
+            System.Threading.CancellationToken cancellationToken = System.Threading.CancellationToken.None;
+            Task<Stream> task = streamImageSource.Stream(cancellationToken);
+            Stream stream = task.Result;
+            byte[] bytesAvaliable = new byte[stream.Length];
+            stream.Read(bytesAvaliable, 0, bytesAvaliable.Length);
+            return bytesAvaliable;
         }
     }
 }

@@ -3,8 +3,12 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "InspectionManager.Android.dll" comes first in this list. */
 		"InspectionManager.Android.dll",
+		"FFImageLoading.dll",
+		"FFImageLoading.Platform.dll",
+		"Firebase.Storage.dll",
 		"FormsViewGroup.dll",
 		"InspectionManager.dll",
+		"Newtonsoft.Json.dll",
 		"Plugin.CloudFirestore.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Media.dll",

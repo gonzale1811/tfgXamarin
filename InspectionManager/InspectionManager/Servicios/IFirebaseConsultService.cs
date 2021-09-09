@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using InspectionManager.Modelo;
 
 namespace InspectionManager.Servicios
@@ -23,5 +24,7 @@ namespace InspectionManager.Servicios
         List<IPregunta<bool>> GetPreguntasBooleanByBloque(Bloque bloque);
 
         List<IPregunta<int>> GetPreguntasValorByBloque(Bloque bloque);
+
+        void UploadFoto(Stream image);
     }
 }
