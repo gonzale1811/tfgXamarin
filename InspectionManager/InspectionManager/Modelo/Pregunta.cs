@@ -15,12 +15,6 @@ namespace InspectionManager.Modelo
             set;
         }
 
-        string PuestoTrabajo
-        {
-            get;
-            set;
-        }
-
         IRespuesta<T> RespuestaPregunta
         {
             get;

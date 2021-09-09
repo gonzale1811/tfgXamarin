@@ -17,11 +17,26 @@ namespace InspectionManager.Vistas
         private Plantilla plantilla;
         private Inspeccion inspeccionCreada;
         private List<Bloque> bloques;
+        private List<Bloque> bloquesInspeccion;
         private IFirebaseConsultService consult;
 
-        public ViewBloques(Inspeccion inspeccion, Plantilla plantilla)
+        public ViewBloques(Inspeccion inspeccion, Plantilla plantilla, List<Bloque> bloquesRecibidos)
         {
             InitializeComponent();
+
+            if (bloquesRecibidos == null)
+            {
+                bloquesInspeccion = new List<Bloque>();
+            }
+            else
+            {
+                bloquesInspeccion = bloquesRecibidos;
+            }
+
+            if (bloquesInspeccion.Count > 0)
+            {
+                finalizarButton.IsEnabled = true;
+            }
 
             inspeccionCreada = inspeccion;
 
@@ -48,13 +63,19 @@ namespace InspectionManager.Vistas
             {
                 if (b.IdBloque.ToString() == idSeleccionado)
                 {
-                    await Navigation.PushAsync(new NavigationPage(new ViewPregunta(plantilla,b)));
+                    await Navigation.PushAsync(new NavigationPage(new ViewPregunta(plantilla,inspeccionCreada,b,bloquesInspeccion)));
                 }
             }
         }
 
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
+            await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+        }
+
+        public async void ProcesarFinalizar(object sender, EventArgs e)
+        {
+            consult.SetBloquesToInspeccion(inspeccionCreada);
             await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
         }
     }

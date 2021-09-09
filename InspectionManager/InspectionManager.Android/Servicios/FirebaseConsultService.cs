@@ -14,7 +14,7 @@ using System.IO;
 [assembly: Dependency(typeof(FirebaseConsultService))]
 namespace InspectionManager.Droid.Servicios
 {
-    public class FirebaseConsultService : Java.Lang.Object, IFirebaseConsultService, IOnSuccessListener, IOnFailureListener
+    public class FirebaseConsultService : Java.Lang.Object, IFirebaseConsultService
     {
 
         private readonly string TAG = "MYAPP";
@@ -92,7 +92,6 @@ namespace InspectionManager.Droid.Servicios
             }
             else
             {
-                Log.Info(TAG, "No se han encontrado datos");
                 return inspectorActual;
             }
 
@@ -253,12 +252,7 @@ namespace InspectionManager.Droid.Servicios
 
                     if (p.BloquesPlantilla.Contains(obtenido.IdBloque.ToString()))
                     {
-                        Log.Info(TAG, "ESTE ES DE LA PLANTILLA");
                         resultado.Add(obtenido);
-                    }
-                    else
-                    {
-                        Log.Info(TAG, "ESTE NO ES DE LA PLANTILLA");
                     }
                 }
             }
@@ -357,17 +351,132 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
-        public string UploadFoto(Stream imagen)
+        public string UploadFoto(string idInspeccion, string idBloque, int foto, Stream imagen)
         {
             if(imagen != null)
             {
-                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child("prueba").Child("image2.jpg").PutAsync(imagen).TargetUrl;
-                return task;
+                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child("evidencia-"+foto+".jpg").PutAsync(imagen);
+                while (!task.GetAwaiter().IsCompleted)
+                {
+
+                }
+                //Log.Info(TAG, "RUTA DE LA IMAGEN OBTENIDA: " + task.TargetUrl);
+                return task.TargetUrl;
             }
             else
             {
                 return null;
             }
+        }
+
+        public void AddBloqueInspeccion(Bloque bloque)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("BloquesInspeccion").Document(bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo);
+
+            int cont = 0;
+
+            HashMap preguntasTexto = new HashMap();
+            foreach(string preguntaTexto in bloque.PreguntasTexto)
+            {
+                preguntasTexto.Put(cont.ToString(), preguntaTexto);
+                cont++;
+            }
+
+            cont = 0;
+
+            HashMap preguntasBoolean = new HashMap();
+            foreach(string preguntaBoolean in bloque.PreguntasBoolean)
+            {
+                preguntasBoolean.Put(cont.ToString(), preguntaBoolean);
+                cont++;
+            }
+
+            cont = 0;
+
+            HashMap preguntasValor = new HashMap();
+            foreach(string preguntaValor in bloque.PreguntasValor)
+            {
+                preguntasValor.Put(cont.ToString(), preguntaValor);
+                cont++;
+            }
+
+            var dictionary = new Dictionary<string, Java.Lang.Object>
+            {
+                {"idBloque", bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo },
+                {"nombre", bloque.Nombre },
+                {"puestoDeTrabajo", bloque.PuestoTrabajo },
+                {"preguntasTexto", preguntasTexto },
+                {"preguntasBoolean", preguntasBoolean },
+                {"preguntasValor", preguntasValor }
+            };
+            documentReference.Set(new HashMap(dictionary));
+        }
+
+        public void AddPreguntasTexto(List<IPregunta<string>> preguntasTexto)
+        {
+            foreach(IPregunta<string> preguntaTexto in preguntasTexto)
+            {
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasTextoInspeccion").Document(preguntaTexto.IdPregunta.ToString());
+                HashMap respuesta = new HashMap();
+                respuesta.Put("respuesta", preguntaTexto.RespuestaPregunta.ValorRespuesta);
+                var dictionary = new Dictionary<string, Java.Lang.Object>
+                {
+                    {"idPregunta", preguntaTexto.IdPregunta.ToString() },
+                    {"nombre", preguntaTexto.Nombre },
+                    {"respuestaTexto", respuesta }
+                };
+                documentReference.Set(new HashMap(dictionary));
+            }
+        }
+
+        public void AddPreguntasBoolean(List<IPregunta<bool>> preguntasBoolean)
+        {
+            foreach(IPregunta<bool> preguntaBoolean in preguntasBoolean)
+            {
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasBooleanInspeccion").Document(preguntaBoolean.IdPregunta.ToString());
+                HashMap respuesta = new HashMap();
+                respuesta.Put("respuesta", preguntaBoolean.RespuestaPregunta.ValorRespuesta);
+                var dictionary = new Dictionary<string, Java.Lang.Object>
+                {
+                    {"idPregunta", preguntaBoolean.IdPregunta.ToString() },
+                    {"nombre", preguntaBoolean.Nombre },
+                    {"respuestaBoolean", respuesta }
+                };
+                documentReference.Set(new HashMap(dictionary));
+            }
+        }
+
+        public void AddPreguntasValor(List<IPregunta<int>> preguntasValor)
+        {
+            foreach(IPregunta<int> preguntaInt in preguntasValor)
+            {
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasValorInspeccion").Document(preguntaInt.IdPregunta.ToString());
+                HashMap respuesta = new HashMap();
+                respuesta.Put("respuesta", preguntaInt.RespuestaPregunta.ValorRespuesta);
+                var dictionary = new Dictionary<string, Java.Lang.Object>
+                {
+                    {"idPregunta", preguntaInt.IdPregunta.ToString() },
+                    {"nombre", preguntaInt.Nombre },
+                    {"respuestaValor", respuesta }
+                };
+                documentReference.Set(new HashMap(dictionary));
+            }
+        }
+
+        public void SetBloquesToInspeccion(Inspeccion inspeccion)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString());
+
+            int cont = 0;
+
+            HashMap bloques = new HashMap();
+            foreach(string bloque in inspeccion.Bloques)
+            {
+                bloques.Put(cont.ToString(), bloque);
+                cont++;
+            }
+
+            documentReference.Update("bloques", bloques);
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
@@ -385,16 +494,6 @@ namespace InspectionManager.Droid.Servicios
                 default:
                     return TipoTrabajo.Oficina;
             }
-        }
-
-        void IOnSuccessListener.OnSuccess(Java.Lang.Object result)
-        {
-            Log.Info(TAG, "SE HA SUBIDO LA IMAGEN CORRECTAMENTE");
-        }
-
-        void IOnFailureListener.OnFailure(Java.Lang.Exception e)
-        {
-            Log.Info(TAG, "NO SE HA PODIDO SUBIR LA IMAGEN, CAUSA = "+e.Message);
         }
     }
 }

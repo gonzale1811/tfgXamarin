@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
@@ -13,25 +14,41 @@ namespace InspectionManager.Vistas
         private List<IPregunta<string>> preguntasString;
         private List<IPregunta<bool>> preguntasBoolean;
         private List<IPregunta<int>> preguntasInt;
+        private List<Bloque> bloquesInspeccion;
+        private List<string> puestosSeleccionados;
         private Plantilla plantillaEmpleada;
         private Bloque bloque;
+        private Inspeccion inspeccionProceso;
         private Bloque bloqueInspeccion;
         private Picker picker;
         private Label puesto;
         private Button puestoSeleccionado;
 
+        private int contadorFotos;
+
         private readonly string MENSAJE = "Responde aqui a la pregunta";
 
-        public ViewPregunta(Plantilla plantilla, Bloque bloqueSeleccionado)
+        public ViewPregunta(Plantilla plantilla, Inspeccion inspeccionCreada, Bloque bloqueSeleccionado, List<Bloque> bloques)
         {
             InitializeComponent();
+
+            contadorFotos = 1;
+
+            inspeccionProceso = inspeccionCreada;
+            bloquesInspeccion = bloques;
+            puestosSeleccionados = new List<string>();
+
+            foreach(Bloque bloqueLista in bloquesInspeccion)
+            {
+                puestosSeleccionados.Add(bloqueLista.PuestoTrabajo);
+            }
 
             plantillaEmpleada = plantilla;
 
             bloqueInspeccion = new Bloque(bloqueSeleccionado.Nombre);
-            bloqueInspeccion.PreguntasTexto = bloqueSeleccionado.PreguntasTexto;
-            bloqueInspeccion.PreguntasBoolean = bloqueSeleccionado.PreguntasBoolean;
-            bloqueInspeccion.PreguntasValor = bloqueSeleccionado.PreguntasValor;
+            //bloqueInspeccion.PreguntasTexto = bloqueSeleccionado.PreguntasTexto;
+            //bloqueInspeccion.PreguntasBoolean = bloqueSeleccionado.PreguntasBoolean;
+            //bloqueInspeccion.PreguntasValor = bloqueSeleccionado.PreguntasValor;
 
             camera = new CameraService();
 
@@ -83,12 +100,20 @@ namespace InspectionManager.Vistas
             }
             else
             {
-                bloqueInspeccion.PuestoTrabajo = picker.SelectedItem.ToString();
-                layoutPreguntas.Children.Remove(puesto);
-                layoutPreguntas.Children.Remove(picker);
-                layoutPreguntas.Children.Remove(puestoSeleccionado);
+                if (puestosSeleccionados.Contains(picker.SelectedItem.ToString()))
+                {
+                    await DisplayAlert("Error", "Ya ha rellenado un bloque para dicho puesto, seleccione otro", "Ok");
+                }
+                else
+                {
+                    bloqueInspeccion.PuestoTrabajo = picker.SelectedItem.ToString();
+                    inspeccionProceso.Bloques.Add(bloqueInspeccion.IdBloque.ToString() + "_" + bloqueInspeccion.PuestoTrabajo);
+                    layoutPreguntas.Children.Remove(puesto);
+                    layoutPreguntas.Children.Remove(picker);
+                    layoutPreguntas.Children.Remove(puestoSeleccionado);
 
-                CargarPreguntasDelBloque();
+                    CargarPreguntasDelBloque();
+                }
             }
         }
 
@@ -182,11 +207,15 @@ namespace InspectionManager.Vistas
             layoutPreguntas.Children.Add(botones);
         }
 
-        public void ProcesarAceptar(object sender, EventArgs e)
+        public async void ProcesarAceptar(object sender, EventArgs e)
         {
             int numeroPreguntasTexto = preguntasString.Count;
             int numeroPreguntasBoolean = preguntasBoolean.Count;
             int numeroPreguntasInt = preguntasInt.Count;
+
+            List<IPregunta<string>> preguntasTextoRespondidas = new List<IPregunta<string>>();
+            List<IPregunta<bool>> preguntasBooleanRespondidas = new List<IPregunta<bool>>();
+            List<IPregunta<int>> preguntasIntRespondidas = new List<IPregunta<int>>();
 
             foreach(View v in layoutPreguntas.Children)
             {
@@ -197,20 +226,40 @@ namespace InspectionManager.Vistas
                     var respuesta = (Entry)v;
                     if (numeroPreguntasTexto > 0)
                     {
-                        preguntasString[numeroPreguntasTexto - 1].Responder(respuesta.Text);
+
+                        IPregunta<string> preguntaTextoRespondida = new PreguntaTexto(preguntasString[numeroPreguntasTexto - 1].Nombre);
+                        bloqueInspeccion.AddPreguntaTexto(preguntaTextoRespondida.IdPregunta.ToString());
+                        preguntaTextoRespondida.Responder(respuesta.Text);
+                        preguntasTextoRespondidas.Add(preguntaTextoRespondida);
                         numeroPreguntasTexto--;
                     }
                     else
                     {
-                        preguntasInt[numeroPreguntasInt - 1].Responder(Int32.Parse(respuesta.Text));
+                        IPregunta<int> preguntaIntRespondida = new PreguntaValor(preguntasInt[numeroPreguntasInt - 1].Nombre);
+                        bloqueInspeccion.AddPreguntaValor(preguntaIntRespondida.IdPregunta.ToString());
+                        preguntaIntRespondida.Responder(Int32.Parse(respuesta.Text));
+                        preguntasIntRespondidas.Add(preguntaIntRespondida);
                         numeroPreguntasBoolean--;
                     }
                 }else if (tipo.Equals(typeof(CheckBox)))
                 {
                     var respuesta = (CheckBox)v;
-                    preguntasBoolean[numeroPreguntasBoolean - 1].Responder(respuesta.IsChecked);
+                    IPregunta<bool> preguntaBooleanRespondida = new PreguntaBoolean(preguntasBoolean[numeroPreguntasBoolean - 1].Nombre);
+                    bloqueInspeccion.AddPreguntaBoolean(preguntaBooleanRespondida.IdPregunta.ToString());
+                    preguntaBooleanRespondida.Responder(respuesta.IsChecked);
+                    preguntasBooleanRespondidas.Add(preguntaBooleanRespondida);
+                    numeroPreguntasBoolean--;
                 }
             }
+
+            bloquesInspeccion.Add(bloqueInspeccion);
+
+            consult.AddBloqueInspeccion(bloqueInspeccion);
+            consult.AddPreguntasTexto(preguntasTextoRespondidas);
+            consult.AddPreguntasBoolean(preguntasBooleanRespondidas);
+            consult.AddPreguntasValor(preguntasIntRespondidas);
+
+            await Navigation.PushModalAsync(new NavigationPage(new ViewBloques(inspeccionProceso, plantillaEmpleada, bloquesInspeccion)));
         }
 
         public async void ProcesarFotografia(object sender, EventArgs e)
@@ -219,13 +268,17 @@ namespace InspectionManager.Vistas
             {
                 var resultado = await camera.TakePhoto();
                 var subida = resultado;
-                string url = consult.UploadFoto(subida);
+                string url = consult.UploadFoto(inspeccionProceso.IdInspeccion.ToString(), bloqueInspeccion.IdBloque.ToString()+"_"+bloqueInspeccion.PuestoTrabajo
+                    , contadorFotos, subida);
                 bloqueInspeccion.Fotografias.Add(url);
+                contadorFotos++;
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                await DisplayAlert("Error", "Error en la camara", "Ok");
+                await DisplayAlert("Error", exception.Message, "Ok");
+                Console.WriteLine("ERROR CAMARA");
+                Console.WriteLine(exception.StackTrace);
             }
         }
 

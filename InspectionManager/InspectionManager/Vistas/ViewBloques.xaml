@@ -28,6 +28,9 @@
             </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <Button Text="Cancelar" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Button x:Name="cancelarButton" Text="Cancelar" HorizontalOptions="Start" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+            <Button x:Name="finalizarButton" Text="Finalizar" IsEnabled="False" HorizontalOptions="End" VerticalOptions="Center" Clicked="ProcesarFinalizar"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

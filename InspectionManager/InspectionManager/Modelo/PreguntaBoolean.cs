@@ -3,11 +3,10 @@ namespace InspectionManager.Modelo
 {
     public class PreguntaBoolean: IPregunta<bool>
     {
-        public PreguntaBoolean(string nombre, string tipoTrabajo)
+        public PreguntaBoolean(string nombre)
         {
             IdPregunta = Guid.NewGuid();
             Nombre = nombre;
-            PuestoTrabajo = tipoTrabajo;
             RespuestaPregunta = null;
         }
 
@@ -15,13 +14,11 @@ namespace InspectionManager.Modelo
         {
             IdPregunta = idPregunta;
             Nombre = nombre;
-            PuestoTrabajo = null;
             RespuestaPregunta = null;
         }
 
         public Guid IdPregunta { get; set; }
         public string Nombre { get; set; }
-        public string PuestoTrabajo { get; set; }
         public IRespuesta<bool> RespuestaPregunta { get; set; }
 
         public void Responder(bool valor)
