@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ky/daU/gjn8ZfbMnrjFGKVOueMvti2Xqb8ielOxdAYFHGJL5cJrZz7A5YglNRKYARJzvYDCHoRtRUZ/xxTOzyQ==",
+  "dgSpecHash": "eICby/LLBIc8uhydBF9dto4StzYHS2yWkzifRDf0bFWGrsS9KdmRGSIK+I0I3gxJZfhLj7qk1A2rTgTmh1Alkw==",
   "success": true,
   "projectFilePath": "/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.iOS/InspectionManager.iOS.csproj",
   "expectedPackageFiles": [
+    "/Users/david/.nuget/packages/firebasestorage.net/1.0.3/firebasestorage.net.1.0.3.nupkg.sha512",
+    "/Users/david/.nuget/packages/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg.sha512",
     "/Users/david/.nuget/packages/plugin.permissions/3.0.0.12/plugin.permissions.3.0.0.12.nupkg.sha512",
     "/Users/david/.nuget/packages/webp.touch/1.0.8/webp.touch.1.0.8.nupkg.sha512",
     "/Users/david/.nuget/packages/xam.plugin.media/4.0.1.5/xam.plugin.media.4.0.1.5.nupkg.sha512",

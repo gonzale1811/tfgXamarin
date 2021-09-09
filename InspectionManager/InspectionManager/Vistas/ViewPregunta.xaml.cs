@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Firebase.Storage;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
@@ -237,7 +238,15 @@ namespace InspectionManager.Vistas
                     {
                         IPregunta<int> preguntaIntRespondida = new PreguntaValor(preguntasInt[numeroPreguntasInt - 1].Nombre);
                         bloqueInspeccion.AddPreguntaValor(preguntaIntRespondida.IdPregunta.ToString());
-                        preguntaIntRespondida.Responder(Int32.Parse(respuesta.Text));
+                        var respuestaEntry = respuesta.Text;
+                        if (respuestaEntry != null)
+                        {
+                            preguntaIntRespondida.Responder(Int32.Parse(respuesta.Text));
+                        }
+                        else
+                        {
+                            preguntaIntRespondida.Responder(0);
+                        }
                         preguntasIntRespondidas.Add(preguntaIntRespondida);
                         numeroPreguntasBoolean--;
                     }
@@ -268,15 +277,23 @@ namespace InspectionManager.Vistas
             {
                 var resultado = await camera.TakePhoto();
                 var subida = resultado;
-                string url = consult.UploadFoto(inspeccionProceso.IdInspeccion.ToString(), bloqueInspeccion.IdBloque.ToString()+"_"+bloqueInspeccion.PuestoTrabajo
-                    , contadorFotos, subida);
-                bloqueInspeccion.Fotografias.Add(url);
+                string url = "";
+
+                if (subida != null)
+                {
+                    var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(inspeccionProceso.IdInspeccion.ToString()).Child("evidencia-" + contadorFotos + ".jpg").PutAsync(subida);
+                    //Log.Info(TAG, "RUTA DE LA IMAGEN OBTENIDA: " + task.TargetUrl);
+                    bloqueInspeccion.Fotografias.Add(task);
+                    Console.WriteLine("RUTA PARA LA IMAGEN ALMACENADA = " + task);
+                    url = task;
+                }
+
                 contadorFotos++;
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");
             }
             catch (Exception exception)
             {
-                await DisplayAlert("Error", exception.Message, "Ok");
+                //await DisplayAlert("Error", exception.Message, "Ok");
                 Console.WriteLine("ERROR CAMARA");
                 Console.WriteLine(exception.StackTrace);
             }

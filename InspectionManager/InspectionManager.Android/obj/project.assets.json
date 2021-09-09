@@ -3298,6 +3298,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FirebaseStorage.net": "1.0.3",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.FFImageLoading": "2.4.11.982",

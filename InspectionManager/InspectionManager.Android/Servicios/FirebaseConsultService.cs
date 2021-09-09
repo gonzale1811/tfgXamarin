@@ -400,11 +400,21 @@ namespace InspectionManager.Droid.Servicios
                 cont++;
             }
 
+            cont = 0;
+
+            HashMap fotografias = new HashMap();
+            foreach(string foto in bloque.Fotografias)
+            {
+                fotografias.Put(cont.ToString(), foto);
+                cont++;
+            }
+
             var dictionary = new Dictionary<string, Java.Lang.Object>
             {
                 {"idBloque", bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo },
                 {"nombre", bloque.Nombre },
                 {"puestoDeTrabajo", bloque.PuestoTrabajo },
+                {"fotografias", fotografias },
                 {"preguntasTexto", preguntasTexto },
                 {"preguntasBoolean", preguntasBoolean },
                 {"preguntasValor", preguntasValor }
