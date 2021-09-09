@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InspectionManager.Vistas.ViewDatosInspeccion"
+    Title="Nueva inspeccion">
+    <ContentPage.Content>
+        <StackLayout x:Name="commonLayout" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Datos inspeccion" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="nombreEntry" Placeholder="Nombre"/>
+            <DatePicker x:Name="fechaInicioPicker" Format="dd/MM/yyyy" DateSelected="FechaSeleccionadaInicio"/>
+            <DatePicker x:Name="fechaFinPicker" Format="dd/MM/yyyy" DateSelected="FechaSeleccionadaFin"/>
+            <Entry x:Name="calleEntry" Placeholder="Calle" Keyboard="Text"/>
+            <Entry x:Name="numeroEntry" Placeholder="Numero" Keyboard="Numeric"/>
+            <Entry x:Name="localidadEntry" Placeholder="Localidad" Keyboard="Text"/>
+            <Entry x:Name="codigoPostalEntry" Placeholder="Codigo postal" Keyboard="Numeric"/>
+            <StackLayout x:Name="otherButtonsLayout" Orientation="Horizontal">
+                <Button x:Name="cancelButton" Text="Cancelar" Clicked="ProcesarCancelarCreacion" HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="addBloqueButton" Text="Seleccionar plantilla" Clicked="ProcesarAddBloque" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+            <Label x:Name="errorLabel" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

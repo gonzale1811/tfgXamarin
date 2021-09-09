@@ -1,8 +1,8 @@
-extern "C" void xamarin_create_classes();
+extern "C" void xamarin_create_classes_Xamarin_iOS();
 
 static void xamarin_invoke_registration_methods ()
 {
-	xamarin_create_classes();
+	xamarin_create_classes_Xamarin_iOS();
 }
 
 #include "xamarin/xamarin.h"

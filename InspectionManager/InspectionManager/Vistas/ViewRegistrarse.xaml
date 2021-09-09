@@ -5,7 +5,7 @@
     x:Class="InspectionManager.Vistas.ViewRegistrarse">
     <ContentPage.Content>
         <StackLayout x:Name="stackLayoutRegistro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label Text="Registro de usuario" TextColor="Black" FontSize="Large" VerticalOptions="Center"
+            <Label Text="Registro de usuario" TextColor="Black" FontSize="Title" VerticalOptions="Center"
                 HorizontalOptions="Center"/>
             <Entry x:Name="dniEntry" Placeholder="DNI"/>
             <Entry x:Name="nombreEntry" Placeholder="Nombre"/>

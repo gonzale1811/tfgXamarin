@@ -6,15 +6,10 @@ namespace InspectionManager.Modelo
         Guid IdPregunta
         {
             get;
-        }
-
-        string Nombre
-        {
-            get;
             set;
         }
 
-        string PuestoTrabajo
+        string Nombre
         {
             get;
             set;

@@ -14,16 +14,19 @@ namespace InspectionManager
         {
             InitializeComponent();
 
+            Plugin.Media.CrossMedia.Current.Initialize();
+
             auth = DependencyService.Get<IFirebaseAuthService>();
 
             if (auth.IsUserSigned())
             {
-                MainPage = new ViewMenuPrincipal();
+                MainPage = new NavigationPage(new ViewMenuPrincipal());
             }
             else
             {
-                MainPage = new ViewLogin();
+                MainPage = new NavigationPage(new ViewLogin());
             }
+            //MainPage = new NavigationPage(new ViewPlantillas());
         }
 
         protected override void OnStart()

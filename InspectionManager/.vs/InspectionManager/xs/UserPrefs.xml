@@ -5,25 +5,19 @@
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewLogin.xaml" expanded="True" />
-                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
-                <Node name="ViewRegistrarse.xaml" expanded="True" selected="True" />
+                <Node name="ViewBloques.xaml" expanded="True" />
+                <Node name="ViewDatosInspeccion.xaml" expanded="True" />
+                <Node name="ViewPlantillas.xaml" expanded="True" />
+                <Node name="ViewPregunta.xaml" expanded="True">
+                  <Node name="ViewPregunta.xaml.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Packages" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
-                <Node name="values" expanded="True" />
-              </Node>
-              <Node name="Servicios" expanded="True" />
-            </Node>
-            <Node name="InspectionManager.iOS" expanded="True">
-              <Node name="Properties" expanded="True" />
-              <Node name="Resources" expanded="True" />
               <Node name="Servicios" expanded="True" />
             </Node>
           </Node>
@@ -37,5 +31,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg3" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.CoworkersMatch" />
 </Properties>

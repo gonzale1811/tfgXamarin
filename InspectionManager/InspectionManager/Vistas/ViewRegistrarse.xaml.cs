@@ -53,8 +53,6 @@ namespace InspectionManager.Vistas
         void FechaSeleccionada(object sender, DateChangedEventArgs e)
         {
 
-            mostrarError(fechaNacimientoPicker.Date.ToString(), Color.Green);
-
             if (fechaNacimientoPicker.Date.AddYears(18) <= DateTime.Today)
             {
                 fechaNacimiento = fechaNacimientoPicker.Date;
