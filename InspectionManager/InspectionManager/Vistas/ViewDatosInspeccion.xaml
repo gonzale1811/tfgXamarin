@@ -14,12 +14,9 @@
             <Entry x:Name="numeroEntry" Placeholder="Numero" Keyboard="Numeric"/>
             <Entry x:Name="localidadEntry" Placeholder="Localidad" Keyboard="Text"/>
             <Entry x:Name="codigoPostalEntry" Placeholder="Codigo postal" Keyboard="Numeric"/>
-            <StackLayout x:Name="buttonAddLayout" Orientation="Horizontal">
-                <Button x:Name="addBloqueButton" Text="Añadir bloque" Clicked="ProcesarAddBloque" HorizontalOptions="Center" VerticalOptions="Center"/>
-            </StackLayout>
             <StackLayout x:Name="otherButtonsLayout" Orientation="Horizontal">
-                <Button x:Name="cancelButton" Text="Cancelar" Clicked="ProcesarCancelarCreacion" HorizontalOptions="Start"/>
-                <Button x:Name="guardarButton" Text="Terminar" IsEnabled="False" Clicked="ProcesarGuardarInspeccion" HorizontalOptions="End"/>
+                <Button x:Name="cancelButton" Text="Cancelar" Clicked="ProcesarCancelarCreacion" HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="addBloqueButton" Text="Seleccionar plantilla" Clicked="ProcesarAddBloque" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
             </StackLayout>
             <Label x:Name="errorLabel" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>

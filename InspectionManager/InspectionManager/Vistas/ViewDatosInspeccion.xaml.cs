@@ -64,17 +64,12 @@ namespace InspectionManager.Vistas
                 propietario.Inspecciones.Add(nuevaInspeccion.IdInspeccion.ToString());
                 consult.AddInspeccion(nuevaInspeccion);
                 consult.AddInspeccionToInspector(propietario, nuevaInspeccion);
-                await Navigation.PushModalAsync(new ViewPlantillas());
+                await Navigation.PushModalAsync(new ViewPlantillas(nuevaInspeccion));
             }
             else
             {
                 await DisplayAlert("Error", "Alguno de los campos no ha sido cumplimentado", "Ok");
             }
-        }
-
-        public void ProcesarGuardarInspeccion(object sender, EventArgs e)
-        {
-
         }
 
         private bool comprobarCampos()

@@ -15,12 +15,15 @@ namespace InspectionManager.Vistas
     public partial class ViewBloques : ContentPage
     {
         private Plantilla plantilla;
+        private Inspeccion inspeccionCreada;
         private List<Bloque> bloques;
         private IFirebaseConsultService consult;
 
-        public ViewBloques(Plantilla plantilla)
+        public ViewBloques(Inspeccion inspeccion, Plantilla plantilla)
         {
             InitializeComponent();
+
+            inspeccionCreada = inspeccion;
 
             consult = DependencyService.Get<IFirebaseConsultService>();
 

@@ -13,12 +13,15 @@ namespace InspectionManager.Vistas
     {
         private IFirebaseConsultService consult;
         private List<Plantilla> plantillas;
+        private Inspeccion nuevaInspeccion;
 
         public ObservableCollection<PlantillaListViewModel> Items { get; set; }
 
-        public ViewPlantillas()
+        public ViewPlantillas(Inspeccion inspeccion)
         {
             InitializeComponent();
+
+            nuevaInspeccion = inspeccion;
 
             consult = DependencyService.Get<IFirebaseConsultService>();
 
@@ -43,7 +46,7 @@ namespace InspectionManager.Vistas
             {
                 if (p.IdPlantilla.ToString() == idSeleccionado)
                 {
-                    await Navigation.PushAsync(new ViewBloques(p));
+                    await Navigation.PushAsync(new ViewBloques(nuevaInspeccion,p));
                 }
             }
             
