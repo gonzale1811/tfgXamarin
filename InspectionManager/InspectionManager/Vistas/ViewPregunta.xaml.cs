@@ -184,14 +184,31 @@ namespace InspectionManager.Vistas
 
         public void ProcesarAceptar(object sender, EventArgs e)
         {
-            int numeroPreguntasTexto = 
+            int numeroPreguntasTexto = preguntasString.Count;
+            int numeroPreguntasBoolean = preguntasBoolean.Count;
+            int numeroPreguntasInt = preguntasInt.Count;
 
             foreach(View v in layoutPreguntas.Children)
             {
                 Type tipo = v.GetType();
+
                 if (tipo.Equals(typeof(Entry)))
                 {
-
+                    var respuesta = (Entry)v;
+                    if (numeroPreguntasTexto > 0)
+                    {
+                        preguntasString[numeroPreguntasTexto - 1].Responder(respuesta.Text);
+                        numeroPreguntasTexto--;
+                    }
+                    else
+                    {
+                        preguntasInt[numeroPreguntasInt - 1].Responder(Int32.Parse(respuesta.Text));
+                        numeroPreguntasBoolean--;
+                    }
+                }else if (tipo.Equals(typeof(CheckBox)))
+                {
+                    var respuesta = (CheckBox)v;
+                    preguntasBoolean[numeroPreguntasBoolean - 1].Responder(respuesta.IsChecked);
                 }
             }
         }
