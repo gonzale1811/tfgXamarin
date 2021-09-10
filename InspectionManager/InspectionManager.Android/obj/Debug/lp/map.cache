@@ -1,5 +1,6 @@
 FFImageLoading.Platform.dll
 FormsViewGroup.dll
+iTextSharpLGPL-MonoForAndroid.dll
 Plugin.CloudFirestore.dll
 Plugin.CurrentActivity.dll
 Plugin.Media.dll
@@ -86,6 +87,7 @@ Xamarin.Io.OpenCensus.OpenCensusApi.dll
 Xamarin.Io.OpenCensus.OpenCensusContribGrpcMetrics.dll
 Xamarin.Io.PerfMark.PerfMarkApi.dll
 Xamarin.Protobuf.JavaLite.dll
+XamiTextSharpLGPL.Droid.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.arch.core.core-runtime.aar
 androidx.lifecycle.lifecycle-runtime.aar
@@ -143,5 +145,3 @@ firebaseauthinterop-20.0.0.aar
 firebasefirestore-23.0.2.aar
 firebasedatabase-19.7.0.aar
 firebaseauth-21.0.1.aar
-iTextSharpLGPL-MonoForAndroid.dll
-XamiTextSharpLGPL.Droid.dll

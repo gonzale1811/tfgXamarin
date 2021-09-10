@@ -10,6 +10,8 @@ using Android.Util;
 using Android.Gms.Tasks;
 using Firebase.Storage;
 using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 [assembly: Dependency(typeof(FirebaseConsultService))]
 namespace InspectionManager.Droid.Servicios
@@ -772,6 +774,112 @@ namespace InspectionManager.Droid.Servicios
             }
 
             return resultado;
+        }
+
+        public void GenerarPdfInspeccion(Inspeccion inspeccion)
+        {
+            var directory = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory, "InspectionManager").ToString();
+
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            var path = Path.Combine(directory, inspeccion.Nombre + ".pdf");
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
+            var fs = new FileStream(path, FileMode.Create);
+            Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+            document.AddTitle("Informe de Inspección");
+            document.AddCreator("Inspection Manager");
+            document.AddCreationDate();
+            document.Open();
+
+            iTextSharp.text.Font _fuenteTitulo = new iTextSharp.text.Font(iTextSharp.text.Font.HELVETICA, 18, iTextSharp.text.Font.SYMBOL);
+
+            iTextSharp.text.Font _fuenteEstandar = new iTextSharp.text.Font(iTextSharp.text.Font.TIMES_ROMAN, 12, iTextSharp.text.Font.NORMAL);
+
+            Paragraph titulo = new Paragraph("Informe de la inspeccion: " + inspeccion.Nombre, _fuenteTitulo);
+            titulo.IndentationLeft = 50f;
+            titulo.IndentationRight = 50f;
+            titulo.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+            document.Add(titulo);
+
+            Table tabla = new Table(7);
+
+            tabla.Width = 100;
+
+            iTextSharp.text.Cell nombre = new iTextSharp.text.Cell(new Phrase("Nombre", _fuenteEstandar));
+            nombre.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            nombre.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            iTextSharp.text.Cell fechaInicio = new iTextSharp.text.Cell(new Phrase("Fecha de inicio", _fuenteEstandar));
+            fechaInicio.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            fechaInicio.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            iTextSharp.text.Cell fechaFin = new iTextSharp.text.Cell(new Phrase("Fecha de fin", _fuenteEstandar));
+            fechaFin.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            fechaFin.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            iTextSharp.text.Cell calle = new iTextSharp.text.Cell(new Phrase("Calle", _fuenteEstandar));
+            calle.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            calle.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            iTextSharp.text.Cell numero = new iTextSharp.text.Cell(new Phrase("Número", _fuenteEstandar));
+            numero.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            numero.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            iTextSharp.text.Cell localidad = new iTextSharp.text.Cell(new Phrase("Localidad", _fuenteEstandar));
+            localidad.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            localidad.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            iTextSharp.text.Cell codigoPostal = new iTextSharp.text.Cell(new Phrase("Código postal", _fuenteEstandar));
+            codigoPostal.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            codigoPostal.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+            tabla.AddCell(nombre);
+            tabla.AddCell(fechaInicio);
+            tabla.AddCell(fechaFin);
+            tabla.AddCell(calle);
+            tabla.AddCell(numero);
+            tabla.AddCell(localidad);
+            tabla.AddCell(codigoPostal);
+
+            nombre = new iTextSharp.text.Cell(new Phrase(inspeccion.Nombre, _fuenteEstandar));
+            nombre.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            nombre.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            fechaInicio = new iTextSharp.text.Cell(new Phrase(inspeccion.FechaInicio.ToString(), _fuenteEstandar));
+            fechaInicio.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            fechaInicio.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            fechaFin = new iTextSharp.text.Cell(new Phrase(inspeccion.FechaFin.ToString(), _fuenteEstandar));
+            fechaFin.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            fechaFin.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            calle = new iTextSharp.text.Cell(new Phrase(inspeccion.DireccionInspeccion.Calle, _fuenteEstandar));
+            calle.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            calle.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            numero = new iTextSharp.text.Cell(new Phrase(inspeccion.DireccionInspeccion.Numero, _fuenteEstandar));
+            numero.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            numero.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            localidad = new iTextSharp.text.Cell(new Phrase(inspeccion.DireccionInspeccion.Localidad, _fuenteEstandar));
+            localidad.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            localidad.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            codigoPostal = new iTextSharp.text.Cell(new Phrase(inspeccion.DireccionInspeccion.CodigoPostal, _fuenteEstandar));
+            codigoPostal.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            codigoPostal.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+            tabla.AddCell(nombre);
+            tabla.AddCell(fechaInicio);
+            tabla.AddCell(fechaFin);
+            tabla.AddCell(calle);
+            tabla.AddCell(numero);
+            tabla.AddCell(localidad);
+            tabla.AddCell(codigoPostal);
+
+            document.Add(tabla);
+
+            document.Close();
+            writer.Close();
+            fs.Close();
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)

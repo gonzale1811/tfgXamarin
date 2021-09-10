@@ -48,5 +48,7 @@ namespace InspectionManager.Servicios
         void CancelarCreacionPlantilla(Plantilla plantilla, List<Bloque> bloques);
 
         List<Inspeccion> GetInspeccionesByUsuario(Inspector inspector);
+
+        void GenerarPdfInspeccion(Inspeccion inspeccion);
     }
 }

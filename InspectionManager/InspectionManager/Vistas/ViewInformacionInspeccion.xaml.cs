@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using InspectionManager.Modelo;
+using InspectionManager.Servicios;
 using Xamarin.Forms;
 
 namespace InspectionManager.Vistas
@@ -8,12 +9,15 @@ namespace InspectionManager.Vistas
     public partial class ViewInformacionInspeccion : ContentPage
     {
         private Inspeccion inspeccion;
+        private IFirebaseConsultService consult;
 
         public ViewInformacionInspeccion(Inspeccion inspeccionElegida)
         {
             InitializeComponent();
 
             inspeccion = inspeccionElegida;
+
+            consult = DependencyService.Get<IFirebaseConsultService>();
 
             nombreEntry.Text = "Nombre: "+inspeccion.Nombre;
             fechaInicioPicker.Date = inspeccion.FechaInicio;
@@ -31,7 +35,7 @@ namespace InspectionManager.Vistas
 
         public void ProcesarDescargarInspeccion(object sender, EventArgs e)
         {
-
+            consult.GenerarPdfInspeccion(inspeccion);
         }
 
         public void ProcesarEditarInspeccion(object sender, EventArgs e)
