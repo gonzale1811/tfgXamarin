@@ -29,14 +29,22 @@ namespace InspectionManager.Servicios
 
         void AddBloqueInspeccion(Bloque bloque);
 
-        void AddPreguntasTexto(List<IPregunta<string>> preguntasTexto);
+        void AddPreguntasTexto(List<IPregunta<string>> preguntasTexto, string coleccion, bool paraInspeccion);
 
-        void AddPreguntasBoolean(List<IPregunta<bool>> preguntasBoolean);
+        void AddPreguntasBoolean(List<IPregunta<bool>> preguntasBoolean, string coleccion, bool paraInspeccion);
 
-        void AddPreguntasValor(List<IPregunta<int>> preguntasValor);
+        void AddPreguntasValor(List<IPregunta<int>> preguntasValor, string coleccion, bool paraInspeccion);
 
         void SetBloquesToInspeccion(Inspeccion inspeccion);
 
         void CancelarCreacionInspeccion(Inspeccion inspeccion, List<Bloque> bloques);
+
+        void AddPlantilla(Plantilla plantilla);
+
+        void AddBloquePlantilla(Bloque bloque);
+
+        void SetBloquesToPlantilla(Plantilla plantilla);
+
+        void CancelarCreacionPlantilla(Plantilla plantilla, List<Bloque> bloques);
     }
 }

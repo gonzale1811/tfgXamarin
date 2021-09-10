@@ -1,24 +1,23 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewAddBloque.xaml">
-    <Files>
-      <File FileName="InspectionManager/Vistas/ViewDatosPlantilla.xaml" Line="20" Column="84" />
-      <File FileName="InspectionManager/Vistas/ViewDatosPlantilla.xaml.cs" Line="32" Column="100" />
-      <File FileName="InspectionManager/Vistas/ViewDatosInspeccion.xaml.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Modelo/Plantilla.cs" Line="79" Column="47" />
-      <File FileName="InspectionManager/Vistas/ViewAddBloque.xaml" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewAddBloque.xaml.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
+              <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewAddBloque.xaml" expanded="True" selected="True" />
+                <Node name="ViewAddBloque.xaml" expanded="True" />
+                <Node name="ViewDatosInspeccion.xaml" expanded="True" />
+                <Node name="ViewDatosPlantilla.xaml" expanded="True" />
+                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+                <Node name="ViewPregunta.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Servicios" expanded="True" />
+              <Node name="Servicios" expanded="True">
+                <Node name="FirebaseConsultService.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -31,5 +30,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.CoworkersMatch" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg3" />
 </Properties>

@@ -417,53 +417,95 @@ namespace InspectionManager.Droid.Servicios
             documentReference.Set(new HashMap(dictionary));
         }
 
-        public void AddPreguntasTexto(List<IPregunta<string>> preguntasTexto)
+        public void AddPreguntasTexto(List<IPregunta<string>> preguntasTexto, string coleccion, bool paraInspeccion)
         {
             foreach(IPregunta<string> preguntaTexto in preguntasTexto)
             {
-                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasTextoInspeccion").Document(preguntaTexto.IdPregunta.ToString());
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection(coleccion).Document(preguntaTexto.IdPregunta.ToString());
                 HashMap respuesta = new HashMap();
-                respuesta.Put("respuesta", preguntaTexto.RespuestaPregunta.ValorRespuesta);
-                var dictionary = new Dictionary<string, Java.Lang.Object>
+                Dictionary<string, Java.Lang.Object> dictionary;
+
+                if (paraInspeccion)
                 {
-                    {"idPregunta", preguntaTexto.IdPregunta.ToString() },
-                    {"nombre", preguntaTexto.Nombre },
-                    {"respuestaTexto", respuesta }
-                };
+                    respuesta.Put("respuesta", preguntaTexto.RespuestaPregunta.ValorRespuesta);
+                    dictionary = new Dictionary<string, Java.Lang.Object>
+                    {
+                        {"idPregunta", preguntaTexto.IdPregunta.ToString() },
+                        {"nombre", preguntaTexto.Nombre },
+                        {"respuestaTexto", respuesta }
+                    };
+                }
+                else
+                {
+                    dictionary = new Dictionary<string, Java.Lang.Object>
+                    {
+                        {"idPregunta", preguntaTexto.IdPregunta.ToString() },
+                        {"nombre", preguntaTexto.Nombre }
+                    };
+                }
+
                 documentReference.Set(new HashMap(dictionary));
             }
         }
 
-        public void AddPreguntasBoolean(List<IPregunta<bool>> preguntasBoolean)
+        public void AddPreguntasBoolean(List<IPregunta<bool>> preguntasBoolean, string coleccion, bool paraInspeccion)
         {
             foreach(IPregunta<bool> preguntaBoolean in preguntasBoolean)
             {
-                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasBooleanInspeccion").Document(preguntaBoolean.IdPregunta.ToString());
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection(coleccion).Document(preguntaBoolean.IdPregunta.ToString());
                 HashMap respuesta = new HashMap();
-                respuesta.Put("respuesta", preguntaBoolean.RespuestaPregunta.ValorRespuesta);
-                var dictionary = new Dictionary<string, Java.Lang.Object>
+                Dictionary<string, Java.Lang.Object> dictionary;
+
+                if (paraInspeccion)
                 {
-                    {"idPregunta", preguntaBoolean.IdPregunta.ToString() },
-                    {"nombre", preguntaBoolean.Nombre },
-                    {"respuestaBoolean", respuesta }
-                };
+                    respuesta.Put("respuesta", preguntaBoolean.RespuestaPregunta.ValorRespuesta);
+                    dictionary = new Dictionary<string, Java.Lang.Object>
+                    {
+                        {"idPregunta", preguntaBoolean.IdPregunta.ToString() },
+                        {"nombre", preguntaBoolean.Nombre },
+                        {"respuestaBoolean", respuesta }
+                    };
+                }
+                else
+                {
+                    dictionary = new Dictionary<string, Java.Lang.Object>
+                    {
+                        {"idPregunta", preguntaBoolean.IdPregunta.ToString() },
+                        {"nombre", preguntaBoolean.Nombre }
+                    };
+                }
+                
                 documentReference.Set(new HashMap(dictionary));
             }
         }
 
-        public void AddPreguntasValor(List<IPregunta<int>> preguntasValor)
+        public void AddPreguntasValor(List<IPregunta<int>> preguntasValor, string coleccion, bool paraInspeccion)
         {
             foreach(IPregunta<int> preguntaInt in preguntasValor)
             {
-                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasValorInspeccion").Document(preguntaInt.IdPregunta.ToString());
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection(coleccion).Document(preguntaInt.IdPregunta.ToString());
                 HashMap respuesta = new HashMap();
-                respuesta.Put("respuesta", preguntaInt.RespuestaPregunta.ValorRespuesta);
-                var dictionary = new Dictionary<string, Java.Lang.Object>
+                Dictionary<string, Java.Lang.Object> dictionary;
+
+                if (paraInspeccion)
                 {
-                    {"idPregunta", preguntaInt.IdPregunta.ToString() },
-                    {"nombre", preguntaInt.Nombre },
-                    {"respuestaValor", respuesta }
-                };
+                    respuesta.Put("respuesta", preguntaInt.RespuestaPregunta.ValorRespuesta);
+                    dictionary = new Dictionary<string, Java.Lang.Object>
+                    {
+                        {"idPregunta", preguntaInt.IdPregunta.ToString() },
+                        {"nombre", preguntaInt.Nombre },
+                        {"respuestaValor", respuesta }
+                    };
+                }
+                else
+                {
+                    dictionary = new Dictionary<string, Java.Lang.Object>
+                    {
+                        {"idPregunta", preguntaInt.IdPregunta.ToString() },
+                        {"nombre", preguntaInt.Nombre }
+                    };
+                }
+
                 documentReference.Set(new HashMap(dictionary));
             }
         }
@@ -529,13 +571,135 @@ namespace InspectionManager.Droid.Servicios
                 }
             }
 
-            instancia.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString()).Delete();
+            if (inspeccion != null)
+            {
+                instancia.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString()).Delete();
+            }
 
             var carpeta = instanciaStorage.Child(inspeccion.IdInspeccion.ToString());
 
             if (carpeta != null)
             {
                 carpeta.DeleteAsync();
+            }
+        }
+
+        public void AddPlantilla(Plantilla plantilla)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Plantillas").Document(plantilla.IdPlantilla.ToString());
+            HashMap bloques = new HashMap();
+            HashMap versiones = new HashMap();
+            var dictionary = new Dictionary<string, Java.Lang.Object>
+            {
+                {"idPlantilla", plantilla.IdPlantilla.ToString() },
+                {"nombre", plantilla.Nombre },
+                {"tipoTrabajo", plantilla.Trabajo.ToString() },
+                {"versionActual", plantilla.VersionActual },
+                {"versiones", versiones },
+                {"bloques", bloques }
+            };
+            documentReference.Set(new HashMap(dictionary));
+        }
+
+        public void AddBloquePlantilla(Bloque bloque)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Bloques").Document(bloque.IdBloque.ToString());
+
+            int cont = 0;
+
+            HashMap preguntasTexto = new HashMap();
+            foreach (string preguntaTexto in bloque.PreguntasTexto)
+            {
+                preguntasTexto.Put(cont.ToString(), preguntaTexto);
+                cont++;
+            }
+
+            cont = 0;
+
+            HashMap preguntasBoolean = new HashMap();
+            foreach (string preguntaBoolean in bloque.PreguntasBoolean)
+            {
+                preguntasBoolean.Put(cont.ToString(), preguntaBoolean);
+                cont++;
+            }
+
+            cont = 0;
+
+            HashMap preguntasValor = new HashMap();
+            foreach (string preguntaValor in bloque.PreguntasValor)
+            {
+                preguntasValor.Put(cont.ToString(), preguntaValor);
+                cont++;
+            }
+
+            var dictionary = new Dictionary<string, Java.Lang.Object>
+            {
+                {"idBloque", bloque.IdBloque.ToString() },
+                {"nombre", bloque.Nombre },
+                {"preguntasTexto", preguntasTexto },
+                {"preguntasBoolean", preguntasBoolean },
+                {"preguntasValor", preguntasValor }
+            };
+            documentReference.Set(new HashMap(dictionary));
+        }
+
+        public void SetBloquesToPlantilla(Plantilla plantilla)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Plantillas").Document(plantilla.IdPlantilla.ToString());
+            HashMap bloques = new HashMap();
+            int cont = 0;
+
+            foreach(string bloque in plantilla.BloquesPlantilla)
+            {
+                bloques.Put(cont.ToString(), bloque);
+                cont++;
+            }
+
+            documentReference.Update("bloques", bloques);
+        }
+
+        public void CancelarCreacionPlantilla(Plantilla plantilla, List<Bloque> bloques)
+        {
+            FirebaseFirestore instancia = DatabaseConnection.GetInstance;
+            
+            if (bloques != null)
+            {
+                if (bloques.Count > 0)
+                {
+                    foreach (Bloque b in bloques)
+                    {
+                        if (b.PreguntasBoolean.Count > 0)
+                        {
+                            foreach (string pB in b.PreguntasBoolean)
+                            {
+                                instancia.Collection("PreguntasBoolean").Document(pB).Delete();
+                            }
+                        }
+
+                        if (b.PreguntasTexto.Count > 0)
+                        {
+                            foreach (string pT in b.PreguntasTexto)
+                            {
+                                instancia.Collection("PreguntasTexto").Document(pT).Delete();
+                            }
+                        }
+
+                        if (b.PreguntasValor.Count > 0)
+                        {
+                            foreach (string pV in b.PreguntasValor)
+                            {
+                                instancia.Collection("PreguntasValor").Document(pV).Delete();
+                            }
+                        }
+
+                        instancia.Collection("Bloques").Document(b.IdBloque.ToString()).Delete();
+                    }
+                }
+            }
+
+            if (plantilla != null)
+            {
+                instancia.Collection("Plantillas").Document(plantilla.IdPlantilla.ToString()).Delete();
             }
         }
 

@@ -6,9 +6,21 @@
     Title="Nuevo Bloque">
     <ContentPage.Content>
         <StackLayout x:Name="mainLayout" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-            <Label Text="Nombre del Bloque" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Entry x:Name="nombreBloqueEntry" Placeholder="Nombre" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Button x:Name="crearBloqueButton"/>
+            <Label Text="Nombre del Bloque" FontSize="Title" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Entry x:Name="nombreBloqueEntry" Placeholder="Nombre del Bloque" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <StackLayout x:Name="botonesBloqueLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button x:Name="crearBloqueButton" Text="Crear Bloque" HorizontalOptions="CenterAndExpand" Clicked="ProcesarCrearBloque"/>
+                <Button x:Name="cambiarNombreBloque" Text="Editar Bloque" IsEnabled="False" IsVisible="False" HorizontalOptions="CenterAndExpand" Clicked="ProcesarEditarBloque"/>
+            </StackLayout>
+            <Label Text="Descripción de la Pregunta" FontSize="Title" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Entry x:Name="enunciadoPreguntaEntry" IsEnabled="False" Placeholder="Enunciado de la Pregunta" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Picker x:Name="tipoPreguntaPicker" IsEnabled="False" Title="Seleccione el tipo de pregunta" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <Button x:Name="crearPregunta" IsEnabled="False" Text="Crear Pregunta" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="ProcesarCrearPregunta"/>
+            <StackLayout x:Name="botonesFinalesLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Horizontal">
+                <Button x:Name="cancelarButton" Text="Cancelar" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+                <Button x:Name="guardarButton" Text="Guardar" IsEnabled="False" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarGuardar"/>
+            </StackLayout>
+            <Label x:Name="errorLabel" IsVisible="False" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -47,9 +47,6 @@ namespace InspectionManager.Vistas
             plantillaEmpleada = plantilla;
 
             bloqueInspeccion = new Bloque(bloqueSeleccionado.Nombre);
-            //bloqueInspeccion.PreguntasTexto = bloqueSeleccionado.PreguntasTexto;
-            //bloqueInspeccion.PreguntasBoolean = bloqueSeleccionado.PreguntasBoolean;
-            //bloqueInspeccion.PreguntasValor = bloqueSeleccionado.PreguntasValor;
 
             camera = new CameraService();
 
@@ -264,9 +261,9 @@ namespace InspectionManager.Vistas
             bloquesInspeccion.Add(bloqueInspeccion);
 
             consult.AddBloqueInspeccion(bloqueInspeccion);
-            consult.AddPreguntasTexto(preguntasTextoRespondidas);
-            consult.AddPreguntasBoolean(preguntasBooleanRespondidas);
-            consult.AddPreguntasValor(preguntasIntRespondidas);
+            consult.AddPreguntasTexto(preguntasTextoRespondidas, "PreguntasTextoInspeccion", true);
+            consult.AddPreguntasBoolean(preguntasBooleanRespondidas, "PreguntasBooleanInspeccion", true);
+            consult.AddPreguntasValor(preguntasIntRespondidas, "PreguntasValorInspeccion", true);
 
             await Navigation.PushModalAsync(new NavigationPage(new ViewBloques(inspeccionProceso, plantillaEmpleada, bloquesInspeccion)));
         }

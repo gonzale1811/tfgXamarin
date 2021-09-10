@@ -63,7 +63,7 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCrearPlantilla(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ViewDatosPlantilla()));
+            await Navigation.PushModalAsync(new NavigationPage(new ViewDatosPlantilla(null, null)));
         }
     }
 }
