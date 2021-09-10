@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InspectionManager.Vistas.ViewDatosPlantilla"
+    Title="Nueva Plantilla">
+    <ContentPage.Content>
+        <StackLayout x:Name="layoutCreacionPlantillas" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Datos de la plantilla" FontSize="Title" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Entry x:Name="nombreEntry" Placeholder="Nombre de la plantilla" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Picker x:Name="tipoTrabajoPicker" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Label IsVisible="False"/>
+            <Label IsVisible="False"/>
+            <Label IsVisible="False"/>
+            <StackLayout x:Name="botones1Layout" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <Button x:Name="cancelarButton" Text="Cancelar" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+                <Button x:Name="addBloqueButton" Text="Nuevo Bloque" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarAddBloque"/>
+            </StackLayout>
+            <StackLayout x:Name="botones2Layout" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <Button x:Name="finalizarButton" Text="Finalizar" IsEnabled="False" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="ProcesarFinalizar"/>
+            </StackLayout>
+            <Label x:Name="errorLabel" Text="" IsVisible="False" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

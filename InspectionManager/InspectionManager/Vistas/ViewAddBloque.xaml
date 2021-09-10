@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InspectionManager.Vistas.ViewAddBloque"
+    Title="Nuevo Bloque">
+    <ContentPage.Content>
+        <StackLayout x:Name="mainLayout" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+            <Label Text="Nombre del Bloque" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Entry x:Name="nombreBloqueEntry" Placeholder="Nombre" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Button x:Name="crearBloqueButton"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
