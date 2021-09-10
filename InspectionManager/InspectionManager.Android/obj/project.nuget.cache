@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "43mvPgyB374aeoxp6CSN4tRTcCcfVDFknNVhx/NX100R5hPLhPE4+Q/KqxLdSVwIWiP8stynw6iDOH0AE4Sgqw==",
+  "dgSpecHash": "7oSB1fD0sSJCRgG93KN8kLw1UOmy/Kk2v7grRLLmEDwhDzffa5OuNaCPqhK2THxEFMgIgvH95zUivb48SFrjSg==",
   "success": true,
   "projectFilePath": "/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/InspectionManager.Android.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "/Users/david/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/david/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/david/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
+    "/Users/david/.nuget/packages/xam.itextsharplgpl/0.1.0/xam.itextsharplgpl.0.1.0.nupkg.sha512",
     "/Users/david/.nuget/packages/xam.plugin.media/4.0.1.5/xam.plugin.media.4.0.1.5.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.android.arch.core.common/1.1.1.3/xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "/Users/david/.nuget/packages/xamarin.android.arch.core.runtime/1.1.1.3/xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",

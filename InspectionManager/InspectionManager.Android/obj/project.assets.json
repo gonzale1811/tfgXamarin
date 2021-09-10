@@ -656,6 +656,17 @@
           "lib/MonoAndroid10/_._": {}
         }
       },
+      "Xam.iTextSharpLGPL/0.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/XamiTextSharpLGPL.Droid.dll": {},
+          "lib/MonoAndroid10/iTextSharpLGPL-MonoForAndroid.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/XamiTextSharpLGPL.Droid.dll": {},
+          "lib/MonoAndroid10/iTextSharpLGPL-MonoForAndroid.dll": {}
+        }
+      },
       "Xam.Plugin.Media/4.0.1.5": {
         "type": "package",
         "dependencies": {
@@ -6269,6 +6280,23 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Xam.iTextSharpLGPL/0.1.0": {
+      "sha512": "zcdx382dw7nqtl6XQpAdvLjBWbYD1w+43IwV5v4UyVpueBgFHcM+xMT/7ioB92euXbjBvFfNR36GzwMsp4iacw==",
+      "type": "package",
+      "path": "xam.itextsharplgpl/0.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/XamiTextSharpLGPL.Droid.dll",
+        "lib/MonoAndroid10/iTextSharpLGPL-MonoForAndroid.dll",
+        "lib/MonoTouch10/XamiTextSharpLGPL.iOS.dll",
+        "lib/MonoTouch10/itextsharpios.dll",
+        "lib/Xamarin.iOS10/XamiTextSharpLGPL.iOS.dll",
+        "lib/Xamarin.iOS10/itextsharpios.dll",
+        "xam.itextsharplgpl.0.1.0.nupkg.sha512",
+        "xam.itextsharplgpl.nuspec"
+      ]
+    },
     "Xam.Plugin.Media/4.0.1.5": {
       "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
       "type": "package",
@@ -9026,6 +9054,7 @@
       "Plugin.CloudFirestore >= 4.1.0",
       "Plugin.CurrentActivity >= 2.1.0.4",
       "Xam.Plugin.Media >= 4.0.1.5",
+      "Xam.iTextSharpLGPL >= 0.1.0",
       "Xamarin.Android.Support.v4 >= 28.0.0.3",
       "Xamarin.AndroidX.Legacy.Support.V4 >= 1.0.0.8",
       "Xamarin.AndroidX.Lifecycle.LiveData >= 2.3.1.1",
@@ -9088,6 +9117,10 @@
           "Xam.Plugin.Media": {
             "target": "Package",
             "version": "[4.0.1.5, )"
+          },
+          "Xam.iTextSharpLGPL": {
+            "target": "Package",
+            "version": "[0.1.0, )"
           },
           "Xamarin.Android.Support.v4": {
             "target": "Package",
