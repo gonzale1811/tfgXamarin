@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InspectionManager.Vistas.ViewInformacionInspeccion"
+    Title="Información de la Inspección">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Datos inspección" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="nombreEntry" IsEnabled="False" HorizontalTextAlignment="Center"/>
+            <DatePicker x:Name="fechaInicioPicker" Format="dd/MM/yyyy" IsEnabled="False"/>
+            <DatePicker x:Name="fechaFinPicker" Format="dd/MM/yyyy" IsEnabled="False"/>
+            <Entry x:Name="calleEntry" Keyboard="Text" IsEnabled="False" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="numeroEntry" Keyboard="Numeric" IsEnabled="False" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="localidadEntry" Keyboard="Text" IsEnabled="False" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="codigoPostalEntry" Keyboard="Numeric" IsEnabled="False" HorizontalTextAlignment="Center"/>
+            <StackLayout x:Name="otherButtonsLayout" Orientation="Horizontal">
+                <Button x:Name="eliminarButton" Text="Eliminar" Clicked="ProcesarEliminarInspeccion" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="descargarButton" Text="Descargar" Clicked="ProcesarDescargarInspeccion" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="editarButton" Text="Editar" Clicked="ProcesarEditarInspeccion" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="verBloquesButton" Text="Ver Bloques" Clicked="ProcesarObtenerBloques" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <Label x:Name="errorLabel" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

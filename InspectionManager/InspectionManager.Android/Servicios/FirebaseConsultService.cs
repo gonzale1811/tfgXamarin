@@ -65,11 +65,7 @@ namespace InspectionManager.Droid.Servicios
                     {
                         var fecha = item.Get("FechaNacimiento").ToString();
 
-                        string[] valores = fecha.Split("/");
-
-                        string[] otrosValores = valores[2].Split(" ");
-
-                        DateTime fechaNacimiento = new DateTime(Convert.ToInt32(otrosValores[0]), Convert.ToInt32(valores[1]), Convert.ToInt32(valores[0]));
+                        DateTime fechaNacimiento = Convert.ToDateTime(fecha);
 
                         inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fechaNacimiento);
 
@@ -701,6 +697,81 @@ namespace InspectionManager.Droid.Servicios
             {
                 instancia.Collection("Plantillas").Document(plantilla.IdPlantilla.ToString()).Delete();
             }
+        }
+
+        public List<Inspeccion> GetInspeccionesByUsuario(Inspector inspector)
+        {
+            List<Inspeccion> resultado = new List<Inspeccion>();
+
+            var task = DatabaseConnection.GetInstance.Collection("Inspecciones").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    var fechaI = document.Get("fechaInicio").ToString();
+
+                    DateTime fechaInicio = Convert.ToDateTime(fechaI);
+
+                    var fechaF = document.Get("fechaFin").ToString();
+
+                    DateTime fechaFin = Convert.ToDateTime(fechaF);
+
+                    Inspeccion obtenida = new Inspeccion(Guid.Parse(document.Get("idInspeccion").ToString()), document.Get("nombre").ToString(), fechaInicio, fechaFin);
+
+                    var direccion = document.Get("direccion") != null ? document.Get("direccion") : null;
+
+                    if (direccion != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(direccion.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            if (value.Key == "calle")
+                            {
+                                obtenida.DireccionInspeccion.Calle = value.Value;
+                            }else if (value.Key == "numero")
+                            {
+                                obtenida.DireccionInspeccion.Numero = value.Value;
+                            }else if (value.Key == "localidad")
+                            {
+                                obtenida.DireccionInspeccion.Localidad = value.Value;
+                            }else if (value.Key == "codigoPostal")
+                            {
+                                obtenida.DireccionInspeccion.CodigoPostal = value.Value;
+                            }
+                        }
+                    }
+
+                    var bloques = document.Get("bloques") != null ? document.Get("bloques") : null;
+
+                    if (bloques != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(bloques.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string, string> value in dictionaryFromHashmap)
+                        {
+                            obtenida.Bloques.Add(value.Value);
+                        }
+                    }
+
+                    if (inspector.Inspecciones.Contains(obtenida.IdInspeccion.ToString()))
+                    {
+                        resultado.Add(obtenida);
+                    }
+                }
+            }
+
+            return resultado;
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)

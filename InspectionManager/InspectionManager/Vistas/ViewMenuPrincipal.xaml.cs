@@ -12,6 +12,7 @@ namespace InspectionManager.Vistas
         private IFirebaseAuthService auth;
         private IFirebaseConsultService consult;
         private Inspector usuario;
+        private List<Inspeccion> inspecciones;
 
         public ViewMenuPrincipal()
         {
@@ -25,6 +26,27 @@ namespace InspectionManager.Vistas
             string emailUsuario = auth.GetUserEmail();
 
             usuario = consult.GetInspectorByEmail(emailUsuario);
+
+            if (usuario.Inspecciones.Count > 0)
+            {
+                informacionLabel.Text = "Lista de inspecciones";
+
+                inspecciones = consult.GetInspeccionesByUsuario(usuario);
+
+                List<InspeccionListViewModel> items = new List<InspeccionListViewModel>();
+
+                foreach (Inspeccion inspeccion in inspecciones)
+                {
+                    items.Add(new InspeccionListViewModel(inspeccion.IdInspeccion.ToString(), inspeccion.Nombre, inspeccion.FechaInicio.ToString(),
+                        inspeccion.FechaFin.ToString(), inspeccion.Bloques.Count));
+                }
+
+                inspeccionesListView.ItemsSource = items;
+            }
+            else
+            {
+                informacionLabel.Text = "No tiene inspecciones";
+            }
 
             if (usuario != null)
             {
@@ -64,6 +86,19 @@ namespace InspectionManager.Vistas
         public async void ProcesarCrearPlantilla(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ViewDatosPlantilla(null, null)));
+        }
+
+        public async void HandleItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            string idSeleccionado = ((InspeccionListViewModel)((ListView)sender).SelectedItem).Id;
+
+            foreach(Inspeccion i in inspecciones)
+            {
+                if (i.IdInspeccion.ToString() == idSeleccionado)
+                {
+                    await Navigation.PushAsync(new NavigationPage(new ViewInformacionInspeccion(i)));
+                }
+            }
         }
     }
 }

@@ -46,5 +46,7 @@ namespace InspectionManager.Servicios
         void SetBloquesToPlantilla(Plantilla plantilla);
 
         void CancelarCreacionPlantilla(Plantilla plantilla, List<Bloque> bloques);
+
+        List<Inspeccion> GetInspeccionesByUsuario(Inspector inspector);
     }
 }

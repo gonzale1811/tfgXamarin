@@ -21,5 +21,15 @@ namespace InspectionManager.Modelo
             DireccionInspeccion = direccionInspeccion;
             Bloques = new List<string>();
         }
+
+        public Inspeccion(Guid idInspeccion, string nombre, DateTime fechaInicio, DateTime fechaFin)
+        {
+            IdInspeccion = idInspeccion;
+            Nombre = nombre;
+            FechaInicio = fechaInicio;
+            FechaFin = fechaFin;
+            DireccionInspeccion = new Direccion("","","","");
+            Bloques = new List<string>();
+        }
     }
 }

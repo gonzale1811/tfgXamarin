@@ -5,13 +5,10 @@
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewAddBloque.xaml" expanded="True" />
                 <Node name="ViewDatosInspeccion.xaml" expanded="True" />
-                <Node name="ViewDatosPlantilla.xaml" expanded="True" />
+                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
                 <Node name="ViewMenuPrincipal.xaml" expanded="True" />
-                <Node name="ViewPregunta.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">

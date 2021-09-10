@@ -21,3 +21,4 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/Vistas/ViewPregunta.xaml.g.cs
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/Vistas/ViewDatosPlantilla.xaml.g.cs
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/Vistas/ViewAddBloque.xaml.g.cs
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager/obj/Debug/netstandard2.0/Vistas/ViewInformacionInspeccion.xaml.g.cs
