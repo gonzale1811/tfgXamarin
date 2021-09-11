@@ -1231,6 +1231,22 @@ namespace InspectionManager.Droid.Servicios
             instancia.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString()).Delete();
         }
 
+        public void ActualizarInspeccion(Inspeccion inspeccion)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString());
+
+            HashMap direccion = new HashMap();
+            direccion.Put("calle", inspeccion.DireccionInspeccion.Calle);
+            direccion.Put("numero", inspeccion.DireccionInspeccion.Numero);
+            direccion.Put("localidad", inspeccion.DireccionInspeccion.Localidad);
+            direccion.Put("codigoPostal", inspeccion.DireccionInspeccion.CodigoPostal);
+
+            documentReference.Update("nombre", inspeccion.Nombre);
+            documentReference.Update("fechaInicio", inspeccion.FechaInicio.ToString());
+            documentReference.Update("fechaFin", inspeccion.FechaFin.ToString());
+            documentReference.Update("direccion", direccion);
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)

@@ -60,5 +60,7 @@ namespace InspectionManager.Servicios
         List<IPregunta<int>> GetPreguntasValorByBloqueInspeccion(Bloque bloque);
 
         void DeleteInspeccion(Inspeccion inspeccion, List<Bloque> bloques);
+
+        void ActualizarInspeccion(Inspeccion inspeccion);
     }
 }
