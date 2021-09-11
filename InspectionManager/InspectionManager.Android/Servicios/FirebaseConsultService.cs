@@ -12,6 +12,7 @@ using Firebase.Storage;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Net;
 
 [assembly: Dependency(typeof(FirebaseConsultService))]
 namespace InspectionManager.Droid.Servicios
@@ -353,7 +354,7 @@ namespace InspectionManager.Droid.Servicios
         {
             if(imagen != null)
             {
-                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child(idBloque).Child("evidencia-"+foto+".jpg").PutAsync(imagen).TargetUrl;
+                var task = new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child(idBloque).Child("evidencia-"+foto+".png").PutAsync(imagen).TargetUrl;
                 return task;
             }
             else
@@ -776,7 +777,7 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
-        public void GenerarPdfInspeccion(Inspeccion inspeccion)
+        public async void GenerarPdfInspeccion(Inspeccion inspeccion, List<Bloque> bloques)
         {
             var directory = new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory, "InspectionManager").ToString();
 
@@ -800,7 +801,11 @@ namespace InspectionManager.Droid.Servicios
             document.AddCreationDate();
             document.Open();
 
-            iTextSharp.text.Font _fuenteTitulo = new iTextSharp.text.Font(iTextSharp.text.Font.HELVETICA, 18, iTextSharp.text.Font.SYMBOL);
+            iTextSharp.text.Font _fuenteTitulo = new iTextSharp.text.Font(iTextSharp.text.Font.HELVETICA, 22, iTextSharp.text.Font.SYMBOL);
+
+            iTextSharp.text.Font _fuenteSubTitulo = new iTextSharp.text.Font(iTextSharp.text.Font.HELVETICA, 18, iTextSharp.text.Font.SYMBOL);
+
+            iTextSharp.text.Font _fuenteSeccion = new iTextSharp.text.Font(iTextSharp.text.Font.HELVETICA, 14, iTextSharp.text.Font.SYMBOL);
 
             iTextSharp.text.Font _fuenteEstandar = new iTextSharp.text.Font(iTextSharp.text.Font.TIMES_ROMAN, 12, iTextSharp.text.Font.NORMAL);
 
@@ -815,25 +820,25 @@ namespace InspectionManager.Droid.Servicios
 
             tabla.Width = 100;
 
-            iTextSharp.text.Cell nombre = new iTextSharp.text.Cell(new Phrase("Nombre", _fuenteEstandar));
+            iTextSharp.text.Cell nombre = new iTextSharp.text.Cell(new Phrase("Nombre", _fuenteSeccion));
             nombre.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             nombre.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            iTextSharp.text.Cell fechaInicio = new iTextSharp.text.Cell(new Phrase("Fecha de inicio", _fuenteEstandar));
+            iTextSharp.text.Cell fechaInicio = new iTextSharp.text.Cell(new Phrase("Fecha de inicio", _fuenteSeccion));
             fechaInicio.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             fechaInicio.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            iTextSharp.text.Cell fechaFin = new iTextSharp.text.Cell(new Phrase("Fecha de fin", _fuenteEstandar));
+            iTextSharp.text.Cell fechaFin = new iTextSharp.text.Cell(new Phrase("Fecha de fin", _fuenteSeccion));
             fechaFin.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             fechaFin.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            iTextSharp.text.Cell calle = new iTextSharp.text.Cell(new Phrase("Calle", _fuenteEstandar));
+            iTextSharp.text.Cell calle = new iTextSharp.text.Cell(new Phrase("Calle", _fuenteSeccion));
             calle.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             calle.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            iTextSharp.text.Cell numero = new iTextSharp.text.Cell(new Phrase("Número", _fuenteEstandar));
+            iTextSharp.text.Cell numero = new iTextSharp.text.Cell(new Phrase("Número", _fuenteSeccion));
             numero.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             numero.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            iTextSharp.text.Cell localidad = new iTextSharp.text.Cell(new Phrase("Localidad", _fuenteEstandar));
+            iTextSharp.text.Cell localidad = new iTextSharp.text.Cell(new Phrase("Localidad", _fuenteSeccion));
             localidad.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             localidad.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            iTextSharp.text.Cell codigoPostal = new iTextSharp.text.Cell(new Phrase("Código postal", _fuenteEstandar));
+            iTextSharp.text.Cell codigoPostal = new iTextSharp.text.Cell(new Phrase("Código postal", _fuenteSeccion));
             codigoPostal.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             codigoPostal.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
 
@@ -876,6 +881,109 @@ namespace InspectionManager.Droid.Servicios
             tabla.AddCell(codigoPostal);
 
             document.Add(tabla);
+
+            Paragraph seccionBloques = new Paragraph("Bloques de la inspección", _fuenteSubTitulo);
+            seccionBloques.IndentationLeft = 50f;
+            seccionBloques.IndentationRight = 50f;
+            seccionBloques.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+            document.Add(seccionBloques);
+
+            foreach (Bloque bloque in bloques)
+            {
+                Paragraph tituloBloque = new Paragraph("Bloque: " + bloque.Nombre + "\nPuesto: " + bloque.PuestoTrabajo, _fuenteSubTitulo);
+                tituloBloque.IndentationLeft = 50f;
+                tituloBloque.IndentationRight = 50f;
+                tituloBloque.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                document.Add(tituloBloque);
+
+                Paragraph preguntasTextoTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
+                preguntasTextoTitle.IndentationLeft = 50f;
+                preguntasTextoTitle.IndentationRight = 50f;
+                preguntasTextoTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                document.Add(preguntasTextoTitle);
+
+                List<IPregunta<string>> preguntasTexto = GetPreguntasTextoByBloqueInspeccion(bloque);
+
+                foreach(IPregunta<string> preguntaTexto in preguntasTexto)
+                {
+                    Paragraph respuestaTexto = new Paragraph("Pregunta: " + preguntaTexto.Nombre + "\nRespuesta: " + preguntaTexto.RespuestaPregunta.ValorRespuesta, _fuenteEstandar);
+                    respuestaTexto.IndentationLeft = 50f;
+                    respuestaTexto.IndentationRight = 50f;
+                    respuestaTexto.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                    document.Add(respuestaTexto);
+                }
+
+                Paragraph preguntasBooleanTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
+                preguntasBooleanTitle.IndentationLeft = 50f;
+                preguntasBooleanTitle.IndentationRight = 50f;
+                preguntasBooleanTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                document.Add(preguntasBooleanTitle);
+
+                List<IPregunta<bool>> preguntasBoolean = GetPreguntasBooleanByBloqueInspeccion(bloque);
+
+                foreach(IPregunta<bool> preguntaBoolean in preguntasBoolean)
+                {
+                    string respuestaTraducida = "";
+
+                    if (preguntaBoolean.RespuestaPregunta.ValorRespuesta)
+                    {
+                        respuestaTraducida = "Verdadero";
+                    }
+                    else
+                    {
+                        respuestaTraducida = "Falso";
+                    }
+
+                    Paragraph respuestaBoolean = new Paragraph("Pregunta: " + preguntaBoolean.Nombre + "\nRespuesta: " + respuestaTraducida, _fuenteEstandar);
+                    respuestaBoolean.IndentationLeft = 50f;
+                    respuestaBoolean.IndentationRight = 50f;
+                    respuestaBoolean.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                    document.Add(respuestaBoolean);
+                }
+
+                Paragraph preguntasValorTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
+                preguntasValorTitle.IndentationLeft = 50f;
+                preguntasValorTitle.IndentationRight = 50f;
+                preguntasValorTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                document.Add(preguntasValorTitle);
+
+                List<IPregunta<int>> preguntasValor = GetPreguntasValorByBloqueInspeccion(bloque);
+
+                foreach(IPregunta<int> preguntaValor in preguntasValor)
+                {
+                    Paragraph respuestaValor = new Paragraph("Pregunta: " + preguntaValor.Nombre + "\nRespuesta: " + preguntaValor.RespuestaPregunta.ValorRespuesta, _fuenteEstandar);
+                    respuestaValor.IndentationLeft = 50f;
+                    respuestaValor.IndentationRight = 50f;
+                    respuestaValor.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                    document.Add(respuestaValor);
+                }
+
+                Paragraph tituloImagenes = new Paragraph("Evidencias fotograficas", _fuenteSeccion);
+                tituloImagenes.IndentationLeft = 50f;
+                tituloImagenes.IndentationRight = 50f;
+                tituloImagenes.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                document.Add(tituloImagenes);
+
+                int cont = 1;
+
+                foreach(string foto in bloque.Fotografias)
+                {
+                    var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(inspeccion.IdInspeccion.ToString()).Child(bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo).Child("evidencia-" + cont + ".png").GetDownloadUrlAsync();
+                    iTextSharp.text.Image fotoActual = iTextSharp.text.Image.GetInstance(task);
+                    fotoActual.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                    document.Add(fotoActual);
+                }
+            }
 
             document.Close();
             writer.Close();

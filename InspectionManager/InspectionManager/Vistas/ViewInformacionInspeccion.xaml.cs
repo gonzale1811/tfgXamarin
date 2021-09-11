@@ -9,6 +9,7 @@ namespace InspectionManager.Vistas
     public partial class ViewInformacionInspeccion : ContentPage
     {
         private Inspeccion inspeccion;
+        private List<Bloque> bloquesInspeccion;
         private IFirebaseConsultService consult;
 
         public ViewInformacionInspeccion(Inspeccion inspeccionElegida)
@@ -18,6 +19,8 @@ namespace InspectionManager.Vistas
             inspeccion = inspeccionElegida;
 
             consult = DependencyService.Get<IFirebaseConsultService>();
+
+            bloquesInspeccion = consult.GetBloquesByInspeccion(inspeccion);
 
             nombreEntry.Text = "Nombre: "+inspeccion.Nombre;
             fechaInicioPicker.Date = inspeccion.FechaInicio;
@@ -35,7 +38,7 @@ namespace InspectionManager.Vistas
 
         public void ProcesarDescargarInspeccion(object sender, EventArgs e)
         {
-            consult.GenerarPdfInspeccion(inspeccion);
+            consult.GenerarPdfInspeccion(inspeccion, bloquesInspeccion);
         }
 
         public void ProcesarEditarInspeccion(object sender, EventArgs e)

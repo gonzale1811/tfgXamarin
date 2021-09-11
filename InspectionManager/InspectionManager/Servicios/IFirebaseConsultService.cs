@@ -49,7 +49,7 @@ namespace InspectionManager.Servicios
 
         List<Inspeccion> GetInspeccionesByUsuario(Inspector inspector);
 
-        void GenerarPdfInspeccion(Inspeccion inspeccion);
+        void GenerarPdfInspeccion(Inspeccion inspeccion, List<Bloque> bloques);
 
         List<Bloque> GetBloquesByInspeccion(Inspeccion inspeccion);
 
