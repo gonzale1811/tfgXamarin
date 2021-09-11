@@ -786,6 +786,8 @@ namespace InspectionManager.Droid.Servicios
                 Directory.CreateDirectory(directory);
             }
 
+            string fechaDeHoy = DateTime.Today.ToString();
+
             var path = Path.Combine(directory, inspeccion.Nombre + ".pdf");
 
             if (File.Exists(path))
@@ -980,8 +982,11 @@ namespace InspectionManager.Droid.Servicios
                     var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(inspeccion.IdInspeccion.ToString()).Child(bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo).Child("evidencia-" + cont + ".png").GetDownloadUrlAsync();
                     iTextSharp.text.Image fotoActual = iTextSharp.text.Image.GetInstance(task);
                     fotoActual.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                    fotoActual.ScalePercent(40f);
 
                     document.Add(fotoActual);
+
+                    cont++;
                 }
             }
 

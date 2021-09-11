@@ -36,9 +36,10 @@ namespace InspectionManager.Vistas
 
         }
 
-        public void ProcesarDescargarInspeccion(object sender, EventArgs e)
+        public async void ProcesarDescargarInspeccion(object sender, EventArgs e)
         {
             consult.GenerarPdfInspeccion(inspeccion, bloquesInspeccion);
+            await DisplayAlert("Correcto", "Archivo pdf generado en la carpeta InspectionManager", "Ok");
         }
 
         public void ProcesarEditarInspeccion(object sender, EventArgs e)
