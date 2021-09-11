@@ -50,5 +50,13 @@ namespace InspectionManager.Servicios
         List<Inspeccion> GetInspeccionesByUsuario(Inspector inspector);
 
         void GenerarPdfInspeccion(Inspeccion inspeccion);
+
+        List<Bloque> GetBloquesByInspeccion(Inspeccion inspeccion);
+
+        List<IPregunta<string>> GetPreguntasTextoByBloqueInspeccion(Bloque bloque);
+
+        List<IPregunta<bool>> GetPreguntasBooleanByBloqueInspeccion(Bloque bloque);
+
+        List<IPregunta<int>> GetPreguntasValorByBloqueInspeccion(Bloque bloque);
     }
 }

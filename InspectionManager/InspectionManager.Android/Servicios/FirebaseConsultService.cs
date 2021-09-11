@@ -882,6 +882,215 @@ namespace InspectionManager.Droid.Servicios
             fs.Close();
         }
 
+        public List<Bloque> GetBloquesByInspeccion(Inspeccion inspeccion)
+        {
+            List<Bloque> resultado = new List<Bloque>();
+
+            var task = DatabaseConnection.GetInstance.Collection("BloquesInspeccion").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    Bloque obtenido = new Bloque(document.Get("nombre").ToString(), document.Get("puestoDeTrabajo").ToString());
+                    obtenido.IdBloque = Guid.Parse(document.Get("idBloque").ToString().Split("_")[0]);
+
+                    var preguntasTexto = document.Get("preguntasTexto") != null ? document.Get("preguntasTexto") : null;
+
+                    if (preguntasTexto != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(preguntasTexto.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenido.PreguntasTexto.Add(value.Value);
+                        }
+                    }
+
+                    var preguntasBoolean = document.Get("preguntasBoolean") != null ? document.Get("preguntasBoolean") : null;
+
+                    if (preguntasBoolean != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(preguntasBoolean.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenido.PreguntasBoolean.Add(value.Value);
+                        }
+                    }
+
+                    var preguntasValor = document.Get("preguntasValor") != null ? document.Get("preguntasValor") : null;
+
+                    if (preguntasValor != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(preguntasValor.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenido.PreguntasValor.Add(value.Value);
+                        }
+                    }
+
+                    var fotografias = document.Get("fotografias") != null ? document.Get("fotografias") : null;
+
+                    if (fotografias != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(fotografias.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenido.Fotografias.Add(value.Value);
+                        }
+                    }
+
+                    if (inspeccion.Bloques.Contains(obtenido.IdBloque.ToString() + "_" + obtenido.PuestoTrabajo))
+                    {
+                        resultado.Add(obtenido);
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        public List<IPregunta<string>> GetPreguntasTextoByBloqueInspeccion(Bloque bloque)
+        {
+            List<IPregunta<string>> resultado = new List<IPregunta<string>>();
+
+            var task = DatabaseConnection.GetInstance.Collection("PreguntasTextoInspeccion").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    IPregunta<string> obtenida = new PreguntaTexto(Guid.Parse(document.Get("idPregunta").ToString()), document.Get("nombre").ToString());
+
+                    var respuesta = document.Get("respuestaTexto") != null ? document.Get("respuestaTexto") : null;
+
+                    if (respuesta != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(respuesta.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenida.Responder(value.Value);
+                        }
+                    }
+
+                    if (bloque.PreguntasTexto.Contains(obtenida.IdPregunta.ToString()))
+                    {
+                        resultado.Add(obtenida);
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        public List<IPregunta<bool>> GetPreguntasBooleanByBloqueInspeccion(Bloque bloque)
+        {
+            List<IPregunta<bool>> resultado = new List<IPregunta<bool>>();
+
+            var task = DatabaseConnection.GetInstance.Collection("PreguntasBooleanInspeccion").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    IPregunta<bool> obtenida = new PreguntaBoolean(Guid.Parse(document.Get("idPregunta").ToString()), document.Get("nombre").ToString());
+
+                    var respuesta = document.Get("respuestaBoolean") != null ? document.Get("respuestaBoolean") : null;
+
+                    if (respuesta != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(respuesta.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenida.Responder(Boolean.Parse(value.Value));
+                        }
+                    }
+
+                    if (bloque.PreguntasBoolean.Contains(obtenida.IdPregunta.ToString()))
+                    {
+                        resultado.Add(obtenida);
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        public List<IPregunta<int>> GetPreguntasValorByBloqueInspeccion(Bloque bloque)
+        {
+            List<IPregunta<int>> resultado = new List<IPregunta<int>>();
+
+            var task = DatabaseConnection.GetInstance.Collection("PreguntasValorInspeccion").Get();
+
+            while (!task.IsSuccessful)
+            {
+
+            }
+
+            var snapshot = (QuerySnapshot)task.Result;
+
+            if (!snapshot.IsEmpty)
+            {
+                var documents = snapshot.Documents;
+
+                foreach(DocumentSnapshot document in documents)
+                {
+                    IPregunta<int> obtenida = new PreguntaValor(Guid.Parse(document.Get("idPregunta").ToString()), document.Get("nombre").ToString());
+
+                    var respuesta = document.Get("respuestaValor") != null ? document.Get("respuestaValor") : null;
+
+                    if (respuesta != null)
+                    {
+                        var dictionaryFromHashmap = new Android.Runtime.JavaDictionary<string, string>(respuesta.Handle, Android.Runtime.JniHandleOwnership.DoNotRegister);
+
+                        foreach(KeyValuePair<string,string> value in dictionaryFromHashmap)
+                        {
+                            obtenida.Responder(Convert.ToInt32(value.Value));
+                        }
+                    }
+
+                    if (bloque.PreguntasValor.Contains(obtenida.IdPregunta.ToString()))
+                    {
+                        resultado.Add(obtenida);
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)

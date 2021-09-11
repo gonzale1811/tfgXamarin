@@ -1,27 +1,17 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager.Android/Servicios/FirebaseConsultService.cs">
-    <Files>
-      <File FileName="InspectionManager/Vistas/ViewInformacionInspeccion.xaml.cs" Line="18" Column="44" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="52" Column="58" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="807" Column="14" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Servicios" expanded="True" />
-              <Node name="Vistas" expanded="True">
-                <Node name="ViewDatosInspeccion.xaml" expanded="True" />
-                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
-                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+              <Node name="Modelo" expanded="True">
+                <Node name="Bloque.cs" selected="True" />
               </Node>
+              <Node name="Servicios" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Properties" expanded="True" />
-              <Node name="Servicios" expanded="True">
-                <Node name="FirebaseConsultService.cs" selected="True" />
-              </Node>
+              <Node name="Servicios" expanded="True" />
             </Node>
           </Node>
         </State>
