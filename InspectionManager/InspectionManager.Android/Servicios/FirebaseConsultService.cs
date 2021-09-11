@@ -1204,6 +1204,33 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
+        public void DeleteInspeccion(Inspeccion inspeccion, List<Bloque> bloques)
+        {
+            FirebaseFirestore instancia = DatabaseConnection.GetInstance;
+
+            foreach(Bloque bloque in bloques)
+            {
+                foreach(string preguntaTexto in bloque.PreguntasTexto)
+                {
+                    instancia.Collection("PreguntasTextoInspeccion").Document(preguntaTexto).Delete();
+                }
+
+                foreach(string preguntaBoolean in bloque.PreguntasBoolean)
+                {
+                    instancia.Collection("PreguntasBooleanInspeccion").Document(preguntaBoolean).Delete();
+                }
+
+                foreach(string preguntaValor in bloque.PreguntasValor)
+                {
+                    instancia.Collection("PreguntasValorInspeccion").Document(preguntaValor).Delete();
+                }
+
+                instancia.Collection("BloquesInspeccion").Document(bloque.IdBloque.ToString() + "_" + bloque.PuestoTrabajo).Delete();
+            }
+
+            instancia.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString()).Delete();
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)

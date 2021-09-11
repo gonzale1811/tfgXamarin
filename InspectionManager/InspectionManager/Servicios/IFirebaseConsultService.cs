@@ -58,5 +58,7 @@ namespace InspectionManager.Servicios
         List<IPregunta<bool>> GetPreguntasBooleanByBloqueInspeccion(Bloque bloque);
 
         List<IPregunta<int>> GetPreguntasValorByBloqueInspeccion(Bloque bloque);
+
+        void DeleteInspeccion(Inspeccion inspeccion, List<Bloque> bloques);
     }
 }

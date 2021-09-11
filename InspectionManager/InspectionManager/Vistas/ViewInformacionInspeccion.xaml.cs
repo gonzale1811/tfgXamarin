@@ -31,9 +31,14 @@ namespace InspectionManager.Vistas
             codigoPostalEntry.Text = "Código Postal: "+inspeccion.DireccionInspeccion.CodigoPostal;
         }
 
-        public void ProcesarEliminarInspeccion(object sender, EventArgs e)
+        public async void ProcesarEliminarInspeccion(object sender, EventArgs e)
         {
-
+            bool eliminar = await DisplayAlert("Precaución", "Eliminar la inspección es una acción permanente, ¿desea continuar?", "Si", "No");
+            if (eliminar)
+            {
+                consult.DeleteInspeccion(inspeccion, bloquesInspeccion);
+                await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            }
         }
 
         public async void ProcesarDescargarInspeccion(object sender, EventArgs e)
