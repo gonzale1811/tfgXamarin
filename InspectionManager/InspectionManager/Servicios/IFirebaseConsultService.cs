@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using InspectionManager.Modelo;
+using Xamarin.Forms;
 
 namespace InspectionManager.Servicios
 {

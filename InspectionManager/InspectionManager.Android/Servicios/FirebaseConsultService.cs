@@ -1250,7 +1250,8 @@ namespace InspectionManager.Droid.Servicios
 
         public async Task<string> DonwloadImage(string idInspeccion, string idBloque, string nombreImagen)
         {
-            return await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child(idBloque).Child(nombreImagen).GetDownloadUrlAsync();
+            var storeImage = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child(idBloque).Child(nombreImagen).GetDownloadUrlAsync();
+            return storeImage;
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FFImageLoading;
 using InspectionManager.Modelo;
 using InspectionManager.Servicios;
 using Xamarin.Forms;
@@ -47,10 +48,11 @@ namespace InspectionManager.Vistas
             }
             else
             {
-                int nombre = fotosPicker.SelectedIndex + 1;
-                string uri = await consult.DonwloadImage(inspeccion.IdInspeccion.ToString(), bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo,"evidencia"+nombre+".png");
-                Console.WriteLine("INDEX DE LA IMAGEN OBTENIDO: " + uri);
-                fotoImage.Source = Xamarin.Forms.ImageSource.FromUri(new Uri(uri));
+                int index = fotosPicker.SelectedIndex + 1;
+                string uri = await consult.DonwloadImage(inspeccion.IdInspeccion.ToString(), bloque.IdBloque.ToString() + "_" + bloque.PuestoTrabajo, "evidencia-" + index + ".png");
+                fotoImage.Source = ImageSource.FromUri(new Uri(uri));
+                fotoImage.IsVisible = true;
+                fotoImage.Scale = 1;
             }
         }
     }

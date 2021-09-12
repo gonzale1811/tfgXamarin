@@ -5,12 +5,14 @@
     x:Class="InspectionManager.Vistas.ViewFotos"
     Title="Fotos del bloque">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <Picker x:Name="fotosPicker" Title="Seleccione la foto" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Image x:Name="fotoImage" IsVisible="False"/>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-                <Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarVolver"/>
-                <Button x:Name="cargarFotoButton" Text="Descargar" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarCargarFoto"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
+                <Picker x:Name="fotosPicker" Title="Seleccione la foto" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Start"/>
+            </StackLayout>
+            <Image x:Name="fotoImage" IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="End" Clicked="ProcesarVolver"/>
+                <Button x:Name="cargarFotoButton" Text="Descargar" HorizontalOptions="EndAndExpand" VerticalOptions="End" Clicked="ProcesarCargarFoto"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
