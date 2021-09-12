@@ -8,6 +8,7 @@ public class MonoPackageManager_Resources {
 		"Firebase.Storage.dll",
 		"FormsViewGroup.dll",
 		"InspectionManager.dll",
+		"iTextSharpLGPL-MonoForAndroid.dll",
 		"Newtonsoft.Json.dll",
 		"Plugin.CloudFirestore.dll",
 		"Plugin.CurrentActivity.dll",
@@ -136,6 +137,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Io.OpenCensus.OpenCensusContribGrpcMetrics.dll",
 		"Xamarin.Io.PerfMark.PerfMarkApi.dll",
 		"Xamarin.Protobuf.JavaLite.dll",
+		"XamiTextSharpLGPL.Droid.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

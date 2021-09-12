@@ -9,6 +9,7 @@ namespace InspectionManager.Modelo
         public string NumeroPreguntasTexto { get; set; }
         public string NumeroPreguntasBoolean { get; set; }
         public string NumeroPreguntasValor { get; set; }
+        public string PuestoDeTrabajo { get; set; }
 
         public BloqueListViewModel(string id, string nombre, int nT, int nB, int nV)
         {
@@ -18,6 +19,18 @@ namespace InspectionManager.Modelo
             this.NumeroPreguntasTexto = "Numero de preguntas de texto: "+nT;
             this.NumeroPreguntasBoolean = "Numero de preguntas verdadero/falso: " + nB;
             this.NumeroPreguntasValor = "Numero de preguntas numericas: " + nV;
+            this.PuestoDeTrabajo = null;
+        }
+
+        public BloqueListViewModel(string id, string nombre, int nT, int nB, int nV, string puestoDeTrabajo)
+        {
+            this.Id = id;
+            this.Nombre = nombre;
+            this.SeleccionadoAlgunaVez = false;
+            this.NumeroPreguntasTexto = "Numero de preguntas de texto: " + nT;
+            this.NumeroPreguntasBoolean = "Numero de preguntas verdadero/falso: " + nB;
+            this.NumeroPreguntasValor = "Numero de preguntas numericas: " + nV;
+            this.PuestoDeTrabajo = puestoDeTrabajo;
         }
     }
 }

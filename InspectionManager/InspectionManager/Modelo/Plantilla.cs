@@ -63,6 +63,23 @@ namespace InspectionManager.Modelo
             }
         }
 
+        public TipoTrabajo StringToTrabajo(string tipo)
+        {
+            switch (tipo)
+            {
+                case "Obra":
+                    return TipoTrabajo.Obra;
+                case "Oficina":
+                    return TipoTrabajo.Oficina;
+                case "Fabrica":
+                    return TipoTrabajo.Fabrica;
+                case "Servicios":
+                    return TipoTrabajo.Servicios;
+                default:
+                    return TipoTrabajo.Oficina;
+            }
+        }
+
         public List<string> PuestosDelTipoTrabajo()
         {
             switch (Trabajo)

@@ -9,7 +9,32 @@
     <TabbedPage.Children>
         <ContentPage Title="Mis Inspecciones" IconImageSource="list_black.png">
             <StackLayout>
-                <Label Text="Mis Inspecciones"/>
+                <Label x:Name="informacionLabel" Text="" FontSize="Title" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                <ListView x:Name="inspeccionesListView"
+                          ItemsSource="{Binding Items}"
+                          ItemTapped="HandleItemTapped"
+                          CachingStrategy="RecycleElement"
+                          RowHeight="125"
+                          SeparatorVisibility="Default"
+                          SeparatorColor="Black">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout x:Name="cellLayout" Orientation="Horizontal">
+                                    <Image Source="inspeccion_black.png" HorizontalOptions="Start"/>
+                                    <StackLayout>
+                                        <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                                        <Label Text="{Binding FechaInicio}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                                        <Label Text="{Binding FechaFin}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                                        <Label Text="{Binding NumeroDeBloques}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
             </StackLayout>
         </ContentPage>
         <ContentPage Title="Nueva Inspeccion" IconImageSource="add_black.png">
@@ -30,11 +55,13 @@
             <Entry x:Name="apellidosEntry" IsEnabled="False"/>
             <Entry x:Name="usernameEntry" IsEnabled="False"/>
             <Entry x:Name="passwordEntry" IsEnabled="False" IsPassword="True"/>
-            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False"/>
+            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False" DateSelected="ProcesarFechaNacimiento"/>
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
                 <Button x:Name="editarPerfilButton" Text="Editar perfil" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
+                <Button x:Name="guardarPerfilButton" Text="Guardar perfil" ImageSource="edit_black.png" Clicked="ProcesarGuardarPerfil" HorizontalOptions="End" IsEnabled="False" IsVisible="False"/>
             </StackLayout>
+            <Label x:Name="errorLabel" IsVisible="False" HorizontalTextAlignment="Center"/>
         </StackLayout>
         </ContentPage>
     </TabbedPage.Children>

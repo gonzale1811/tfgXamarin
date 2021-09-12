@@ -1,5 +1,6 @@
 FFImageLoading.Platform.dll
 FormsViewGroup.dll
+iTextSharpLGPL-MonoForAndroid.dll
 Plugin.CloudFirestore.dll
 Plugin.CurrentActivity.dll
 Plugin.Media.dll
@@ -86,6 +87,7 @@ Xamarin.Io.OpenCensus.OpenCensusApi.dll
 Xamarin.Io.OpenCensus.OpenCensusContribGrpcMetrics.dll
 Xamarin.Io.PerfMark.PerfMarkApi.dll
 Xamarin.Protobuf.JavaLite.dll
+XamiTextSharpLGPL.Droid.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.arch.core.core-runtime.aar
 androidx.lifecycle.lifecycle-runtime.aar

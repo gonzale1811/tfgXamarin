@@ -5,20 +5,16 @@
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Dependencies" expanded="True" />
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewBloques.xaml" expanded="True" />
-                <Node name="ViewDatosInspeccion.xaml" expanded="True" />
-                <Node name="ViewPlantillas.xaml" expanded="True" />
-                <Node name="ViewPregunta.xaml" expanded="True">
-                  <Node name="ViewPregunta.xaml.cs" selected="True" />
-                </Node>
+                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+                <Node name="ViewRegistrarse.xaml" expanded="True" />
               </Node>
-              <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Servicios" expanded="True" />
+              <Node name="Servicios" expanded="True">
+                <Node name="FirebaseConsultService.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

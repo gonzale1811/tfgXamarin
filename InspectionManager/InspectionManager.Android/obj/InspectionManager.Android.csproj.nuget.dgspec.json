@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[4.0.1.5, )"
             },
+            "Xam.iTextSharpLGPL": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
             "Xamarin.Android.Support.v4": {
               "target": "Package",
               "version": "[28.0.0.3, )"
