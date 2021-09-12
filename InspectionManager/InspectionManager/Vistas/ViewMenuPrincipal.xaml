@@ -55,11 +55,13 @@
             <Entry x:Name="apellidosEntry" IsEnabled="False"/>
             <Entry x:Name="usernameEntry" IsEnabled="False"/>
             <Entry x:Name="passwordEntry" IsEnabled="False" IsPassword="True"/>
-            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False"/>
+            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False" DateSelected="ProcesarFechaNacimiento"/>
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
                 <Button x:Name="editarPerfilButton" Text="Editar perfil" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
+                <Button x:Name="guardarPerfilButton" Text="Guardar perfil" ImageSource="edit_black.png" Clicked="ProcesarGuardarPerfil" HorizontalOptions="End" IsEnabled="False" IsVisible="False"/>
             </StackLayout>
+            <Label x:Name="errorLabel" IsVisible="False" HorizontalTextAlignment="Center"/>
         </StackLayout>
         </ContentPage>
     </TabbedPage.Children>

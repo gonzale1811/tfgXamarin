@@ -13,6 +13,7 @@ namespace InspectionManager.Vistas
         private IFirebaseConsultService consult;
         private Inspector usuario;
         private List<Inspeccion> inspecciones;
+        private DateTime fechaDeNacimientoUsuario;
 
         public ViewMenuPrincipal()
         {
@@ -56,6 +57,7 @@ namespace InspectionManager.Vistas
                 usernameEntry.Text = usuario.Usuario;
                 passwordEntry.Text = usuario.Password;
                 fechaNacimientoPicker.Date = usuario.FechaNacimiento;
+                fechaDeNacimientoUsuario = usuario.FechaNacimiento;
             }
         }
 
@@ -75,7 +77,77 @@ namespace InspectionManager.Vistas
 
         public void ProcesarEditarPerfil(object sender, EventArgs e)
         {
+            nombreEntry.IsEnabled = true;
+            apellidosEntry.IsEnabled = true;
+            fechaNacimientoPicker.IsEnabled = true;
 
+            editarPerfilButton.IsEnabled = false;
+            editarPerfilButton.IsVisible = false;
+
+            guardarPerfilButton.IsVisible = true;
+            guardarPerfilButton.IsEnabled = true;
+        }
+
+        public async void ProcesarGuardarPerfil(object sender, EventArgs e)
+        {
+            OcultarError();
+
+            if (ComprobarCampos())
+            {
+                Inspector inspectorActualizado = new Inspector(usuario.Dni, nombreEntry.Text, apellidosEntry.Text, usuario.Usuario, usuario.Password, fechaDeNacimientoUsuario);
+                consult.ActualizarInformacionUsuario(inspectorActualizado);
+
+                usuario.Nombre = inspectorActualizado.Nombre;
+                usuario.Apellidos = inspectorActualizado.Apellidos;
+                usuario.FechaNacimiento = inspectorActualizado.FechaNacimiento;
+
+                nombreEntry.IsEnabled = false;
+                apellidosEntry.IsEnabled = false;
+                fechaNacimientoPicker.IsEnabled = false;
+
+                guardarPerfilButton.IsEnabled = false;
+                guardarPerfilButton.IsVisible = false;
+
+                editarPerfilButton.IsVisible = true;
+                editarPerfilButton.IsEnabled = true;
+            }
+            else
+            {
+                await DisplayAlert("Error", "Alguno de los campos es incorrecto o esta vacío.", "Ok");
+            }
+        }
+
+        private bool ComprobarCampos()
+        {
+            if (String.IsNullOrWhiteSpace(nombreEntry.Text))
+            {
+                MostrarError("El campo nombre no puede estar vacío.");
+                return false;
+            }
+            if (String.IsNullOrWhiteSpace(apellidosEntry.Text))
+            {
+                MostrarError("El campo apellidos no puede estar vacío.");
+                return false;
+            }
+            if(!(fechaDeNacimientoUsuario.AddYears(18) <= DateTime.Today))
+            {
+                MostrarError("Debe ser mayor de 18 años para poder continuar.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void MostrarError(string error)
+        {
+            errorLabel.Text = error;
+            errorLabel.TextColor = Color.Red;
+            errorLabel.IsVisible = true;
+        }
+
+        private void OcultarError()
+        {
+            errorLabel.IsVisible = false;
         }
 
         public async void ProcesarCrearInspeccion(object sender, EventArgs e)
@@ -99,6 +171,11 @@ namespace InspectionManager.Vistas
                     await Navigation.PushAsync(new NavigationPage(new ViewInformacionInspeccion(i)));
                 }
             }
+        }
+
+        public void ProcesarFechaNacimiento(object sender, DateChangedEventArgs e)
+        {
+            fechaDeNacimientoUsuario = fechaNacimientoPicker.Date;
         }
     }
 }

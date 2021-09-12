@@ -1293,6 +1293,15 @@ namespace InspectionManager.Droid.Servicios
             }
         }
 
+        public void ActualizarInformacionUsuario(Inspector inspector)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
+
+            documentReference.Update("Nombre", inspector.Nombre);
+            documentReference.Update("Apellidos", inspector.Apellidos);
+            documentReference.Update("FechaNacimiento", inspector.FechaNacimiento.ToString());
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)

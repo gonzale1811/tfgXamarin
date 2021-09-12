@@ -72,5 +72,7 @@ namespace InspectionManager.Servicios
         void ActualizarPreguntasBooleanInspeccion(List<IPregunta<bool>> preguntasBoolean);
 
         void ActualizarPreguntasValorInspeccion(List<IPregunta<int>> preguntasValor);
+
+        void ActualizarInformacionUsuario(Inspector inspector);
     }
 }
