@@ -8,8 +8,10 @@
         <StackLayout Orientation="Vertical">
             <Picker x:Name="fotosPicker" Title="Seleccione la foto" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
             <Image x:Name="fotoImage" IsVisible="False"/>
-            <Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarVolver"/>
-            <Button x:Name="cargarFotoButton" Text="Descargar" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarCargarFoto"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarVolver"/>
+                <Button x:Name="cargarFotoButton" Text="Descargar" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarCargarFoto"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

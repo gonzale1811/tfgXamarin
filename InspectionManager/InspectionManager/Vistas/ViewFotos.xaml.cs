@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using InspectionManager.Modelo;
+using InspectionManager.Servicios;
 using Xamarin.Forms;
 
 namespace InspectionManager.Vistas
 {
     public partial class ViewFotos : ContentPage
     {
-        private Bloque bloque;
+        private IFirebaseConsultService consult;
 
-        public ViewFotos(Bloque bloqueRecibido)
+        private Bloque bloque;
+        private Inspeccion inspeccion;
+
+        public ViewFotos(Inspeccion inspeccionRecibida, Bloque bloqueRecibido)
         {
             InitializeComponent();
 
+            consult = DependencyService.Get<IFirebaseConsultService>();
+
             bloque = bloqueRecibido;
+            inspeccion = inspeccionRecibida;
 
             List<string> opciones = new List<string>();
             int cont = 1;
@@ -29,7 +36,7 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarVolver(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ViewPreguntasInspeccion(bloque)));
+            await Navigation.PushModalAsync(new NavigationPage(new ViewPreguntasInspeccion(inspeccion,bloque)));
         }
 
         public async void ProcesarCargarFoto(object sender, EventArgs e)
@@ -40,9 +47,10 @@ namespace InspectionManager.Vistas
             }
             else
             {
-                string imagen = fotosPicker.SelectedItem.ToString();
-                int imagenSeleccionada =  Convert.ToInt32(imagen.Substring(imagen.Length - 2, imagen.Length - 1));
-                fotoImage.Source = Xamarin.Forms.ImageSource.FromUri(new Uri(bloque.Fotografias[imagenSeleccionada - 1]));
+                int nombre = fotosPicker.SelectedIndex + 1;
+                string uri = await consult.DonwloadImage(inspeccion.IdInspeccion.ToString(), bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo,"evidencia"+nombre+".png");
+                Console.WriteLine("INDEX DE LA IMAGEN OBTENIDO: " + uri);
+                fotoImage.Source = Xamarin.Forms.ImageSource.FromUri(new Uri(uri));
             }
         }
     }

@@ -46,7 +46,7 @@ namespace InspectionManager.Vistas
                 Label texto = new Label();
                 texto.Text = pregunta.Nombre;
                 Entry campoRespuesta = new Entry();
-                campoRespuesta.Placeholder = MENSAJE;
+                campoRespuesta.Text = "Respuesta: "+pregunta.RespuestaPregunta.ValorRespuesta;
                 campoRespuesta.Keyboard = Keyboard.Text;
                 campoRespuesta.IsEnabled = false;
                 layoutPreguntas.Children.Add(texto);
@@ -68,7 +68,8 @@ namespace InspectionManager.Vistas
                 Label texto = new Label();
                 texto.Text = pregunta1.Nombre;
                 CheckBox respuesta = new CheckBox();
-                respuesta.IsChecked = false;
+                respuesta.IsChecked = pregunta1.RespuestaPregunta.ValorRespuesta;
+                respuesta.IsEnabled = false;
                 layoutPreguntas.Children.Add(texto);
                 layoutPreguntas.Children.Add(respuesta);
             }
@@ -84,7 +85,9 @@ namespace InspectionManager.Vistas
                 Label texto = new Label();
                 texto.Text = pregunta2.Nombre;
                 Entry campoRespuesta = new Entry();
+                campoRespuesta.Text = "Respuesta: " + pregunta2.RespuestaPregunta.ValorRespuesta;
                 campoRespuesta.Keyboard = Keyboard.Numeric;
+                campoRespuesta.IsEnabled = false;
                 layoutPreguntas.Children.Add(texto);
                 layoutPreguntas.Children.Add(campoRespuesta);
             }
@@ -143,7 +146,7 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarVerFotos(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ViewFotos(bloque)));
+            await Navigation.PushModalAsync(new NavigationPage(new ViewFotos(inspeccion,bloque)));
         }
 
         public void ProcesarEditar(object sender, EventArgs e)

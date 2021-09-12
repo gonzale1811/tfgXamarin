@@ -13,6 +13,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Net;
+using System.Threading.Tasks;
 
 [assembly: Dependency(typeof(FirebaseConsultService))]
 namespace InspectionManager.Droid.Servicios
@@ -1245,6 +1246,11 @@ namespace InspectionManager.Droid.Servicios
             documentReference.Update("fechaInicio", inspeccion.FechaInicio.ToString());
             documentReference.Update("fechaFin", inspeccion.FechaFin.ToString());
             documentReference.Update("direccion", direccion);
+        }
+
+        public async Task<string> DonwloadImage(string idInspeccion, string idBloque, string nombreImagen)
+        {
+            return await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(idInspeccion).Child(idBloque).Child(nombreImagen).GetDownloadUrlAsync();
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)

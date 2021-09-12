@@ -165,6 +165,7 @@ namespace InspectionManager.Vistas
                 Label texto = new Label();
                 texto.Text = pregunta2.Nombre;
                 Entry campoRespuesta = new Entry();
+                campoRespuesta.Placeholder = "Indique el valor correspondiente";
                 campoRespuesta.Keyboard = Keyboard.Numeric;
                 layoutPreguntas.Children.Add(texto);
                 layoutPreguntas.Children.Add(campoRespuesta);

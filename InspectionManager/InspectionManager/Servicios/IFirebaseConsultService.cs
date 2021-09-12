@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using InspectionManager.Modelo;
 
 namespace InspectionManager.Servicios
@@ -62,5 +63,7 @@ namespace InspectionManager.Servicios
         void DeleteInspeccion(Inspeccion inspeccion, List<Bloque> bloques);
 
         void ActualizarInspeccion(Inspeccion inspeccion);
+
+        Task<string> DonwloadImage(string idInspeccion, string idBloque, string nombreImagen);
     }
 }
