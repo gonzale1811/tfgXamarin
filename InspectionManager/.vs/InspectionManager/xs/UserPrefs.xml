@@ -1,5 +1,14 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewBloques.xaml.cs">
+    <Files>
+      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml" Line="1" Column="9" />
+      <File FileName="InspectionManager/Vistas/ViewDatosInspeccion.xaml" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewDatosInspeccion.xaml.cs" Line="68" Column="38" />
+      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewPlantillas.xaml.cs" Line="48" Column="47" />
+      <File FileName="InspectionManager/Vistas/ViewBloques.xaml.cs" Line="74" Column="67" />
+      <File FileName="InspectionManager/Vistas/ViewPreguntasInspeccion.xaml.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -7,14 +16,20 @@
             <Node name="InspectionManager" expanded="True">
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
+                <Node name="ViewBloques.xaml" expanded="True">
+                  <Node name="ViewBloques.xaml.cs" selected="True" />
+                </Node>
+                <Node name="ViewBloquesInspeccion.xaml" expanded="True" />
+                <Node name="ViewDatosInspeccion.xaml" expanded="True" />
+                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
                 <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+                <Node name="ViewPlantillas.xaml" expanded="True" />
+                <Node name="ViewPreguntasInspeccion.xaml" expanded="True" />
                 <Node name="ViewRegistrarse.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Servicios" expanded="True">
-                <Node name="FirebaseConsultService.cs" selected="True" />
-              </Node>
+              <Node name="Servicios" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -27,5 +42,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.CoworkersMatch" />
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Android PreferredExecutionTarget="Android.tfg3" />
 </Properties>

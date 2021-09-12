@@ -44,7 +44,8 @@ namespace InspectionManager.Vistas
             {
                 if (p.IdPlantilla.ToString() == idSeleccionado)
                 {
-                    await Navigation.PushAsync(new ViewBloques(nuevaInspeccion,p,null));
+                    //await Navigation.PushAsync(new ViewBloques(nuevaInspeccion,p,null));
+                    await Navigation.PushModalAsync(new NavigationPage(new ViewBloques(nuevaInspeccion, p, null)));
                 }
             }
             

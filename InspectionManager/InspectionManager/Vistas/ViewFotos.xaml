@@ -11,8 +11,8 @@
             </StackLayout>
             <Image x:Name="fotoImage" IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
-                <Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="End" Clicked="ProcesarVolver"/>
-                <Button x:Name="cargarFotoButton" Text="Descargar" HorizontalOptions="EndAndExpand" VerticalOptions="End" Clicked="ProcesarCargarFoto"/>
+                <!--Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="End" Clicked="ProcesarVolver"/-->
+                <Button x:Name="cargarFotoButton" Text="Descargar" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Clicked="ProcesarCargarFoto"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

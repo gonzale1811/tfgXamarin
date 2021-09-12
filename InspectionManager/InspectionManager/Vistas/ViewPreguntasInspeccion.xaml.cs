@@ -282,7 +282,7 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarVerFotos(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ViewFotos(inspeccion,bloque)));
+            await Navigation.PushAsync(new ViewFotos(inspeccion,bloque));
         }
 
         public void ProcesarEditar(object sender, EventArgs e)
@@ -355,7 +355,8 @@ namespace InspectionManager.Vistas
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
             List<Bloque> bloquesInspeccion = consult.GetBloquesByInspeccion(inspeccion);
-            await Navigation.PushModalAsync(new NavigationPage(new ViewBloquesInspeccion(inspeccion, bloquesInspeccion)));
+            //await Navigation.PushModalAsync(new NavigationPage(new ViewBloquesInspeccion(inspeccion, bloquesInspeccion)));
+            await Navigation.PopModalAsync(true);
         }
     }
 }
