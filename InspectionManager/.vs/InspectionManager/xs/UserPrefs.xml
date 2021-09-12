@@ -1,12 +1,5 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewRegistrarse.xaml.cs">
-    <Files>
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="1302" Column="95" />
-      <File FileName="InspectionManager/Servicios/IFirebaseConsultService.cs" Line="76" Column="64" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml" Line="64" Column="59" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="108" Column="41" />
-      <File FileName="InspectionManager/Vistas/ViewRegistrarse.xaml.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
