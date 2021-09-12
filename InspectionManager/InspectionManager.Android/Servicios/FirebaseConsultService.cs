@@ -1254,6 +1254,45 @@ namespace InspectionManager.Droid.Servicios
             return storeImage;
         }
 
+        public void ActualizarPreguntasTextoInspeccion(List<IPregunta<string>> preguntasTexto)
+        {
+            foreach(IPregunta<string> pregunta in preguntasTexto)
+            {
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasTextoInspeccion").Document(pregunta.IdPregunta.ToString());
+
+                HashMap respuesta = new HashMap();
+                respuesta.Put("respuesta", pregunta.RespuestaPregunta.ValorRespuesta);
+
+                documentReference.Update("respuestaTexto", respuesta);
+            }
+        }
+
+        public void ActualizarPreguntasBooleanInspeccion(List<IPregunta<bool>> preguntasBoolean)
+        {
+            foreach (IPregunta<bool> pregunta in preguntasBoolean)
+            {
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasBooleanInspeccion").Document(pregunta.IdPregunta.ToString());
+
+                HashMap respuesta = new HashMap();
+                respuesta.Put("respuesta", pregunta.RespuestaPregunta.ValorRespuesta);
+
+                documentReference.Update("respuestaBoolean", respuesta);
+            }
+        }
+
+        public void ActualizarPreguntasValorInspeccion(List<IPregunta<int>> preguntasValor)
+        {
+            foreach (IPregunta<int> pregunta in preguntasValor)
+            {
+                DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("PreguntasValorInspeccion").Document(pregunta.IdPregunta.ToString());
+
+                HashMap respuesta = new HashMap();
+                respuesta.Put("respuesta", pregunta.RespuestaPregunta.ValorRespuesta);
+
+                documentReference.Update("respuestaValor", respuesta);
+            }
+        }
+
         private TipoTrabajo GetTipoTrabajoByString(string tipo)
         {
             switch (tipo)

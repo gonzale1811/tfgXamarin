@@ -66,5 +66,11 @@ namespace InspectionManager.Servicios
         void ActualizarInspeccion(Inspeccion inspeccion);
 
         Task<string> DonwloadImage(string idInspeccion, string idBloque, string nombreImagen);
+
+        void ActualizarPreguntasTextoInspeccion(List<IPregunta<string>> preguntasTexto);
+
+        void ActualizarPreguntasBooleanInspeccion(List<IPregunta<bool>> preguntasBoolean);
+
+        void ActualizarPreguntasValorInspeccion(List<IPregunta<int>> preguntasValor);
     }
 }
