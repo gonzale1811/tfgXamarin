@@ -76,9 +76,9 @@ namespace InspectionManager.Vistas
             guardarNuevosDatosButton.IsEnabled = true;
         }
 
-        public void ProcesarObtenerBloques(object sender, EventArgs e)
+        public async void ProcesarObtenerBloques(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new NavigationPage(new ViewBloquesInspeccion(inspeccion, bloquesInspeccion)));
         }
 
         public async void ProcesarGuardarNuevosDatos(object sender, EventArgs e)
