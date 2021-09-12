@@ -64,8 +64,7 @@ namespace InspectionManager.Vistas
                 propietario.Inspecciones.Add(nuevaInspeccion.IdInspeccion.ToString());
                 consult.AddInspeccion(nuevaInspeccion);
                 consult.AddInspeccionToInspector(propietario, nuevaInspeccion);
-                //await Navigation.PushModalAsync(new NavigationPage(new ViewPlantillas(nuevaInspeccion)));
-                await Navigation.PushAsync(new ViewPlantillas(nuevaInspeccion));
+                await Navigation.PushModalAsync(new NavigationPage(new ViewPlantillas(nuevaInspeccion)));
             }
             else
             {

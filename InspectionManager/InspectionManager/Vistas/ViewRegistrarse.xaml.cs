@@ -99,8 +99,31 @@ namespace InspectionManager.Vistas
             }
             if (!String.IsNullOrWhiteSpace(passwordEntry.Text)&&!String.IsNullOrWhiteSpace(passwordConfirmEntry.Text)&&!passwordEntry.Text.Equals(passwordConfirmEntry.Text))
             {
-                mostrarError("Las contraseñas deben de ser iguales", Color.Red);
-                
+                mostrarError("Las contraseñas deben de ser iguales.", Color.Red);
+                return false;
+            }
+            if (dniEntry.Text.Length != 9)
+            {
+                mostrarError("Los DNI estan compuestos por 9 caracteres.", Color.Red);
+                return false;
+            }
+            if (!Char.IsLetter(dniEntry.Text[8]))
+            {
+                mostrarError("El último elemento del DNI debe ser una letra.", Color.Red);
+                return false;
+            }
+
+            int cont = 0;
+
+            while (cont < 8)
+            {
+                if (!Char.IsDigit(dniEntry.Text[cont]))
+                {
+                    mostrarError("Los 8 primeros digitos que componen el DNI deben de ser números.", Color.Red);
+                    return false;
+                }
+
+                cont++;
             }
 
             return true;
