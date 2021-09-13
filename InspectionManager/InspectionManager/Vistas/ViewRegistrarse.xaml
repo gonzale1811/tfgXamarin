@@ -2,19 +2,21 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="InspectionManager.Vistas.ViewRegistrarse">
+    x:Class="InspectionManager.Vistas.ViewRegistrarse"
+    BackgroundColor="#0336FF"
+    Title="Registro de usuario">
     <ContentPage.Content>
         <StackLayout x:Name="stackLayoutRegistro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label Text="Registro de usuario" TextColor="Black" FontSize="Title" VerticalOptions="Center"
+            <Label Text="Registro de usuario" TextColor="White" FontSize="Title" FontAttributes="Bold" VerticalOptions="Center"
                 HorizontalOptions="Center"/>
-            <Entry x:Name="dniEntry" Placeholder="DNI"/>
-            <Entry x:Name="nombreEntry" Placeholder="Nombre"/>
-            <Entry x:Name="apellidosEntry" Placeholder="Apellidos"/>
-            <Entry x:Name="usernameEntry" Placeholder="Correo electrónico"/>
-            <Entry x:Name="passwordEntry" Placeholder="Contraseña"/>
-            <Entry x:Name="passwordConfirmEntry" Placeholder="Confirmar contraseña"/>
-            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" MinimumDate="01/01/1900" DateSelected="FechaSeleccionada"/>
-            <Button x:Name="registrarButton" Text="Resgitrarse como usuario" Clicked="ProcesarRegistroUsuario"/>
+            <Entry x:Name="dniEntry" Placeholder="DNI" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="nombreEntry" Placeholder="Nombre" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="apellidosEntry" Placeholder="Apellidos" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="usernameEntry" Placeholder="Correo electrónico" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="passwordEntry" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="passwordConfirmEntry" Placeholder="Confirmar contraseña" PlaceholderColor="White" TextColor="White"/>
+            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" MinimumDate="01/01/1900" DateSelected="FechaSeleccionada" TextColor="White"/>
+            <Button x:Name="registrarButton" Text="Resgitrarse como usuario" Clicked="ProcesarRegistroUsuario" BackgroundColor="PaleGoldenrod"/>
             <Label Text="" IsVisible="False"/>
             <Label x:Name="labelError" Text="" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>

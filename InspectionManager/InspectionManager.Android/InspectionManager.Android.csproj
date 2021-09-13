@@ -126,7 +126,7 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\login.png">
+    <AndroidResource Include="Resources\drawable\login_black.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -195,6 +195,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\inspeccion_white.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\login_white.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

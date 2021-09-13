@@ -2,24 +2,16 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="InspectionManager.Vistas.ViewLogin">
+    x:Class="InspectionManager.Vistas.ViewLogin"
+    BackgroundColor="#0336FF"
+    Title="Inspection Manager">
     <ContentPage.Content>
-        <Grid x:Name="gridLogin" RowSpacing="0" ColumnSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0"/>
-            </Grid.ColumnDefinitions>
-
+        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
             <StackLayout x:Name="stackLayoutLogin1" VerticalOptions="Center" Spacing="20">
-                <Label Text="Inicio de sesión" TextColor="Black" HorizontalOptions="Center"/>
+                <Label Text="Inicio de sesión" TextColor="White" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center"/>
                 <BoxView Color="Gray" HeightRequest="1" WidthRequest="100"
                      HorizontalOptions="Center"/>
-                <Image Source="login"
-                       WidthRequest="{OnPlatform iOS=300, Android=250}"
+                <Image Source="login_white"
                        HorizontalOptions="Center"/>
             </StackLayout>
 
@@ -29,12 +21,12 @@
             </StackLayout>
 
             <StackLayout x:Name="stackLayoutLogin3" Grid.Row="2">
-                <Entry x:Name="usernameInput" Placeholder="Correo electronico"/>
-                <Entry x:Name="passwordInput" Placeholder="Contraseña" IsPassword="True"/>
+                <Entry x:Name="usernameInput" FontSize="Large" HorizontalTextAlignment="Center" Placeholder="Correo electrónico" TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="passwordInput" FontSize="Large" HorizontalTextAlignment="Center" Placeholder="Contraseña" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
 
-                <Button Text="Login" BackgroundColor="Azure" TextColor="Black" FontSize="Medium" Clicked="ProcesarLogin"/>
-                <Button Text="Registrarse" BackgroundColor="Azure" TextColor="Black" FontSize="Medium" Clicked="ProcesarRegistro"/>
+                <Button Text="Login" TextColor="Black" FontSize="Medium" Clicked="ProcesarLogin" BackgroundColor="PaleGoldenrod"/>
+                <Button Text="Registrarse" TextColor="Black" FontSize="Medium" Clicked="ProcesarRegistro" BackgroundColor="PaleGoldenrod"/>
             </StackLayout>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -46,7 +46,6 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/mipmap-xxhdpi/launcher_foreground.png
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/mipmap-xxxhdpi/icon.png
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/mipmap-xxxhdpi/launcher_foreground.png
-/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/login.png
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/options_black.png
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/edit_black.png
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/logout_black.png
@@ -836,3 +835,5 @@
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/da74de54-7d53-4acb-bda8-9d9f760eabc3.txt
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/f5891337-bc1e-4941-8296-95ec9231a22b.txt
 /Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/androidx/proguard/ff2dd7e9-32c9-4d0c-a348-f65589e3c9b7.txt
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/login_black.png
+/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Debug/res/drawable/login_white.png
