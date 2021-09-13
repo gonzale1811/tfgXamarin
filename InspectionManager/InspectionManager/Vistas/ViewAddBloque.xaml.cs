@@ -123,8 +123,13 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
-            consult.CancelarCreacionPlantilla(plantillaCreada, bloquesCreados);
-            await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            bool cancelar = await DisplayAlert("Precaución", "Si cancela el proceso se eliminarán los datos guardados, ¿desea continuar?", "Si", "No");
+
+            if (cancelar)
+            {
+                consult.CancelarCreacionPlantilla(plantillaCreada, bloquesCreados);
+                await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            }
         }
 
         public async void ProcesarGuardar(object sender, EventArgs e)

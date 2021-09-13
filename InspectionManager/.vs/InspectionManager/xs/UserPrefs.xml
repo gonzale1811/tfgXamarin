@@ -1,5 +1,11 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPreguntasInspeccion.xaml.cs">
+    <Files>
+      <File FileName="InspectionManager/Vistas/ViewDatosPlantilla.xaml.cs" Line="54" Column="137" />
+      <File FileName="InspectionManager/Vistas/ViewAddBloque.xaml.cs" Line="131" Column="94" />
+      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" Line="1" Column="1" />
+      <File FileName="InspectionManager/Vistas/ViewPreguntasInspeccion.xaml.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -7,17 +13,19 @@
             <Node name="InspectionManager" expanded="True">
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
+                <Node name="ViewAddBloque.xaml" expanded="True" />
                 <Node name="ViewBloques.xaml" expanded="True" />
                 <Node name="ViewBloquesInspeccion.xaml" expanded="True" />
                 <Node name="ViewDatosInspeccion.xaml" expanded="True" />
+                <Node name="ViewDatosPlantilla.xaml" expanded="True" />
                 <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
                 <Node name="ViewMenuPrincipal.xaml" expanded="True" />
                 <Node name="ViewPlantillas.xaml" expanded="True" />
                 <Node name="ViewPregunta.xaml" expanded="True" />
-                <Node name="ViewPreguntasInspeccion.xaml" expanded="True" />
-                <Node name="ViewRegistrarse.xaml" expanded="True">
-                  <Node name="ViewRegistrarse.xaml.cs" selected="True" />
+                <Node name="ViewPreguntasInspeccion.xaml" expanded="True">
+                  <Node name="ViewPreguntasInspeccion.xaml.cs" selected="True" />
                 </Node>
+                <Node name="ViewRegistrarse.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">

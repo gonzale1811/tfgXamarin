@@ -51,8 +51,13 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
-            consult.CancelarCreacionPlantilla(plantillaRecibida, bloquesCreados);
-            await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            bool cancelar = await DisplayAlert("Precaución", "Si cancela el proceso se eliminarán los datos guardados, ¿desea continuar?", "Si", "No");
+
+            if (cancelar)
+            {
+                consult.CancelarCreacionPlantilla(plantillaRecibida, bloquesCreados);
+                await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            }
         }
 
         public async void ProcesarAddBloque(object sender, EventArgs e)
@@ -71,7 +76,7 @@ namespace InspectionManager.Vistas
                     plantillaCreada = plantillaRecibida;
                 }
 
-                await Navigation.PushAsync(new NavigationPage(new ViewAddBloque(plantillaCreada, bloquesCreados)));
+                await Navigation.PushAsync(new ViewAddBloque(plantillaCreada, bloquesCreados));
             }
             else
             {
