@@ -1222,7 +1222,7 @@ namespace InspectionManager.Droid.Servicios
             return resultado;
         }
 
-        public void DeleteInspeccion(Inspeccion inspeccion, List<Bloque> bloques)
+        public void DeleteInspeccion(Inspector inspector, Inspeccion inspeccion, List<Bloque> bloques)
         {
             FirebaseFirestore instancia = DatabaseConnection.GetInstance;
 
@@ -1247,6 +1247,18 @@ namespace InspectionManager.Droid.Servicios
             }
 
             instancia.Collection("Inspecciones").Document(inspeccion.IdInspeccion.ToString()).Delete();
+
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
+
+            HashMap inspecciones = new HashMap();
+            int cont = 0;
+
+            foreach(string i in inspector.Inspecciones)
+            {
+                inspecciones.Put(cont.ToString(), i);
+            }
+
+            documentReference.Update("Inspecciones", inspecciones);
         }
 
         public void ActualizarInspeccion(Inspeccion inspeccion)

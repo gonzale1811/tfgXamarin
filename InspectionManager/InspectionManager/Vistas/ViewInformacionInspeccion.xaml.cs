@@ -8,16 +8,18 @@ namespace InspectionManager.Vistas
 {
     public partial class ViewInformacionInspeccion : ContentPage
     {
+        private Inspector usuario;
         private Inspeccion inspeccion;
         private List<Bloque> bloquesInspeccion;
         private IFirebaseConsultService consult;
         private DateTime nuevaFechaInicio;
         private DateTime nuevaFechaFin;
 
-        public ViewInformacionInspeccion(Inspeccion inspeccionElegida)
+        public ViewInformacionInspeccion(Inspector inspector, Inspeccion inspeccionElegida)
         {
             InitializeComponent();
 
+            usuario = inspector;
             inspeccion = inspeccionElegida;
 
             consult = DependencyService.Get<IFirebaseConsultService>();
@@ -42,7 +44,8 @@ namespace InspectionManager.Vistas
             bool eliminar = await DisplayAlert("Precaución", "Eliminar la inspección es una acción permanente, ¿desea continuar?", "Si", "No");
             if (eliminar)
             {
-                consult.DeleteInspeccion(inspeccion, bloquesInspeccion);
+                usuario.Inspecciones.Remove(inspeccion.IdInspeccion.ToString());
+                consult.DeleteInspeccion(usuario, inspeccion, bloquesInspeccion);
                 await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
             }
         }

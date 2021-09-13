@@ -70,8 +70,12 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCancelar(object sender, EventArgs e)
         {
-            consult.CancelarCreacionInspeccion(inspeccionCreada, bloquesInspeccion);
-            await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            bool cancelar = await DisplayAlert("Precaución", "Si cancela perdera la información introducida, ¿desea continuar?", "Si", "No");
+            if (cancelar)
+            {
+                consult.CancelarCreacionInspeccion(inspeccionCreada, bloquesInspeccion);
+                await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            }
         }
 
         public async void ProcesarFinalizar(object sender, EventArgs e)

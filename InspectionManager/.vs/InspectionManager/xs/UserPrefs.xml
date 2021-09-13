@@ -5,23 +5,18 @@
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager" expanded="True">
-              <Node name="Modelo" expanded="True">
-                <Node name="BloqueListViewModel.cs" selected="True" />
-              </Node>
               <Node name="Servicios" expanded="True" />
               <Node name="Vistas" expanded="True">
-                <Node name="ViewFotos.xaml" expanded="True" />
+                <Node name="ViewBloques.xaml" expanded="True" />
+                <Node name="ViewBloquesInspeccion.xaml" expanded="True" />
+                <Node name="ViewDatosInspeccion.xaml" expanded="True" selected="True" />
+                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
+                <Node name="ViewMenuPrincipal.xaml" expanded="True" />
+                <Node name="ViewPregunta.xaml" expanded="True" />
                 <Node name="ViewPreguntasInspeccion.xaml" expanded="True" />
               </Node>
-              <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
-              </Node>
-              <Node name="Servicios" expanded="True" />
-            </Node>
-            <Node name="InspectionManager.iOS" expanded="True">
               <Node name="Servicios" expanded="True" />
             </Node>
           </Node>

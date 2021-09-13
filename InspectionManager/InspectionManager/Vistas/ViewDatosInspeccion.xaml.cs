@@ -41,7 +41,11 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarCancelarCreacion(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            bool cancelar = await DisplayAlert("Precaución", "Si cancela perdera la información introducida, ¿desea continuar?", "Si", "No");
+            if (cancelar)
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
+            }
         }
 
         public async void ProcesarAddBloque(object sender, EventArgs e)

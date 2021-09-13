@@ -178,7 +178,7 @@ namespace InspectionManager.Vistas
             {
                 if (i.IdInspeccion.ToString() == idSeleccionado)
                 {
-                    await Navigation.PushAsync(new ViewInformacionInspeccion(i));
+                    await Navigation.PushAsync(new ViewInformacionInspeccion(usuario,i));
                 }
             }
         }
