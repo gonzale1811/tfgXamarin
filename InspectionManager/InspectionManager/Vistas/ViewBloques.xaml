@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InspectionManager.Vistas.ViewBloques"
-             Title="Bloques de la plantilla">
+             Title="Bloques de la plantilla"
+             BackgroundColor="#0336FF">
     <StackLayout>
       <ListView x:Name="MyListView"
                 ItemsSource="{Binding Items}"
@@ -16,12 +17,12 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout x:Name="cellLayout" Orientation="Horizontal">
-                        <Image Source="bloque_black.png" HorizontalOptions="Start"/>
+                        <Image Source="bloque_white.png" HorizontalOptions="Start"/>
                         <StackLayout>
-                            <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding NumeroPreguntasTexto}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding NumeroPreguntasBoolean}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding NumeroPreguntasValor}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                            <Label Text="{Binding NumeroPreguntasTexto}" FontSize="Subtitle" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                            <Label Text="{Binding NumeroPreguntasBoolean}" FontSize="Subtitle" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                            <Label Text="{Binding NumeroPreguntasValor}" FontSize="Subtitle" HorizontalOptions="FillAndExpand" TextColor="White"/>
                         </StackLayout>
                     </StackLayout>
                 </ViewCell>
@@ -29,8 +30,8 @@
         </ListView.ItemTemplate>
       </ListView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Button x:Name="cancelarButton" Text="Cancelar" HorizontalOptions="Start" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
-            <Button x:Name="finalizarButton" Text="Finalizar" IsEnabled="False" HorizontalOptions="End" VerticalOptions="Center" Clicked="ProcesarFinalizar"/>
+            <Button x:Name="cancelarButton" Text="Cancelar" HorizontalOptions="Start" VerticalOptions="Center" Clicked="ProcesarCancelar" BackgroundColor="PaleGoldenrod"/>
+            <Button x:Name="finalizarButton" Text="Finalizar" IsEnabled="False" HorizontalOptions="End" VerticalOptions="Center" Clicked="ProcesarFinalizar" BackgroundColor="PaleGoldenrod"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

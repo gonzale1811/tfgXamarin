@@ -3,27 +3,28 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="InspectionManager.Vistas.ViewInformacionInspeccion"
-    Title="Información de la Inspección">
+    Title="Información de la Inspección"
+    BackgroundColor="#0336FF">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Label Text="Datos inspección" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="nombreEntry" IsEnabled="False" HorizontalTextAlignment="Center"/>
-            <DatePicker x:Name="fechaInicioPicker" Format="dd/MM/yyyy" IsEnabled="False" DateSelected="ProcesarFechaInicio"/>
-            <DatePicker x:Name="fechaFinPicker" Format="dd/MM/yyyy" IsEnabled="False" DateSelected="ProcesarFechaFin"/>
-            <Entry x:Name="calleEntry" Keyboard="Text" IsEnabled="False" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="numeroEntry" Keyboard="Numeric" IsEnabled="False" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="localidadEntry" Keyboard="Text" IsEnabled="False" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="codigoPostalEntry" Keyboard="Numeric" IsEnabled="False" HorizontalTextAlignment="Center"/>
+            <Label Text="Datos inspección" TextColor="White" FontAttributes="Bold" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="nombreEntry" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <DatePicker x:Name="fechaInicioPicker" TextColor="White" Format="dd/MM/yyyy" DateSelected="ProcesarFechaInicio"/>
+            <DatePicker x:Name="fechaFinPicker" TextColor="White" Format="dd/MM/yyyy" DateSelected="ProcesarFechaFin"/>
+            <Entry x:Name="calleEntry" Keyboard="Text" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="numeroEntry" Keyboard="Numeric" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="localidadEntry" Keyboard="Text" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="codigoPostalEntry" Keyboard="Numeric" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
             <StackLayout x:Name="otherButtonsLayout" Orientation="Horizontal">
-                <Button x:Name="eliminarButton" Text="Eliminar" Clicked="ProcesarEliminarInspeccion" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Button x:Name="descargarButton" Text="Descargar" Clicked="ProcesarDescargarInspeccion" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Button x:Name="editarButton" Text="Editar" Clicked="ProcesarEditarInspeccion" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Button x:Name="guardarNuevosDatosButton" Text="Guardar" Clicked="ProcesarGuardarNuevosDatos" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsEnabled="False" IsVisible="False"/>
+                <Button x:Name="eliminarButton" Text="Eliminar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarEliminarInspeccion" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="descargarButton" Text="Descargar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarDescargarInspeccion" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="editarButton" Text="Editar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarEditarInspeccion" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="guardarNuevosDatosButton" Text="Guardar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarGuardarNuevosDatos" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsEnabled="False" IsVisible="False"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Button x:Name="verBloquesButton" Text="Ver Bloques" Clicked="ProcesarObtenerBloques" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="verBloquesButton" Text="Ver Bloques" BackgroundColor="PaleGoldenrod" Clicked="ProcesarObtenerBloques" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </StackLayout>
-            <Label x:Name="errorLabel" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Label x:Name="errorLabel" IsVisible="False" FontSize="Medium" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

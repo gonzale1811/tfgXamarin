@@ -52,12 +52,20 @@ namespace InspectionManager.Vistas
             if (usuario != null)
             {
                 dniEntry.Text = usuario.Dni;
+                dniEntry.TextColor = Color.White;
                 nombreEntry.Text = usuario.Nombre;
+                nombreEntry.TextColor = Color.White;
                 apellidosEntry.Text = usuario.Apellidos;
+                apellidosEntry.TextColor = Color.White;
                 usernameEntry.Text = usuario.Usuario;
+                usernameEntry.TextColor = Color.White;
                 passwordEntry.Text = usuario.Password;
+                passwordEntry.TextColor = Color.White;
                 fechaNacimientoPicker.Date = usuario.FechaNacimiento;
+                fechaNacimientoPicker.MaximumDate = usuario.FechaNacimiento;
+                fechaNacimientoPicker.MinimumDate = usuario.FechaNacimiento;
                 fechaDeNacimientoUsuario = usuario.FechaNacimiento;
+                fechaNacimientoPicker.TextColor = Color.White;
             }
         }
 
@@ -77,9 +85,10 @@ namespace InspectionManager.Vistas
 
         public void ProcesarEditarPerfil(object sender, EventArgs e)
         {
-            nombreEntry.IsEnabled = true;
-            apellidosEntry.IsEnabled = true;
-            fechaNacimientoPicker.IsEnabled = true;
+            nombreEntry.IsReadOnly = false;
+            apellidosEntry.IsReadOnly = false;
+            fechaNacimientoPicker.MinimumDate = new DateTime(1900, 1, 1);
+            fechaNacimientoPicker.MaximumDate = new DateTime(2100, 1, 1);
 
             editarPerfilButton.IsEnabled = false;
             editarPerfilButton.IsVisible = false;
@@ -101,9 +110,10 @@ namespace InspectionManager.Vistas
                 usuario.Apellidos = inspectorActualizado.Apellidos;
                 usuario.FechaNacimiento = inspectorActualizado.FechaNacimiento;
 
-                nombreEntry.IsEnabled = false;
-                apellidosEntry.IsEnabled = false;
-                fechaNacimientoPicker.IsEnabled = false;
+                nombreEntry.IsReadOnly = true;
+                apellidosEntry.IsReadOnly = true;
+                fechaNacimientoPicker.MinimumDate = usuario.FechaNacimiento;
+                fechaNacimientoPicker.MaximumDate = usuario.FechaNacimiento;
 
                 guardarPerfilButton.IsEnabled = false;
                 guardarPerfilButton.IsVisible = false;

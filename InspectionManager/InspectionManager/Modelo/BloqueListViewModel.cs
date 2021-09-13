@@ -30,7 +30,7 @@ namespace InspectionManager.Modelo
             this.NumeroPreguntasTexto = "Numero de preguntas de texto: " + nT;
             this.NumeroPreguntasBoolean = "Numero de preguntas verdadero/falso: " + nB;
             this.NumeroPreguntasValor = "Numero de preguntas numericas: " + nV;
-            this.PuestoDeTrabajo = puestoDeTrabajo;
+            this.PuestoDeTrabajo = "Puesto de trabajo: "+puestoDeTrabajo;
         }
     }
 }

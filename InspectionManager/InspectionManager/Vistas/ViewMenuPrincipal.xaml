@@ -5,11 +5,14 @@
     x:Class="InspectionManager.Vistas.ViewMenuPrincipal"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     android:TabbedPage.ToolbarPlacement="Bottom"
-    Title="Menu principal">
+    Title="Menu principal"
+    BackgroundColor="#0336FF"
+    BarTextColor="White"
+    BarBackgroundColor="#03366F">
     <TabbedPage.Children>
-        <ContentPage Title="Mis Inspecciones" IconImageSource="list_black.png">
+        <ContentPage Title="Mis Inspecciones" IconImageSource="list_white.png">
             <StackLayout>
-                <Label x:Name="informacionLabel" Text="" FontSize="Title" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                <Label x:Name="informacionLabel" Text="" FontSize="Title" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
                 <ListView x:Name="inspeccionesListView"
                           ItemsSource="{Binding Items}"
                           ItemTapped="HandleItemTapped"
@@ -22,12 +25,12 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout x:Name="cellLayout" Orientation="Horizontal">
-                                    <Image Source="inspeccion_black.png" HorizontalOptions="Start"/>
+                                    <Image Source="inspeccion_white.png" HorizontalOptions="Start"/>
                                     <StackLayout>
-                                        <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
-                                        <Label Text="{Binding FechaInicio}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
-                                        <Label Text="{Binding FechaFin}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
-                                        <Label Text="{Binding NumeroDeBloques}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                                        <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                                        <Label Text="{Binding FechaInicio}" FontSize="Subtitle" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                                        <Label Text="{Binding FechaFin}" FontSize="Subtitle" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                                        <Label Text="{Binding NumeroDeBloques}" FontSize="Subtitle" HorizontalOptions="FillAndExpand" TextColor="White"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
@@ -37,31 +40,31 @@
                 </ListView>
             </StackLayout>
         </ContentPage>
-        <ContentPage Title="Nueva Inspeccion" IconImageSource="add_black.png">
+        <ContentPage Title="Nueva Inspeccion" IconImageSource="add_white.png">
             <StackLayout x:Name="stackLayoutMainPage" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Label Text="Seleccione una accion" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Label Text="Seleccione una acción" TextColor="White" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Vertical">
-                    <Button x:Name="addInspeccionButton" ContentLayout="Top,0" Text="Crear nueva inspeccion" Clicked="ProcesarCrearInspeccion" VerticalOptions="Start" ImageSource="add_inspeccion_black.png"/>
-                    <Button x:Name="addPlantillaButton" ContentLayout="Top,0" Text="Crear nueva plantilla" Clicked="ProcesarCrearPlantilla" VerticalOptions="End" ImageSource="add_plantilla_black.png"/>
+                    <Button x:Name="addInspeccionButton" ContentLayout="Top,0" BackgroundColor="PaleGoldenrod" Text="Crear nueva inspección" Clicked="ProcesarCrearInspeccion" VerticalOptions="Start" ImageSource="add_inspeccion_black.png"/>
+                    <Button x:Name="addPlantillaButton" ContentLayout="Top,0" BackgroundColor="PaleGoldenrod" Text="Crear nueva plantilla" Clicked="ProcesarCrearPlantilla" VerticalOptions="End" ImageSource="add_plantilla_black.png"/>
                 </StackLayout>
             </StackLayout>
         </ContentPage>
-        <ContentPage Title="Mi Perfil" IconImageSource="options_black.png">
+        <ContentPage Title="Mi Perfil" IconImageSource="options_white.png">
             <StackLayout x:Name="stackLayoutPerfil" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label Text="Mis Datos" TextColor="Black" FontSize="Large" VerticalOptions="Center"
+            <Label Text="Mis Datos" TextColor="White" FontSize="Large" VerticalOptions="Center"
                 HorizontalOptions="Center"/>
-            <Entry x:Name="dniEntry" IsEnabled="False"/>
-            <Entry x:Name="nombreEntry" IsEnabled="False"/>
-            <Entry x:Name="apellidosEntry" IsEnabled="False"/>
-            <Entry x:Name="usernameEntry" IsEnabled="False"/>
-            <Entry x:Name="passwordEntry" IsEnabled="False" IsPassword="True"/>
-            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" IsEnabled="False" DateSelected="ProcesarFechaNacimiento"/>
+            <Entry x:Name="dniEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="nombreEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="apellidosEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="usernameEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="passwordEntry" IsReadOnly="True" IsPassword="True" TextColor="White"/>
+            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" FontAttributes="Bold" DateSelected="ProcesarFechaNacimiento" TextColor="White"/>
             <StackLayout Orientation="Horizontal">
-                <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
-                <Button x:Name="editarPerfilButton" Text="Editar perfil" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
-                <Button x:Name="guardarPerfilButton" Text="Guardar perfil" ImageSource="edit_black.png" Clicked="ProcesarGuardarPerfil" HorizontalOptions="End" IsEnabled="False" IsVisible="False"/>
+                <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" BackgroundColor="PaleGoldenrod" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
+                <Button x:Name="editarPerfilButton" Text="Editar perfil" BackgroundColor="PaleGoldenrod" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
+                <Button x:Name="guardarPerfilButton" Text="Guardar perfil" BackgroundColor="PaleGoldenrod" ImageSource="edit_black.png" Clicked="ProcesarGuardarPerfil" HorizontalOptions="End" IsEnabled="False" IsVisible="False"/>
             </StackLayout>
-            <Label x:Name="errorLabel" IsVisible="False" HorizontalTextAlignment="Center"/>
+            <Label x:Name="errorLabel" FontSize="Medium" IsVisible="False" HorizontalTextAlignment="Center"/>
         </StackLayout>
         </ContentPage>
     </TabbedPage.Children>

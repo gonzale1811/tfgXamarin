@@ -16,7 +16,7 @@
             </StackLayout>
 
             <StackLayout x:Name="stackLayoutLogin2" Grid.Row="1">
-                <Label x:Name="errorLabel" IsVisible="false" HorizontalOptions="Center" VerticalOptions="End" HorizontalTextAlignment="Center"
+                <Label x:Name="errorLabel" IsVisible="false" HorizontalOptions="Center" FontSize="Medium" VerticalOptions="End" HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"/>
             </StackLayout>
 

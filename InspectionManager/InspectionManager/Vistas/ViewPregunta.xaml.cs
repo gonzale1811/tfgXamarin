@@ -63,6 +63,7 @@ namespace InspectionManager.Vistas
             puesto = new Label
             {
                 Text = "Seleccione el puesto para el que rellena el bloque.",
+                TextColor = Color.White,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -79,12 +80,15 @@ namespace InspectionManager.Vistas
 
             picker.ItemsSource = opcionesPicker;
             picker.Title = "Seleccione el puesto de trabajo";
+            picker.HorizontalTextAlignment = TextAlignment.Center;
+            picker.TextColor = Color.White;
 
             layoutPreguntas.Children.Add(picker);
 
             puestoSeleccionado = new Button
             {
                 Text = "Seleccionar",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
@@ -125,6 +129,7 @@ namespace InspectionManager.Vistas
             {
                 Label tituloTexto = new Label();
                 tituloTexto.Text = "Preguntas de texto";
+                tituloTexto.TextColor = Color.White;
                 tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
                 tituloTexto.FontSize = 24;
                 layoutPreguntas.Children.Add(tituloTexto);
@@ -133,9 +138,12 @@ namespace InspectionManager.Vistas
                 {
                     Label texto = new Label();
                     texto.Text = pregunta.Nombre;
+                    texto.TextColor = Color.White;
                     Entry campoRespuesta = new Entry();
                     campoRespuesta.Placeholder = MENSAJE;
+                    campoRespuesta.PlaceholderColor = Color.White;
                     campoRespuesta.Keyboard = Keyboard.Text;
+                    campoRespuesta.TextColor = Color.White;
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
@@ -147,9 +155,11 @@ namespace InspectionManager.Vistas
                 tituloBoolean.Text = "Preguntas de verdadero/falso";
                 tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
                 tituloBoolean.FontSize = 24;
+                tituloBoolean.TextColor = Color.White;
                 Label explicacion = new Label();
                 explicacion.Text = "Marque los check si es verdadero.";
                 explicacion.FontSize = 16;
+                explicacion.TextColor = Color.White;
                 layoutPreguntas.Children.Add(tituloBoolean);
                 layoutPreguntas.Children.Add(explicacion);
 
@@ -157,6 +167,7 @@ namespace InspectionManager.Vistas
                 {
                     Label texto = new Label();
                     texto.Text = pregunta1.Nombre;
+                    texto.TextColor = Color.White;
                     CheckBox respuesta = new CheckBox();
                     respuesta.IsChecked = false;
                     layoutPreguntas.Children.Add(texto);
@@ -170,15 +181,19 @@ namespace InspectionManager.Vistas
                 tituloValor.Text = "Preguntas numericas";
                 tituloValor.HorizontalTextAlignment = TextAlignment.Center;
                 tituloValor.FontSize = 24;
+                tituloValor.TextColor = Color.White;
                 layoutPreguntas.Children.Add(tituloValor);
 
                 foreach (IPregunta<int> pregunta2 in preguntasInt)
                 {
                     Label texto = new Label();
                     texto.Text = pregunta2.Nombre;
+                    texto.TextColor = Color.White;
                     Entry campoRespuesta = new Entry();
                     campoRespuesta.Placeholder = "Indique el valor correspondiente";
+                    campoRespuesta.PlaceholderColor = Color.White;
                     campoRespuesta.Keyboard = Keyboard.Numeric;
+                    campoRespuesta.TextColor = Color.White;
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
@@ -193,18 +208,21 @@ namespace InspectionManager.Vistas
             Button cancelar = new Button
             {
                 Text = "Cancelar",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.StartAndExpand
             };
 
             Button foto = new Button
             {
                 ImageSource = "add_foto_black.png",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
             Button aceptar = new Button
             {
                 Text = "Aceptar",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
             };
 

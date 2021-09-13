@@ -39,6 +39,7 @@ namespace InspectionManager.Vistas
             {
                 Label tituloTexto = new Label();
                 tituloTexto.Text = "Preguntas de texto";
+                tituloTexto.TextColor = Color.White;
                 tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
                 tituloTexto.FontSize = 24;
                 layoutPreguntas.Children.Add(tituloTexto);
@@ -47,10 +48,12 @@ namespace InspectionManager.Vistas
                 {
                     Label texto = new Label();
                     texto.Text = pregunta.Nombre;
+                    texto.TextColor = Color.White;
                     Entry campoRespuesta = new Entry();
                     campoRespuesta.Text = "Respuesta: " + pregunta.RespuestaPregunta.ValorRespuesta;
                     campoRespuesta.Keyboard = Keyboard.Text;
-                    campoRespuesta.IsEnabled = false;
+                    campoRespuesta.TextColor = Color.White;
+                    campoRespuesta.IsReadOnly = true;
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
@@ -60,10 +63,12 @@ namespace InspectionManager.Vistas
             {
                 Label tituloBoolean = new Label();
                 tituloBoolean.Text = "Preguntas de verdadero/falso";
+                tituloBoolean.TextColor = Color.White;
                 tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
                 tituloBoolean.FontSize = 24;
                 Label explicacion = new Label();
                 explicacion.Text = "Marque los check si es verdadero.";
+                explicacion.TextColor = Color.White;
                 explicacion.FontSize = 16;
                 layoutPreguntas.Children.Add(tituloBoolean);
                 layoutPreguntas.Children.Add(explicacion);
@@ -72,6 +77,7 @@ namespace InspectionManager.Vistas
                 {
                     Label texto = new Label();
                     texto.Text = pregunta1.Nombre;
+                    texto.TextColor = Color.White;
                     CheckBox respuesta = new CheckBox();
                     respuesta.IsChecked = pregunta1.RespuestaPregunta.ValorRespuesta;
                     respuesta.IsEnabled = false;
@@ -84,6 +90,7 @@ namespace InspectionManager.Vistas
             {
                 Label tituloValor = new Label();
                 tituloValor.Text = "Preguntas numericas";
+                tituloValor.TextColor = Color.White;
                 tituloValor.HorizontalTextAlignment = TextAlignment.Center;
                 tituloValor.FontSize = 24;
                 layoutPreguntas.Children.Add(tituloValor);
@@ -92,10 +99,12 @@ namespace InspectionManager.Vistas
                 {
                     Label texto = new Label();
                     texto.Text = pregunta2.Nombre;
+                    texto.TextColor = Color.White;
                     Entry campoRespuesta = new Entry();
                     campoRespuesta.Text = "Respuesta: " + pregunta2.RespuestaPregunta.ValorRespuesta;
+                    campoRespuesta.TextColor = Color.White;
                     campoRespuesta.Keyboard = Keyboard.Numeric;
-                    campoRespuesta.IsEnabled = false;
+                    campoRespuesta.IsReadOnly = true;
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
@@ -110,24 +119,28 @@ namespace InspectionManager.Vistas
             Button cancelar = new Button
             {
                 Text = "Cancelar",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.StartAndExpand
             };
 
             Button foto = new Button
             {
                 ImageSource = "add_foto_black.png",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
             Button editar = new Button
             {
                 Text = "Editar",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
             };
 
             Button guardar = new Button
             {
                 Text = "Guardar",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 IsEnabled = false,
                 IsVisible = false
@@ -152,6 +165,7 @@ namespace InspectionManager.Vistas
             Button fotos = new Button
             {
                 Text = "Ver fotografías",
+                BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
@@ -241,14 +255,14 @@ namespace InspectionManager.Vistas
                     if (numeroPreguntasTexto > 0)
                     {
                         elemento.Text = "Respuesta: " + preguntasString[contTexto].RespuestaPregunta.ValorRespuesta;
-                        elemento.IsEnabled = false;
+                        elemento.IsReadOnly = true;
                         contTexto++;
                         numeroPreguntasTexto--;
                     }
                     else
                     {
                         elemento.Text = "Respuesta: " + preguntasInt[contInt].RespuestaPregunta.ValorRespuesta;
-                        elemento.IsEnabled = false;
+                        elemento.IsReadOnly = true;
                         contInt++;
                         numeroPreguntasValor--;
                     }
@@ -307,7 +321,7 @@ namespace InspectionManager.Vistas
                     string separacion = " ";
                     char caracter = separacion[0];
                     elemento.Text = elemento.Text.Split(caracter)[1];
-                    elemento.IsEnabled = true;
+                    elemento.IsReadOnly = false;
                 }else if (tipo.Equals(typeof(CheckBox)))
                 {
                     var elemento = (CheckBox)v;

@@ -26,14 +26,15 @@ namespace InspectionManager.Vistas
 
             nombreEntry.Text = "Nombre: "+inspeccion.Nombre;
             fechaInicioPicker.Date = inspeccion.FechaInicio;
+            fechaInicioPicker.MinimumDate = inspeccion.FechaInicio;
+            fechaInicioPicker.MaximumDate = inspeccion.FechaInicio;
             fechaFinPicker.Date = inspeccion.FechaFin;
+            fechaFinPicker.MinimumDate = inspeccion.FechaFin;
+            fechaFinPicker.MaximumDate = inspeccion.FechaFin;
             calleEntry.Text = "Calle: "+inspeccion.DireccionInspeccion.Calle;
             numeroEntry.Text = "Número: "+inspeccion.DireccionInspeccion.Numero;
             localidadEntry.Text = "Localidad: "+inspeccion.DireccionInspeccion.Localidad;
             codigoPostalEntry.Text = "Código Postal: "+inspeccion.DireccionInspeccion.CodigoPostal;
-
-            fechaInicioPicker.MinimumDate = DateTime.Today;
-            fechaFinPicker.MinimumDate = DateTime.Today.AddDays(1);
         }
 
         public async void ProcesarEliminarInspeccion(object sender, EventArgs e)
@@ -55,19 +56,21 @@ namespace InspectionManager.Vistas
         public void ProcesarEditarInspeccion(object sender, EventArgs e)
         {
             nombreEntry.Text = inspeccion.Nombre;
-            nombreEntry.IsEnabled = true;
-            fechaInicioPicker.IsEnabled = true;
+            nombreEntry.IsReadOnly = false;
+            fechaInicioPicker.MinimumDate = inspeccion.FechaInicio;
+            fechaInicioPicker.MaximumDate = new DateTime(3000, 1, 1);
             nuevaFechaInicio = fechaInicioPicker.Date;
-            fechaFinPicker.IsEnabled = true;
+            fechaFinPicker.MinimumDate = inspeccion.FechaInicio.AddDays(1);
+            fechaFinPicker.MaximumDate = new DateTime(3000, 1, 1);
             nuevaFechaFin = fechaFinPicker.Date;
             calleEntry.Text = inspeccion.DireccionInspeccion.Calle;
-            calleEntry.IsEnabled = true;
+            calleEntry.IsReadOnly = false;
             numeroEntry.Text = inspeccion.DireccionInspeccion.Numero;
-            numeroEntry.IsEnabled = true;
+            numeroEntry.IsReadOnly = false;
             localidadEntry.Text = inspeccion.DireccionInspeccion.Localidad;
-            localidadEntry.IsEnabled = true;
+            localidadEntry.IsReadOnly = false;
             codigoPostalEntry.Text = inspeccion.DireccionInspeccion.CodigoPostal;
-            codigoPostalEntry.IsEnabled = true;
+            codigoPostalEntry.IsReadOnly = false;
 
             editarButton.IsEnabled = false;
             editarButton.IsVisible = false;
@@ -104,29 +107,31 @@ namespace InspectionManager.Vistas
 
                 consult.ActualizarInspeccion(nuevaInspeccion);
 
+                inspeccion.Nombre = nuevaInspeccion.Nombre;
+                inspeccion.FechaInicio = nuevaInspeccion.FechaInicio;
+                inspeccion.FechaFin = nuevaInspeccion.FechaFin;
+                inspeccion.DireccionInspeccion = nuevaInspeccion.DireccionInspeccion;
+
                 nombreEntry.Text = "Nombre: " + nuevaInspeccion.Nombre;
-                nombreEntry.IsEnabled = false;
-                fechaInicioPicker.IsEnabled = false;
-                fechaFinPicker.IsEnabled = false;
+                nombreEntry.IsReadOnly = true;
+                fechaInicioPicker.MinimumDate = inspeccion.FechaInicio;
+                fechaInicioPicker.MaximumDate = inspeccion.FechaInicio;
+                fechaFinPicker.MinimumDate = inspeccion.FechaFin;
+                fechaFinPicker.MaximumDate = inspeccion.FechaFin;
                 calleEntry.Text = "Calle: " + nuevaInspeccion.DireccionInspeccion.Calle;
-                calleEntry.IsEnabled = false;
+                calleEntry.IsReadOnly = true;
                 numeroEntry.Text = "Número: " + nuevaInspeccion.DireccionInspeccion.Numero;
-                numeroEntry.IsEnabled = false;
+                numeroEntry.IsReadOnly = true;
                 localidadEntry.Text = "Localidad: " + nuevaInspeccion.DireccionInspeccion.Localidad;
-                localidadEntry.IsEnabled = false;
+                localidadEntry.IsReadOnly = true;
                 codigoPostalEntry.Text = "Código postal: " + nuevaInspeccion.DireccionInspeccion.CodigoPostal;
-                codigoPostalEntry.IsEnabled = false;
+                codigoPostalEntry.IsReadOnly = true;
 
                 guardarNuevosDatosButton.IsEnabled = false;
                 guardarNuevosDatosButton.IsVisible = false;
 
                 editarButton.IsVisible = true;
                 editarButton.IsEnabled = true;
-
-                inspeccion.Nombre = nuevaInspeccion.Nombre;
-                inspeccion.FechaInicio = nuevaInspeccion.FechaInicio;
-                inspeccion.FechaFin = nuevaInspeccion.FechaFin;
-                inspeccion.DireccionInspeccion = nuevaInspeccion.DireccionInspeccion;
             }
             else
             {

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InspectionManager.Vistas.ViewPlantillas"
-             Title="Lista de Plantillas">
+             Title="Lista de Plantillas"
+            BackgroundColor="#0336FF">
     <StackLayout>
         <ListView x:Name="listViewPlantillas"
                 ItemsSource="{Binding Items}"
@@ -18,8 +19,8 @@
                     <StackLayout x:Name="cellLayout" Orientation="Horizontal">
                         <Image Source="{Binding TrabajoImagen}" HorizontalOptions="Start"/>
                         <StackLayout>
-                            <Label Text="{Binding Nombre}" FontSize="Title" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding Version}" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Nombre}" TextColor="White" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Version}" TextColor="White" FontSize="Subtitle" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                     </StackLayout>
                 </ViewCell>
@@ -27,6 +28,6 @@
         </ListView.ItemTemplate>
 
         </ListView>
-        <Button Text="Cancelar" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+        <Button Text="Cancelar" BackgroundColor="PaleGoldenrod" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
     </StackLayout>
 </ContentPage>

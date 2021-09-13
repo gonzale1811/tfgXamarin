@@ -59,10 +59,10 @@ namespace InspectionManager.Vistas
                     preguntasValorCreadas = new List<IPregunta<int>>();
                 }
 
-                enunciadoPreguntaEntry.IsEnabled = true;
+                enunciadoPreguntaEntry.IsReadOnly = false;
                 tipoPreguntaPicker.IsEnabled = true;
                 crearPregunta.IsEnabled = true;
-                nombreBloqueEntry.IsEnabled = false;
+                nombreBloqueEntry.IsReadOnly = true;
                 crearBloqueButton.IsVisible = false;
                 crearBloqueButton.IsEnabled = false;
                 cambiarNombreBloque.IsVisible = true;
@@ -79,13 +79,13 @@ namespace InspectionManager.Vistas
             tipoPreguntaPicker.SelectedItem = null;
             tipoPreguntaPicker.IsEnabled = false;
             enunciadoPreguntaEntry.Text = null;
-            enunciadoPreguntaEntry.IsEnabled = false;
+            enunciadoPreguntaEntry.IsReadOnly = true;
             crearPregunta.IsEnabled = false;
             cambiarNombreBloque.IsVisible = false;
             cambiarNombreBloque.IsEnabled = false;
             crearBloqueButton.IsEnabled = true;
             crearBloqueButton.IsVisible = true;
-            nombreBloqueEntry.IsEnabled = true;
+            nombreBloqueEntry.IsReadOnly = false;
         }
 
         public async void ProcesarCrearPregunta(object sender, EventArgs e)

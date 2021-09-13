@@ -21,13 +21,13 @@ namespace InspectionManager.Modelo
             switch (trabajo)
             {
                 case TipoTrabajo.Obra:
-                    return "obra_black.png";
+                    return "obra_white.png";
                 case TipoTrabajo.Oficina:
-                    return "oficina_black.png";
+                    return "oficina_white.png";
                 case TipoTrabajo.Fabrica:
-                    return "fabrica_black.png";
+                    return "fabrica_white.png";
                 case TipoTrabajo.Servicios:
-                    return "servicios_black.png";
+                    return "servicios_white.png";
                 default:
                     return "";
             }

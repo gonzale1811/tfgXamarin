@@ -68,7 +68,7 @@ namespace InspectionManager.Vistas
             }
             else
             {
-                await DisplayAlert("Error", "Alguno de los campos no ha sido cumplimentado", "Ok");
+                await DisplayAlert("Error", "Alguno de los campos no ha sido cumplimentado o es erroneo.", "Ok");
             }
         }
 
@@ -76,27 +76,27 @@ namespace InspectionManager.Vistas
         {
             if (String.IsNullOrWhiteSpace(nombreEntry.Text))
             {
-                mostrarError("El campo nombre no puede estar vacio.");
+                mostrarError("El campo nombre no puede estar vacío.");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(calleEntry.Text))
             {
-                mostrarError("El campo calle no puede estar vacio.");
+                mostrarError("El campo calle no puede estar vacío.");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(localidadEntry.Text))
             {
-                mostrarError("El campo localidad no puede estar vacio.");
+                mostrarError("El campo localidad no puede estar vacío.");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(codigoPostalEntry.Text))
             {
-                mostrarError("El campo codigo postal no puede estar vacio.");
+                mostrarError("El campo código postal no puede estar vacío.");
                 return false;
             }
             if(codigoPostalEntry.Text.Length != 5)
             {
-                mostrarError("El codigo postal debe tener una longitud de 5 digitos.");
+                mostrarError("El código postal debe tener una longitud de 5 dígitos.");
                 return false;
             }
 

@@ -33,6 +33,7 @@ namespace InspectionManager.Vistas
             }
 
             fotosPicker.ItemsSource = opciones;
+            fotosPicker.TextColor = Color.White;
         }
 
         public async void ProcesarVolver(object sender, EventArgs e)
