@@ -49,16 +49,6 @@ namespace InspectionManager.iOS.Servicios
             }
         }
 
-        public void SignInWithGoogle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> SignInWithGoogle(string token)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<bool> LogOut()
         {
             NSError error;

@@ -35,61 +35,70 @@ namespace InspectionManager.Vistas
             preguntasBoolean = consult.GetPreguntasBooleanByBloqueInspeccion(bloque);
             preguntasInt = consult.GetPreguntasValorByBloqueInspeccion(bloque);
 
-            Label tituloTexto = new Label();
-            tituloTexto.Text = "Preguntas de texto";
-            tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
-            tituloTexto.FontSize = 24;
-            layoutPreguntas.Children.Add(tituloTexto);
-
-            foreach (IPregunta<string> pregunta in preguntasString)
+            if (preguntasString.Count > 0)
             {
-                Label texto = new Label();
-                texto.Text = pregunta.Nombre;
-                Entry campoRespuesta = new Entry();
-                campoRespuesta.Text = "Respuesta: "+pregunta.RespuestaPregunta.ValorRespuesta;
-                campoRespuesta.Keyboard = Keyboard.Text;
-                campoRespuesta.IsEnabled = false;
-                layoutPreguntas.Children.Add(texto);
-                layoutPreguntas.Children.Add(campoRespuesta);
+                Label tituloTexto = new Label();
+                tituloTexto.Text = "Preguntas de texto";
+                tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
+                tituloTexto.FontSize = 24;
+                layoutPreguntas.Children.Add(tituloTexto);
+
+                foreach (IPregunta<string> pregunta in preguntasString)
+                {
+                    Label texto = new Label();
+                    texto.Text = pregunta.Nombre;
+                    Entry campoRespuesta = new Entry();
+                    campoRespuesta.Text = "Respuesta: " + pregunta.RespuestaPregunta.ValorRespuesta;
+                    campoRespuesta.Keyboard = Keyboard.Text;
+                    campoRespuesta.IsEnabled = false;
+                    layoutPreguntas.Children.Add(texto);
+                    layoutPreguntas.Children.Add(campoRespuesta);
+                }
             }
 
-            Label tituloBoolean = new Label();
-            tituloBoolean.Text = "Preguntas de verdadero/falso";
-            tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
-            tituloBoolean.FontSize = 24;
-            Label explicacion = new Label();
-            explicacion.Text = "Marque los check si es verdadero.";
-            explicacion.FontSize = 16;
-            layoutPreguntas.Children.Add(tituloBoolean);
-            layoutPreguntas.Children.Add(explicacion);
-
-            foreach (IPregunta<bool> pregunta1 in preguntasBoolean)
+            if (preguntasBoolean.Count > 0)
             {
-                Label texto = new Label();
-                texto.Text = pregunta1.Nombre;
-                CheckBox respuesta = new CheckBox();
-                respuesta.IsChecked = pregunta1.RespuestaPregunta.ValorRespuesta;
-                respuesta.IsEnabled = false;
-                layoutPreguntas.Children.Add(texto);
-                layoutPreguntas.Children.Add(respuesta);
+                Label tituloBoolean = new Label();
+                tituloBoolean.Text = "Preguntas de verdadero/falso";
+                tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
+                tituloBoolean.FontSize = 24;
+                Label explicacion = new Label();
+                explicacion.Text = "Marque los check si es verdadero.";
+                explicacion.FontSize = 16;
+                layoutPreguntas.Children.Add(tituloBoolean);
+                layoutPreguntas.Children.Add(explicacion);
+
+                foreach (IPregunta<bool> pregunta1 in preguntasBoolean)
+                {
+                    Label texto = new Label();
+                    texto.Text = pregunta1.Nombre;
+                    CheckBox respuesta = new CheckBox();
+                    respuesta.IsChecked = pregunta1.RespuestaPregunta.ValorRespuesta;
+                    respuesta.IsEnabled = false;
+                    layoutPreguntas.Children.Add(texto);
+                    layoutPreguntas.Children.Add(respuesta);
+                }
             }
 
-            Label tituloValor = new Label();
-            tituloValor.Text = "Preguntas numericas";
-            tituloValor.HorizontalTextAlignment = TextAlignment.Center;
-            tituloValor.FontSize = 24;
-            layoutPreguntas.Children.Add(tituloValor);
-
-            foreach (IPregunta<int> pregunta2 in preguntasInt)
+            if (preguntasInt.Count > 0)
             {
-                Label texto = new Label();
-                texto.Text = pregunta2.Nombre;
-                Entry campoRespuesta = new Entry();
-                campoRespuesta.Text = "Respuesta: " + pregunta2.RespuestaPregunta.ValorRespuesta;
-                campoRespuesta.Keyboard = Keyboard.Numeric;
-                campoRespuesta.IsEnabled = false;
-                layoutPreguntas.Children.Add(texto);
-                layoutPreguntas.Children.Add(campoRespuesta);
+                Label tituloValor = new Label();
+                tituloValor.Text = "Preguntas numericas";
+                tituloValor.HorizontalTextAlignment = TextAlignment.Center;
+                tituloValor.FontSize = 24;
+                layoutPreguntas.Children.Add(tituloValor);
+
+                foreach (IPregunta<int> pregunta2 in preguntasInt)
+                {
+                    Label texto = new Label();
+                    texto.Text = pregunta2.Nombre;
+                    Entry campoRespuesta = new Entry();
+                    campoRespuesta.Text = "Respuesta: " + pregunta2.RespuestaPregunta.ValorRespuesta;
+                    campoRespuesta.Keyboard = Keyboard.Numeric;
+                    campoRespuesta.IsEnabled = false;
+                    layoutPreguntas.Children.Add(texto);
+                    layoutPreguntas.Children.Add(campoRespuesta);
+                }
             }
 
             StackLayout botones = new StackLayout
@@ -342,6 +351,8 @@ namespace InspectionManager.Vistas
                 var url = consult.UploadFoto(inspeccion.IdInspeccion.ToString(), bloque.IdBloque.ToString() + "_" + bloque.PuestoTrabajo, contadorDeFotos, subida);
 
                 bloque.Fotografias.Add(url);
+
+                consult.UpdateFotografiasBloque(bloque);
 
                 contadorDeFotos++;
                 await DisplayAlert("Correcto", "Fotografia realizada correctamente", "Ok");

@@ -5,8 +5,10 @@
     x:Class="InspectionManager.Vistas.ViewPregunta"
     Title="Preguntas del bloque">
     <ContentPage.Content>
-        <StackLayout x:Name="layoutPreguntas" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical">
+        <ScrollView>
+            <StackLayout x:Name="layoutPreguntas" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical">
 
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

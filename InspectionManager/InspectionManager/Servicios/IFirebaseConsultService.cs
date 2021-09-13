@@ -74,5 +74,7 @@ namespace InspectionManager.Servicios
         void ActualizarPreguntasValorInspeccion(List<IPregunta<int>> preguntasValor);
 
         void ActualizarInformacionUsuario(Inspector inspector);
+
+        void UpdateFotografiasBloque(Bloque bloque);
     }
 }

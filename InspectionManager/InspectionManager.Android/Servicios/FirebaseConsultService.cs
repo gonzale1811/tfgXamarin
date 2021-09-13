@@ -901,94 +901,111 @@ namespace InspectionManager.Droid.Servicios
 
                 document.Add(tituloBloque);
 
-                Paragraph preguntasTextoTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
-                preguntasTextoTitle.IndentationLeft = 50f;
-                preguntasTextoTitle.IndentationRight = 50f;
-                preguntasTextoTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
-
-                document.Add(preguntasTextoTitle);
-
                 List<IPregunta<string>> preguntasTexto = GetPreguntasTextoByBloqueInspeccion(bloque);
 
-                foreach(IPregunta<string> preguntaTexto in preguntasTexto)
+                if (preguntasTexto.Count > 0)
                 {
-                    Paragraph respuestaTexto = new Paragraph("Pregunta: " + preguntaTexto.Nombre + "\nRespuesta: " + preguntaTexto.RespuestaPregunta.ValorRespuesta, _fuenteEstandar);
-                    respuestaTexto.IndentationLeft = 50f;
-                    respuestaTexto.IndentationRight = 50f;
-                    respuestaTexto.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                    Paragraph preguntasTextoTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
+                    preguntasTextoTitle.IndentationLeft = 50f;
+                    preguntasTextoTitle.IndentationRight = 50f;
+                    preguntasTextoTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
 
-                    document.Add(respuestaTexto);
+                    document.Add(preguntasTextoTitle);
+
+                    foreach (IPregunta<string> preguntaTexto in preguntasTexto)
+                    {
+                        Paragraph respuestaTexto = new Paragraph("Pregunta: " + preguntaTexto.Nombre + "\nRespuesta: " + preguntaTexto.RespuestaPregunta.ValorRespuesta, _fuenteEstandar);
+                        respuestaTexto.IndentationLeft = 50f;
+                        respuestaTexto.IndentationRight = 50f;
+                        respuestaTexto.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                        document.Add(respuestaTexto);
+                    }
                 }
-
-                Paragraph preguntasBooleanTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
-                preguntasBooleanTitle.IndentationLeft = 50f;
-                preguntasBooleanTitle.IndentationRight = 50f;
-                preguntasBooleanTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
-
-                document.Add(preguntasBooleanTitle);
 
                 List<IPregunta<bool>> preguntasBoolean = GetPreguntasBooleanByBloqueInspeccion(bloque);
 
-                foreach(IPregunta<bool> preguntaBoolean in preguntasBoolean)
+                if (preguntasBoolean.Count > 0)
                 {
-                    string respuestaTraducida = "";
+                    Paragraph preguntasBooleanTitle = new Paragraph("Preguntas de Verdadero/Falso", _fuenteSeccion);
+                    preguntasBooleanTitle.IndentationLeft = 50f;
+                    preguntasBooleanTitle.IndentationRight = 50f;
+                    preguntasBooleanTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
 
-                    if (preguntaBoolean.RespuestaPregunta.ValorRespuesta)
+                    document.Add(preguntasBooleanTitle);
+
+                    foreach (IPregunta<bool> preguntaBoolean in preguntasBoolean)
                     {
-                        respuestaTraducida = "Verdadero";
-                    }
-                    else
-                    {
-                        respuestaTraducida = "Falso";
-                    }
+                        string respuestaTraducida = "";
 
-                    Paragraph respuestaBoolean = new Paragraph("Pregunta: " + preguntaBoolean.Nombre + "\nRespuesta: " + respuestaTraducida, _fuenteEstandar);
-                    respuestaBoolean.IndentationLeft = 50f;
-                    respuestaBoolean.IndentationRight = 50f;
-                    respuestaBoolean.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                        if (preguntaBoolean.RespuestaPregunta.ValorRespuesta)
+                        {
+                            respuestaTraducida = "Verdadero";
+                        }
+                        else
+                        {
+                            respuestaTraducida = "Falso";
+                        }
 
-                    document.Add(respuestaBoolean);
+                        Paragraph respuestaBoolean = new Paragraph("Pregunta: " + preguntaBoolean.Nombre + "\nRespuesta: " + respuestaTraducida, _fuenteEstandar);
+                        respuestaBoolean.IndentationLeft = 50f;
+                        respuestaBoolean.IndentationRight = 50f;
+                        respuestaBoolean.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                        document.Add(respuestaBoolean);
+                    }
                 }
-
-                Paragraph preguntasValorTitle = new Paragraph("Preguntas de texto", _fuenteSeccion);
-                preguntasValorTitle.IndentationLeft = 50f;
-                preguntasValorTitle.IndentationRight = 50f;
-                preguntasValorTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
-
-                document.Add(preguntasValorTitle);
 
                 List<IPregunta<int>> preguntasValor = GetPreguntasValorByBloqueInspeccion(bloque);
 
-                foreach(IPregunta<int> preguntaValor in preguntasValor)
+                if (preguntasValor.Count > 0)
                 {
-                    Paragraph respuestaValor = new Paragraph("Pregunta: " + preguntaValor.Nombre + "\nRespuesta: " + preguntaValor.RespuestaPregunta.ValorRespuesta, _fuenteEstandar);
-                    respuestaValor.IndentationLeft = 50f;
-                    respuestaValor.IndentationRight = 50f;
-                    respuestaValor.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                    Paragraph preguntasValorTitle = new Paragraph("Preguntas numéricas", _fuenteSeccion);
+                    preguntasValorTitle.IndentationLeft = 50f;
+                    preguntasValorTitle.IndentationRight = 50f;
+                    preguntasValorTitle.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
 
-                    document.Add(respuestaValor);
+                    document.Add(preguntasValorTitle);
+
+                    foreach (IPregunta<int> preguntaValor in preguntasValor)
+                    {
+                        Paragraph respuestaValor = new Paragraph("Pregunta: " + preguntaValor.Nombre + "\nRespuesta: " + preguntaValor.RespuestaPregunta.ValorRespuesta, _fuenteEstandar);
+                        respuestaValor.IndentationLeft = 50f;
+                        respuestaValor.IndentationRight = 50f;
+                        respuestaValor.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+                        document.Add(respuestaValor);
+                    }
+                }
+            }
+
+            Paragraph tituloImagenes = new Paragraph("Evidencias fotográficas", _fuenteSeccion);
+            tituloImagenes.IndentationLeft = 50f;
+            tituloImagenes.IndentationRight = 50f;
+            tituloImagenes.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+
+            document.Add(tituloImagenes);
+
+            int cont = 1;
+
+            foreach(Bloque bloque1 in bloques)
+            {
+                if (bloque1.Fotografias.Count > 0)
+                {
+                    foreach (string foto in bloque1.Fotografias)
+                    {
+                        var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(inspeccion.IdInspeccion.ToString()).Child(bloque1.IdBloque.ToString() + "_" + bloque1.PuestoTrabajo).Child("evidencia-" + cont + ".png").GetDownloadUrlAsync();
+                        iTextSharp.text.Image fotoActual = iTextSharp.text.Image.GetInstance(task);
+                        fotoActual.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                        fotoActual.ScalePercent(45f);
+
+                        document.Add(fotoActual);
+
+                        cont++;
+                    }
                 }
 
-                Paragraph tituloImagenes = new Paragraph("Evidencias fotograficas", _fuenteSeccion);
-                tituloImagenes.IndentationLeft = 50f;
-                tituloImagenes.IndentationRight = 50f;
-                tituloImagenes.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
-
-                document.Add(tituloImagenes);
-
-                int cont = 1;
-
-                foreach(string foto in bloque.Fotografias)
-                {
-                    var task = await new FirebaseStorage("inspection-manager-609e2.appspot.com").Child(inspeccion.IdInspeccion.ToString()).Child(bloque.IdBloque.ToString()+"_"+bloque.PuestoTrabajo).Child("evidencia-" + cont + ".png").GetDownloadUrlAsync();
-                    iTextSharp.text.Image fotoActual = iTextSharp.text.Image.GetInstance(task);
-                    fotoActual.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
-                    fotoActual.ScalePercent(40f);
-
-                    document.Add(fotoActual);
-
-                    cont++;
-                }
+                cont = 1;
             }
 
             document.Close();
@@ -1300,6 +1317,21 @@ namespace InspectionManager.Droid.Servicios
             documentReference.Update("Nombre", inspector.Nombre);
             documentReference.Update("Apellidos", inspector.Apellidos);
             documentReference.Update("FechaNacimiento", inspector.FechaNacimiento.ToString());
+        }
+
+        public void UpdateFotografiasBloque(Bloque bloque)
+        {
+            DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("BloquesInspeccion").Document(bloque.IdBloque.ToString() + "_" + bloque.PuestoTrabajo);
+
+            HashMap fotografias = new HashMap();
+            int cont = 0;
+            foreach(string foto in bloque.Fotografias)
+            {
+                fotografias.Put(cont.ToString(), foto);
+                cont++;
+            }
+
+            documentReference.Update("fotografias", fotografias);
         }
 
         private TipoTrabajo GetTipoTrabajoByString(string tipo)

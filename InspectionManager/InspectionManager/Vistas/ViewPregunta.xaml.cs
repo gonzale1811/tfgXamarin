@@ -16,6 +16,7 @@ namespace InspectionManager.Vistas
         private List<IPregunta<bool>> preguntasBoolean;
         private List<IPregunta<int>> preguntasInt;
         private List<Bloque> bloquesInspeccion;
+        private List<string> nombrePuestoBloque;
         private List<string> puestosSeleccionados;
         private Plantilla plantillaEmpleada;
         private Bloque bloque;
@@ -37,11 +38,14 @@ namespace InspectionManager.Vistas
 
             inspeccionProceso = inspeccionCreada;
             bloquesInspeccion = bloques;
+            nombrePuestoBloque = new List<string>();
             puestosSeleccionados = new List<string>();
+            bloque = bloqueSeleccionado;
 
             foreach(Bloque bloqueLista in bloquesInspeccion)
             {
                 puestosSeleccionados.Add(bloqueLista.PuestoTrabajo);
+                nombrePuestoBloque.Add(bloqueLista.Nombre + "_" + bloqueLista.PuestoTrabajo);
             }
 
             plantillaEmpleada = plantilla;
@@ -98,7 +102,7 @@ namespace InspectionManager.Vistas
             }
             else
             {
-                if (puestosSeleccionados.Contains(picker.SelectedItem.ToString()))
+                if (puestosSeleccionados.Contains(picker.SelectedItem.ToString())&&(nombrePuestoBloque.Contains(bloque.Nombre+"_"+picker.SelectedItem.ToString())))
                 {
                     await DisplayAlert("Error", "Ya ha rellenado un bloque para dicho puesto, seleccione otro", "Ok");
                 }
@@ -117,58 +121,67 @@ namespace InspectionManager.Vistas
 
         private void CargarPreguntasDelBloque()
         {
-            Label tituloTexto = new Label();
-            tituloTexto.Text = "Preguntas de texto";
-            tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
-            tituloTexto.FontSize = 24;
-            layoutPreguntas.Children.Add(tituloTexto);
-
-            foreach (IPregunta<string> pregunta in preguntasString)
+            if (preguntasString.Count > 0)
             {
-                Label texto = new Label();
-                texto.Text = pregunta.Nombre;
-                Entry campoRespuesta = new Entry();
-                campoRespuesta.Placeholder = MENSAJE;
-                campoRespuesta.Keyboard = Keyboard.Text;
-                layoutPreguntas.Children.Add(texto);
-                layoutPreguntas.Children.Add(campoRespuesta);
+                Label tituloTexto = new Label();
+                tituloTexto.Text = "Preguntas de texto";
+                tituloTexto.HorizontalTextAlignment = TextAlignment.Center;
+                tituloTexto.FontSize = 24;
+                layoutPreguntas.Children.Add(tituloTexto);
+
+                foreach (IPregunta<string> pregunta in preguntasString)
+                {
+                    Label texto = new Label();
+                    texto.Text = pregunta.Nombre;
+                    Entry campoRespuesta = new Entry();
+                    campoRespuesta.Placeholder = MENSAJE;
+                    campoRespuesta.Keyboard = Keyboard.Text;
+                    layoutPreguntas.Children.Add(texto);
+                    layoutPreguntas.Children.Add(campoRespuesta);
+                }
             }
 
-            Label tituloBoolean = new Label();
-            tituloBoolean.Text = "Preguntas de verdadero/falso";
-            tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
-            tituloBoolean.FontSize = 24;
-            Label explicacion = new Label();
-            explicacion.Text = "Marque los check si es verdadero.";
-            explicacion.FontSize = 16;
-            layoutPreguntas.Children.Add(tituloBoolean);
-            layoutPreguntas.Children.Add(explicacion);
-
-            foreach (IPregunta<bool> pregunta1 in preguntasBoolean)
+            if (preguntasBoolean.Count > 0)
             {
-                Label texto = new Label();
-                texto.Text = pregunta1.Nombre;
-                CheckBox respuesta = new CheckBox();
-                respuesta.IsChecked = false;
-                layoutPreguntas.Children.Add(texto);
-                layoutPreguntas.Children.Add(respuesta);
+                Label tituloBoolean = new Label();
+                tituloBoolean.Text = "Preguntas de verdadero/falso";
+                tituloBoolean.HorizontalTextAlignment = TextAlignment.Center;
+                tituloBoolean.FontSize = 24;
+                Label explicacion = new Label();
+                explicacion.Text = "Marque los check si es verdadero.";
+                explicacion.FontSize = 16;
+                layoutPreguntas.Children.Add(tituloBoolean);
+                layoutPreguntas.Children.Add(explicacion);
+
+                foreach (IPregunta<bool> pregunta1 in preguntasBoolean)
+                {
+                    Label texto = new Label();
+                    texto.Text = pregunta1.Nombre;
+                    CheckBox respuesta = new CheckBox();
+                    respuesta.IsChecked = false;
+                    layoutPreguntas.Children.Add(texto);
+                    layoutPreguntas.Children.Add(respuesta);
+                }
             }
 
-            Label tituloValor = new Label();
-            tituloValor.Text = "Preguntas numericas";
-            tituloValor.HorizontalTextAlignment = TextAlignment.Center;
-            tituloValor.FontSize = 24;
-            layoutPreguntas.Children.Add(tituloValor);
-
-            foreach (IPregunta<int> pregunta2 in preguntasInt)
+            if (preguntasInt.Count > 0)
             {
-                Label texto = new Label();
-                texto.Text = pregunta2.Nombre;
-                Entry campoRespuesta = new Entry();
-                campoRespuesta.Placeholder = "Indique el valor correspondiente";
-                campoRespuesta.Keyboard = Keyboard.Numeric;
-                layoutPreguntas.Children.Add(texto);
-                layoutPreguntas.Children.Add(campoRespuesta);
+                Label tituloValor = new Label();
+                tituloValor.Text = "Preguntas numericas";
+                tituloValor.HorizontalTextAlignment = TextAlignment.Center;
+                tituloValor.FontSize = 24;
+                layoutPreguntas.Children.Add(tituloValor);
+
+                foreach (IPregunta<int> pregunta2 in preguntasInt)
+                {
+                    Label texto = new Label();
+                    texto.Text = pregunta2.Nombre;
+                    Entry campoRespuesta = new Entry();
+                    campoRespuesta.Placeholder = "Indique el valor correspondiente";
+                    campoRespuesta.Keyboard = Keyboard.Numeric;
+                    layoutPreguntas.Children.Add(texto);
+                    layoutPreguntas.Children.Add(campoRespuesta);
+                }
             }
 
             StackLayout botones = new StackLayout

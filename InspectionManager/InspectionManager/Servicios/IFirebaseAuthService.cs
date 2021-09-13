@@ -13,10 +13,6 @@ namespace InspectionManager.Servicios
 
         Task<string> SignIn(string username, string password);
 
-        void SignInWithGoogle();
-
-        Task<bool> SignInWithGoogle(string token);
-
         string GetUserEmail();
 
         Task<bool> LogOut();

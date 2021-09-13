@@ -47,16 +47,6 @@ namespace InspectionManager.Droid.Servicios
             }
         }
 
-        public void SignInWithGoogle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> SignInWithGoogle(string token)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<bool> LogOut()
         {
             try
