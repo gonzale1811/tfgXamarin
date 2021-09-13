@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspectionManager/Vistas/ViewPregunta.xaml">
-    <Files>
-      <File FileName="InspectionManager/Vistas/ViewDatosPlantilla.xaml.cs" Line="54" Column="137" />
-      <File FileName="InspectionManager/Vistas/ViewAddBloque.xaml.cs" />
-      <File FileName="InspectionManager/Vistas/ViewMenuPrincipal.xaml.cs" />
-      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml.cs" Line="180" Column="18" />
-      <File FileName="InspectionManager/Vistas/ViewPreguntasInspeccion.xaml.cs" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewPreguntasInspeccion.xaml" Line="1" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewPregunta.xaml" Line="8" Column="9" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
