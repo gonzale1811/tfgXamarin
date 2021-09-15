@@ -38,7 +38,7 @@ namespace InspectionManager.Droid.Servicios
             {
                 { "Apellidos", inspector.Apellidos },
                 { "DNI", inspector.Dni },
-                { "FechaNacimiento", inspector.FechaNacimiento.ToString("dd/MM/yyyy") },
+                { "FechaNacimiento", inspector.FechaNacimiento },
                 { "Inspecciones", mapaInspecciones},
                 { "Nombre", inspector.Nombre },
                 { "Password", inspector.Password },
@@ -69,9 +69,9 @@ namespace InspectionManager.Droid.Servicios
                     {
                         var fecha = item.Get("FechaNacimiento").ToString();
 
-                        DateTime fechaNacimiento = Convert.ToDateTime(fecha);
+                        //DateTime fechaNacimiento = Convert.ToDateTime(fecha);
 
-                        inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fechaNacimiento);
+                        inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fecha);
 
                         List<string> inspeccionesObtenidas = new List<string>();
 

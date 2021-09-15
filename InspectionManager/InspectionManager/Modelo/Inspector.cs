@@ -11,10 +11,10 @@ namespace InspectionManager.Modelo
         public string Apellidos { get; set; }
         public string Usuario { get; set; }
         public string Password { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public string FechaNacimiento { get; set; }
         public List<string> Inspecciones { get; set; }
 
-        public Inspector(string dni, string nombre, string apellidos, string usuario, string password, DateTime fechaNacimiento)
+        public Inspector(string dni, string nombre, string apellidos, string usuario, string password, string fechaNacimiento)
         {
             Dni = dni;
             Nombre = nombre;

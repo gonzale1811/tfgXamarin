@@ -28,7 +28,7 @@ namespace InspectionManager.Vistas
 
             usuario = consult.GetInspectorByEmail(emailUsuario);
 
-            if (usuario.Inspecciones.Count > 0)
+            if (usuario.Inspecciones!=null&&usuario.Inspecciones.Count > 0)
             {
                 informacionLabel.Text = "Lista de inspecciones";
 
@@ -61,10 +61,10 @@ namespace InspectionManager.Vistas
                 usernameEntry.TextColor = Color.White;
                 passwordEntry.Text = usuario.Password;
                 passwordEntry.TextColor = Color.White;
-                fechaNacimientoPicker.Date = usuario.FechaNacimiento;
-                fechaNacimientoPicker.MaximumDate = usuario.FechaNacimiento;
-                fechaNacimientoPicker.MinimumDate = usuario.FechaNacimiento;
-                fechaDeNacimientoUsuario = usuario.FechaNacimiento;
+                fechaNacimientoPicker.Date = DateTime.ParseExact(usuario.FechaNacimiento, "dd/MM/yyyy", null);
+                fechaNacimientoPicker.MaximumDate = DateTime.ParseExact(usuario.FechaNacimiento, "dd/MM/yyyy", null);
+                fechaNacimientoPicker.MinimumDate = DateTime.ParseExact(usuario.FechaNacimiento, "dd/MM/yyyy", null);
+                fechaDeNacimientoUsuario = DateTime.ParseExact(usuario.FechaNacimiento, "dd/MM/yyyy", null);
                 fechaNacimientoPicker.TextColor = Color.White;
             }
         }
@@ -103,7 +103,7 @@ namespace InspectionManager.Vistas
 
             if (ComprobarCampos())
             {
-                Inspector inspectorActualizado = new Inspector(usuario.Dni, nombreEntry.Text, apellidosEntry.Text, usuario.Usuario, usuario.Password, fechaDeNacimientoUsuario);
+                Inspector inspectorActualizado = new Inspector(usuario.Dni, nombreEntry.Text, apellidosEntry.Text, usuario.Usuario, usuario.Password, fechaDeNacimientoUsuario.ToString("dd/MM/yyyy"));
                 consult.ActualizarInformacionUsuario(inspectorActualizado);
 
                 usuario.Nombre = inspectorActualizado.Nombre;
@@ -112,8 +112,8 @@ namespace InspectionManager.Vistas
 
                 nombreEntry.IsReadOnly = true;
                 apellidosEntry.IsReadOnly = true;
-                fechaNacimientoPicker.MinimumDate = usuario.FechaNacimiento;
-                fechaNacimientoPicker.MaximumDate = usuario.FechaNacimiento;
+                fechaNacimientoPicker.MinimumDate = DateTime.ParseExact(usuario.FechaNacimiento,"dd/MM/yyyy",null);
+                fechaNacimientoPicker.MaximumDate = DateTime.ParseExact(usuario.FechaNacimiento, "dd/MM/yyyy", null);
 
                 guardarPerfilButton.IsEnabled = false;
                 guardarPerfilButton.IsVisible = false;

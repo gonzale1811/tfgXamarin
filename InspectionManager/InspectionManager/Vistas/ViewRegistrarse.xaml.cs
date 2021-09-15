@@ -34,7 +34,7 @@ namespace InspectionManager.Vistas
 
             if (datosValidados && !menorEdad)
             {
-                Inspector inspector = new Inspector(dniEntry.Text, nombreEntry.Text, apellidosEntry.Text, usernameEntry.Text, passwordEntry.Text, fechaNacimiento);
+                Inspector inspector = new Inspector(dniEntry.Text, nombreEntry.Text, apellidosEntry.Text, usernameEntry.Text, passwordEntry.Text, fechaNacimiento.ToString("dd/MM/yyyy"));
 
                 bool registro = await auth.SignUp(usernameEntry.Text, passwordEntry.Text);
 

@@ -9,16 +9,16 @@
         <StackLayout x:Name="stackLayoutRegistro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="Registro de usuario" TextColor="White" FontSize="Title" FontAttributes="Bold" VerticalOptions="Center"
                 HorizontalOptions="Center"/>
-            <Entry x:Name="dniEntry" Placeholder="DNI" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="nombreEntry" Placeholder="Nombre" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="apellidosEntry" Placeholder="Apellidos" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="usernameEntry" Placeholder="Correo electrónico" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="passwordEntry" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="passwordConfirmEntry" Placeholder="Confirmar contraseña" PlaceholderColor="White" TextColor="White"/>
-            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" MinimumDate="01/01/1900" DateSelected="FechaSeleccionada" TextColor="White"/>
-            <Button x:Name="registrarButton" Text="Resgitrarse como usuario" Clicked="ProcesarRegistroUsuario" BackgroundColor="PaleGoldenrod"/>
+            <Entry x:Name="dniEntry" AutomationId="testRegistrarDniEntry" Placeholder="DNI" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="nombreEntry" AutomationId="testRegistrarNombreEntry" Placeholder="Nombre" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="apellidosEntry" AutomationId="testRegistrarApellidosEntry" Placeholder="Apellidos" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="usernameEntry" AutomationId="testRegistrarUsernameEntry" Placeholder="Correo electrónico" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="passwordEntry" AutomationId="testRegistrarPasswordEntry" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="passwordConfirmEntry" AutomationId="testRegistrarPasswordConfirmEntry" Placeholder="Confirmar contraseña" PlaceholderColor="White" TextColor="White"/>
+            <DatePicker x:Name="fechaNacimientoPicker" AutomationId="testRegistrarFechaNacimientoPicker" Format="dd/MM/yyyy" MinimumDate="01/01/1900" DateSelected="FechaSeleccionada" TextColor="White"/>
+            <Button x:Name="registrarButton" AutomationId="testCompletarRegistroButton" Text="Resgitrarse como usuario" Clicked="ProcesarRegistroUsuario" BackgroundColor="PaleGoldenrod"/>
             <Label Text="" IsVisible="False"/>
-            <Label x:Name="labelError" Text="" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Label x:Name="labelError" AutomationId="testErrorRegistrarLabel" Text="" IsVisible="False" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

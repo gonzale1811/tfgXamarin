@@ -17,15 +17,15 @@
 
             <StackLayout x:Name="stackLayoutLogin2" Grid.Row="1">
                 <Label x:Name="errorLabel" IsVisible="false" HorizontalOptions="Center" FontSize="Medium" VerticalOptions="End" HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
+                       VerticalTextAlignment="Center" AutomationId="testErrorLoginLabel"/>
             </StackLayout>
 
             <StackLayout x:Name="stackLayoutLogin3" Grid.Row="2">
-                <Entry x:Name="usernameInput" FontSize="Large" HorizontalTextAlignment="Center" Placeholder="Correo electrónico" TextColor="White" PlaceholderColor="White"/>
-                <Entry x:Name="passwordInput" FontSize="Large" HorizontalTextAlignment="Center" Placeholder="Contraseña" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="usernameInput" AutomationId="testUsernameEntry" FontSize="Large" HorizontalTextAlignment="Center" Placeholder="Correo electrónico" TextColor="White" PlaceholderColor="White"/>
+                <Entry x:Name="passwordInput" AutomationId="testPasswordEntry" FontSize="Large" HorizontalTextAlignment="Center" Placeholder="Contraseña" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
 
-                <Button Text="Login" TextColor="Black" FontSize="Medium" Clicked="ProcesarLogin" BackgroundColor="PaleGoldenrod"/>
-                <Button Text="Registrarse" TextColor="Black" FontSize="Medium" Clicked="ProcesarRegistro" BackgroundColor="PaleGoldenrod"/>
+                <Button Text="Login" AutomationId="testLoginButton" TextColor="Black" FontSize="Medium" Clicked="ProcesarLogin" BackgroundColor="PaleGoldenrod"/>
+                <Button Text="Registrarse" AutomationId="testRegistrarseButton" TextColor="Black" FontSize="Medium" Clicked="ProcesarRegistro" BackgroundColor="PaleGoldenrod"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
