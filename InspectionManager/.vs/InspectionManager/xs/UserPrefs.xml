@@ -2,13 +2,6 @@
   <MonoDevelop.Ide.ItemProperties.InspectionManagerTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="InspectionManager/App.xaml.cs" Line="28" Column="13" />
-      <File FileName="InspectionManager.Android/Servicios/FirebaseConsultService.cs" Line="723" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewFotos.xaml" Line="20" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewFotos.xaml.cs" Line="56" Column="1" />
-      <File FileName="InspectionManager/Vistas/ViewInformacionInspeccion.xaml.cs" Line="47" Column="1" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -18,13 +11,13 @@
               <Node name="Vistas" expanded="True">
                 <Node name="ViewBloquesInspeccion.xaml" expanded="True" />
                 <Node name="ViewFotos.xaml" expanded="True" />
-                <Node name="ViewInformacionInspeccion.xaml" expanded="True">
-                  <Node name="ViewInformacionInspeccion.xaml.cs" selected="True" />
-                </Node>
+                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
                 <Node name="ViewPreguntasInspeccion.xaml" expanded="True" />
                 <Node name="ViewRegistrarse.xaml" expanded="True" />
               </Node>
-              <Node name="App.xaml" expanded="True" />
+              <Node name="App.xaml" expanded="True">
+                <Node name="App.xaml.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="InspectionManager.Android" expanded="True">
               <Node name="Servicios" expanded="True" />
