@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{C192F0E0-909F-4625-B157-11BACCC6325A}|Default">
+﻿<Properties StartupConfiguration="{7C81605B-C850-4CB9-B2D2-0F6A25835506}|Pruebas unitarias">
   <MonoDevelop.Ide.ItemProperties.InspectionManagerTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.InspectionManager.iOS automaticSigning="False" />
   <MonoDevelop.Ide.Workbench>
@@ -6,29 +6,31 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
-            <Node name="InspectionManager" expanded="True">
-              <Node name="Servicios" expanded="True" />
-              <Node name="Vistas" expanded="True">
-                <Node name="ViewBloquesInspeccion.xaml" expanded="True" />
-                <Node name="ViewFotos.xaml" expanded="True" />
-                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
-                <Node name="ViewPreguntasInspeccion.xaml" expanded="True" />
-                <Node name="ViewRegistrarse.xaml" expanded="True" />
-              </Node>
-              <Node name="App.xaml" expanded="True">
-                <Node name="App.xaml.cs" selected="True" />
+            <Node name="InspectionManager.Android" expanded="True">
+              <Node name="Servicios" expanded="True">
+                <Node name="FirebaseConsultService.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Servicios" expanded="True" />
+            <Node name="InspectionManager.Test" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="InspectionManager" expanded="True">
+            <Node name="InspectionManager.Test" expanded="True">
+              <Node name="Test Apps" expanded="True">
+                <Node name="InspectionManager.Android" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.InspectionManager.Test PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <Debugger.DebugSourceFolders />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
