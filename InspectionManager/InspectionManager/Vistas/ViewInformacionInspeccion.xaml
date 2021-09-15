@@ -8,21 +8,21 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Label Text="Datos inspección" TextColor="White" FontAttributes="Bold" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="nombreEntry" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
-            <DatePicker x:Name="fechaInicioPicker" TextColor="White" Format="dd/MM/yyyy" DateSelected="ProcesarFechaInicio"/>
-            <DatePicker x:Name="fechaFinPicker" TextColor="White" Format="dd/MM/yyyy" DateSelected="ProcesarFechaFin"/>
-            <Entry x:Name="calleEntry" Keyboard="Text" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="numeroEntry" Keyboard="Numeric" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="localidadEntry" Keyboard="Text" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="codigoPostalEntry" Keyboard="Numeric" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="nombreEntry" AutomationId="testNombreInspeccionListaEntry" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <DatePicker x:Name="fechaInicioPicker" AutomationId="testFechaInicioInspeccionListaDatePicker" TextColor="White" Format="dd/MM/yyyy" DateSelected="ProcesarFechaInicio"/>
+            <DatePicker x:Name="fechaFinPicker" AutomationId="testFechaFinInspeccionListaDatePicker" TextColor="White" Format="dd/MM/yyyy" DateSelected="ProcesarFechaFin"/>
+            <Entry x:Name="calleEntry" AutomationId="testCalleInspeccionListaEntry" Keyboard="Text" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="numeroEntry" AutomationId="testNumeroInspeccionListaEntry" Keyboard="Numeric" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="localidadEntry" AutomationId="testLocalidadInspeccionListaEntry" Keyboard="Text" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="codigoPostalEntry" AutomationId="testCodigoPostalInspeccinListaEntry" Keyboard="Numeric" TextColor="White" IsReadOnly="True" HorizontalTextAlignment="Center"/>
             <StackLayout x:Name="otherButtonsLayout" Orientation="Horizontal">
-                <Button x:Name="eliminarButton" Text="Eliminar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarEliminarInspeccion" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Button x:Name="descargarButton" Text="Descargar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarDescargarInspeccion" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Button x:Name="editarButton" Text="Editar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarEditarInspeccion" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Button x:Name="guardarNuevosDatosButton" Text="Guardar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarGuardarNuevosDatos" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsEnabled="False" IsVisible="False"/>
+                <Button x:Name="eliminarButton" AutomationId="testEliminarInspeccionListaButton" Text="Eliminar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarEliminarInspeccion" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="descargarButton" AutomationId="testDescargarInspeccionListaButton" Text="Descargar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarDescargarInspeccion" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="editarButton" AutomationId="testEditarInspeccionListaButton" Text="Editar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarEditarInspeccion" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="guardarNuevosDatosButton" AutomationId="testGuardarEdicionInspeccionListaButton" Text="Guardar" BackgroundColor="PaleGoldenrod" Clicked="ProcesarGuardarNuevosDatos" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsEnabled="False" IsVisible="False"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Button x:Name="verBloquesButton" Text="Ver Bloques" BackgroundColor="PaleGoldenrod" Clicked="ProcesarObtenerBloques" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="verBloquesButton" AutomationId="testVerBloquesInspeccionListaButton" Text="Ver Bloques" BackgroundColor="PaleGoldenrod" Clicked="ProcesarObtenerBloques" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </StackLayout>
             <Label x:Name="errorLabel" IsVisible="False" FontSize="Medium" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>

@@ -8,19 +8,19 @@
     <ContentPage.Content>
         <StackLayout x:Name="layoutCreacionPlantillas" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Label Text="Datos de la plantilla" FontSize="Title" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Entry x:Name="nombreEntry" Placeholder="Nombre de la plantilla" PlaceholderColor="White" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Picker x:Name="tipoTrabajoPicker" HorizontalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Entry x:Name="nombreEntry" AutomationId="testNombrePlantillaEntry" Placeholder="Nombre de la plantilla" PlaceholderColor="White" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Picker x:Name="tipoTrabajoPicker" AutomationId="testPickerTipoPlantilla" HorizontalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
             <Label IsVisible="False"/>
             <Label IsVisible="False"/>
             <Label IsVisible="False"/>
             <StackLayout x:Name="botones1Layout" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
-                <Button x:Name="cancelarButton" BackgroundColor="PaleGoldenrod" Text="Cancelar" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
-                <Button x:Name="addBloqueButton" BackgroundColor="PaleGoldenrod" Text="Nuevo Bloque" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarAddBloque"/>
+                <Button x:Name="cancelarButton" AutomationId="testCancelarDatosNuevaPlantillaButton" BackgroundColor="PaleGoldenrod" Text="Cancelar" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+                <Button x:Name="addBloqueButton" AutomationId="testAddNuevoBloquePlantillaButton" BackgroundColor="PaleGoldenrod" Text="Nuevo Bloque" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarAddBloque"/>
             </StackLayout>
             <StackLayout x:Name="botones2Layout" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
-                <Button x:Name="finalizarButton" BackgroundColor="PaleGoldenrod" Text="Finalizar" IsEnabled="False" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="ProcesarFinalizar"/>
+                <Button x:Name="finalizarButton" AutomationId="testGuardarNuevaPlantillaButton" BackgroundColor="PaleGoldenrod" Text="Finalizar" IsEnabled="False" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="ProcesarFinalizar"/>
             </StackLayout>
-            <Label x:Name="errorLabel" Text="" IsVisible="False" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Label x:Name="errorLabel" AutomationId="testCrearPlantillaErrorLabel" Text="" IsVisible="False" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

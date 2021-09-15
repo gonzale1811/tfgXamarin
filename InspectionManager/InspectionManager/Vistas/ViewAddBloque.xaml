@@ -8,20 +8,20 @@
     <ContentPage.Content>
         <StackLayout x:Name="mainLayout" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
             <Label Text="Nombre del Bloque" TextColor="White" FontAttributes="Bold" FontSize="Title" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Entry x:Name="nombreBloqueEntry" Placeholder="Nombre del Bloque" PlaceholderColor="White" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Entry x:Name="nombreBloqueEntry" AutomationId="testNuevoBloquePlantillaEntry" Placeholder="Nombre del Bloque" PlaceholderColor="White" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
             <StackLayout x:Name="botonesBloqueLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Button x:Name="crearBloqueButton" BackgroundColor="PaleGoldenrod" Text="Crear Bloque" HorizontalOptions="CenterAndExpand" Clicked="ProcesarCrearBloque"/>
-                <Button x:Name="cambiarNombreBloque" BackgroundColor="PaleGoldenrod" Text="Editar Bloque" IsEnabled="False" IsVisible="False" HorizontalOptions="CenterAndExpand" Clicked="ProcesarEditarBloque"/>
+                <Button x:Name="crearBloqueButton" AutomationId="testCrearNuevoBloquePlantillaButton" BackgroundColor="PaleGoldenrod" Text="Crear Bloque" HorizontalOptions="CenterAndExpand" Clicked="ProcesarCrearBloque"/>
+                <Button x:Name="cambiarNombreBloque" AutomationId="testCambiarNombreNuevoBloquePlantilla" BackgroundColor="PaleGoldenrod" Text="Editar Bloque" IsEnabled="False" IsVisible="False" HorizontalOptions="CenterAndExpand" Clicked="ProcesarEditarBloque"/>
             </StackLayout>
             <Label Text="Descripción de la Pregunta" TextColor="White" FontAttributes="Bold" FontSize="Title" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Entry x:Name="enunciadoPreguntaEntry" TextColor="White" PlaceholderColor="White" IsReadOnly="True" Placeholder="Enunciado de la Pregunta" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            <Picker x:Name="tipoPreguntaPicker" IsEnabled="False" Title="Seleccione el tipo de pregunta" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-            <Button x:Name="crearPregunta" BackgroundColor="PaleGoldenrod" IsEnabled="False" Text="Crear Pregunta" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="ProcesarCrearPregunta"/>
+            <Entry x:Name="enunciadoPreguntaEntry" AutomationId="testEnunciadoPreguntaBloqueEntry" TextColor="White" PlaceholderColor="White" IsReadOnly="True" Placeholder="Enunciado de la Pregunta" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            <Picker x:Name="tipoPreguntaPicker" AutomationId="testTipoPreguntaBloquePicker" IsEnabled="False" Title="Seleccione el tipo de pregunta" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <Button x:Name="crearPregunta" AutomationId="testCrearNuevaPreguntaBloqueButton" BackgroundColor="PaleGoldenrod" IsEnabled="False" Text="Crear Pregunta" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="ProcesarCrearPregunta"/>
             <StackLayout x:Name="botonesFinalesLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Horizontal">
-                <Button x:Name="cancelarButton" Text="Cancelar" BackgroundColor="PaleGoldenrod" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
-                <Button x:Name="guardarButton" Text="Guardar" BackgroundColor="PaleGoldenrod" IsEnabled="False" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarGuardar"/>
+                <Button x:Name="cancelarButton" AutomationId="testCancelarNuevaPlantillaBloqueButton" Text="Cancelar" BackgroundColor="PaleGoldenrod" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+                <Button x:Name="guardarButton" AutomationId="testGuardarNuevaPlantillaBloqueButton" Text="Guardar" BackgroundColor="PaleGoldenrod" IsEnabled="False" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ProcesarGuardar"/>
             </StackLayout>
-            <Label x:Name="errorLabel" IsVisible="False" FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <Label x:Name="errorLabel" AutomationId="testCrearBloquePlantillaErrorLabel" IsVisible="False" FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

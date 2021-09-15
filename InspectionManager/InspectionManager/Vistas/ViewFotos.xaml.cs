@@ -26,7 +26,7 @@ namespace InspectionManager.Vistas
             List<string> opciones = new List<string>();
             int cont = 1;
 
-            foreach(string foto in bloque.Fotografias)
+            foreach (string foto in bloque.Fotografias)
             {
                 opciones.Add("Evidencia " + cont);
                 cont++;
@@ -34,11 +34,6 @@ namespace InspectionManager.Vistas
 
             fotosPicker.ItemsSource = opciones;
             fotosPicker.TextColor = Color.White;
-        }
-
-        public async void ProcesarVolver(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new ViewPreguntasInspeccion(inspeccion,bloque)));
         }
 
         public async void ProcesarCargarFoto(object sender, EventArgs e)

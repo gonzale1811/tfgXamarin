@@ -35,6 +35,8 @@ namespace InspectionManager.Vistas
             preguntasBoolean = consult.GetPreguntasBooleanByBloqueInspeccion(bloque);
             preguntasInt = consult.GetPreguntasValorByBloqueInspeccion(bloque);
 
+            int contAutomationId = 1;
+
             if (preguntasString.Count > 0)
             {
                 Label tituloTexto = new Label();
@@ -54,10 +56,13 @@ namespace InspectionManager.Vistas
                     campoRespuesta.Keyboard = Keyboard.Text;
                     campoRespuesta.TextColor = Color.White;
                     campoRespuesta.IsReadOnly = true;
+                    campoRespuesta.AutomationId = "testPreguntaTextoBloqueInspeccionLista" + contAutomationId + "Entry";
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
             }
+
+            contAutomationId = 1;
 
             if (preguntasBoolean.Count > 0)
             {
@@ -81,10 +86,13 @@ namespace InspectionManager.Vistas
                     CheckBox respuesta = new CheckBox();
                     respuesta.IsChecked = pregunta1.RespuestaPregunta.ValorRespuesta;
                     respuesta.IsEnabled = false;
+                    respuesta.AutomationId = "testPreguntaBooleanBloqueInspeccionLista" + contAutomationId + "Checkbox";
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(respuesta);
                 }
             }
+
+            contAutomationId = 1;
 
             if (preguntasInt.Count > 0)
             {
@@ -105,6 +113,7 @@ namespace InspectionManager.Vistas
                     campoRespuesta.TextColor = Color.White;
                     campoRespuesta.Keyboard = Keyboard.Numeric;
                     campoRespuesta.IsReadOnly = true;
+                    campoRespuesta.AutomationId = "testPreguntaValorBloqueInspeccionLista" + contAutomationId + "Entry";
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
@@ -120,14 +129,16 @@ namespace InspectionManager.Vistas
             {
                 Text = "Cancelar",
                 BackgroundColor = Color.PaleGoldenrod,
-                HorizontalOptions = LayoutOptions.StartAndExpand
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                AutomationId = "testCancelarPreguntasBloqueInspeccionListaButton"
             };
 
             Button foto = new Button
             {
                 ImageSource = "add_foto_black.png",
                 BackgroundColor = Color.PaleGoldenrod,
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                AutomationId = "testFotoPreguntasBloqueInspeccionListaButton"
             };
 
             Button editar = new Button
@@ -135,6 +146,7 @@ namespace InspectionManager.Vistas
                 Text = "Editar",
                 BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
+                AutomationId = "testEditarPreguntasBloqueInspeccionListaButton"
             };
 
             Button guardar = new Button
@@ -143,7 +155,8 @@ namespace InspectionManager.Vistas
                 BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 IsEnabled = false,
-                IsVisible = false
+                IsVisible = false,
+                AutomationId = "testGuardarEdicionPreguntasBloqueInspeccionListaButton"
             };
 
             cancelar.Clicked += ProcesarCancelar;
@@ -166,7 +179,8 @@ namespace InspectionManager.Vistas
             {
                 Text = "Ver fotografías",
                 BackgroundColor = Color.PaleGoldenrod,
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                AutomationId = "testVerFotosPreguntasBloqueInspeccionListaButton"
             };
 
             fotos.Clicked += ProcesarVerFotos;
@@ -197,7 +211,7 @@ namespace InspectionManager.Vistas
                     if (numeroPreguntasTexto > 0)
                     {
 
-                        IPregunta<string> preguntaTextoRespondida = new PreguntaTexto(preguntasString[numeroPreguntasTexto - 1].IdPregunta,preguntasString[numeroPreguntasTexto - 1].Nombre);
+                        IPregunta<string> preguntaTextoRespondida = new PreguntaTexto(preguntasString[numeroPreguntasTexto - 1].IdPregunta, preguntasString[numeroPreguntasTexto - 1].Nombre);
                         preguntaTextoRespondida.Responder(respuesta.Text);
                         preguntasTextoRespondidas.Add(preguntaTextoRespondida);
                         numeroPreguntasTexto--;
@@ -305,12 +319,12 @@ namespace InspectionManager.Vistas
 
         public async void ProcesarVerFotos(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ViewFotos(inspeccion,bloque));
+            await Navigation.PushAsync(new ViewFotos(inspeccion, bloque));
         }
 
         public void ProcesarEditar(object sender, EventArgs e)
         {
-            foreach(View v in layoutPreguntas.Children)
+            foreach (View v in layoutPreguntas.Children)
             {
                 Type tipo = v.GetType();
 
@@ -322,15 +336,17 @@ namespace InspectionManager.Vistas
                     char caracter = separacion[0];
                     elemento.Text = elemento.Text.Split(caracter)[1];
                     elemento.IsReadOnly = false;
-                }else if (tipo.Equals(typeof(CheckBox)))
+                }
+                else if (tipo.Equals(typeof(CheckBox)))
                 {
                     var elemento = (CheckBox)v;
                     elemento.IsEnabled = true;
-                }else if (tipo.Equals(typeof(StackLayout)))
+                }
+                else if (tipo.Equals(typeof(StackLayout)))
                 {
                     var elemento = (StackLayout)v;
 
-                    foreach(View vS in elemento.Children)
+                    foreach (View vS in elemento.Children)
                     {
                         Type tipoS = vS.GetType();
 
@@ -342,7 +358,8 @@ namespace InspectionManager.Vistas
                             {
                                 boton.IsEnabled = false;
                                 boton.IsVisible = false;
-                            }else if(boton.Text == "Guardar")
+                            }
+                            else if (boton.Text == "Guardar")
                             {
                                 boton.IsVisible = true;
                                 boton.IsEnabled = true;

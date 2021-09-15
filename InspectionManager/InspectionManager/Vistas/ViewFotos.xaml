@@ -8,12 +8,11 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
             <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
-                <Picker x:Name="fotosPicker" Title="Seleccione la foto" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Start"/>
+                <Picker x:Name="fotosPicker" AutomationId="testSelectorFotosPicker" Title="Seleccione la foto" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Start"/>
             </StackLayout>
             <Image x:Name="fotoImage" IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
-                <!--Button x:Name="cancelarButton" Text="Volver" HorizontalOptions="StartAndExpand" VerticalOptions="End" Clicked="ProcesarVolver"/-->
-                <Button x:Name="cargarFotoButton" BackgroundColor="PaleGoldenrod" Text="Descargar" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Clicked="ProcesarCargarFoto"/>
+                <Button x:Name="cargarFotoButton" AutomationId="testCargarFotoSeleccionadaButton" BackgroundColor="PaleGoldenrod" Text="Descargar" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Clicked="ProcesarCargarFoto"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
