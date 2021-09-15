@@ -72,6 +72,29 @@ namespace InspectionManager.Vistas
                 mostrarError("El campo DNI no puede estar vacío.", Color.Red);
                 return false;
             }
+            if (dniEntry.Text.Length != 9)
+            {
+                mostrarError("Los DNI estan compuestos por 9 caracteres.", Color.Red);
+                return false;
+            }
+            if (!Char.IsLetter(dniEntry.Text[8]))
+            {
+                mostrarError("El último elemento del DNI debe ser una letra.", Color.Red);
+                return false;
+            }
+
+            int cont = 0;
+
+            while (cont < 8)
+            {
+                if (!Char.IsDigit(dniEntry.Text[cont]))
+                {
+                    mostrarError("Los 8 primeros digitos que componen el DNI deben de ser números.", Color.Red);
+                    return false;
+                }
+
+                cont++;
+            }
             if (String.IsNullOrWhiteSpace(nombreEntry.Text))
             {
                 mostrarError("El campo Nombre no puede estar vacío.", Color.Red);
@@ -101,29 +124,6 @@ namespace InspectionManager.Vistas
             {
                 mostrarError("Las contraseñas deben de ser iguales.", Color.Red);
                 return false;
-            }
-            if (dniEntry.Text.Length != 9)
-            {
-                mostrarError("Los DNI estan compuestos por 9 caracteres.", Color.Red);
-                return false;
-            }
-            if (!Char.IsLetter(dniEntry.Text[8]))
-            {
-                mostrarError("El último elemento del DNI debe ser una letra.", Color.Red);
-                return false;
-            }
-
-            int cont = 0;
-
-            while (cont < 8)
-            {
-                if (!Char.IsDigit(dniEntry.Text[cont]))
-                {
-                    mostrarError("Los 8 primeros digitos que componen el DNI deben de ser números.", Color.Red);
-                    return false;
-                }
-
-                cont++;
             }
 
             return true;

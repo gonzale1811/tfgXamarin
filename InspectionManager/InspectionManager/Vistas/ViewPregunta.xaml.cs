@@ -42,7 +42,7 @@ namespace InspectionManager.Vistas
             puestosSeleccionados = new List<string>();
             bloque = bloqueSeleccionado;
 
-            foreach(Bloque bloqueLista in bloquesInspeccion)
+            foreach (Bloque bloqueLista in bloquesInspeccion)
             {
                 puestosSeleccionados.Add(bloqueLista.PuestoTrabajo);
                 nombrePuestoBloque.Add(bloqueLista.Nombre + "_" + bloqueLista.PuestoTrabajo);
@@ -80,6 +80,7 @@ namespace InspectionManager.Vistas
 
             picker.ItemsSource = opcionesPicker;
             picker.Title = "Seleccione el puesto de trabajo";
+            picker.AutomationId = "testPuestoTrabajoBloqueNuevaInspeccionPicker";
             picker.HorizontalTextAlignment = TextAlignment.Center;
             picker.TextColor = Color.White;
 
@@ -90,7 +91,8 @@ namespace InspectionManager.Vistas
                 Text = "Seleccionar",
                 BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                AutomationId = "testSeleccionarPuestoTrabajoNuevoBloqueInspeccionButton"
             };
 
             puestoSeleccionado.Clicked += ProcesarPuestoSeleccionado;
@@ -106,7 +108,7 @@ namespace InspectionManager.Vistas
             }
             else
             {
-                if (puestosSeleccionados.Contains(picker.SelectedItem.ToString())&&(nombrePuestoBloque.Contains(bloque.Nombre+"_"+picker.SelectedItem.ToString())))
+                if (puestosSeleccionados.Contains(picker.SelectedItem.ToString()) && (nombrePuestoBloque.Contains(bloque.Nombre + "_" + picker.SelectedItem.ToString())))
                 {
                     await DisplayAlert("Error", "Ya ha rellenado un bloque para dicho puesto, seleccione otro", "Ok");
                 }
@@ -125,6 +127,8 @@ namespace InspectionManager.Vistas
 
         private void CargarPreguntasDelBloque()
         {
+            int contAutomationId = 1;
+
             if (preguntasString.Count > 0)
             {
                 Label tituloTexto = new Label();
@@ -144,10 +148,13 @@ namespace InspectionManager.Vistas
                     campoRespuesta.PlaceholderColor = Color.White;
                     campoRespuesta.Keyboard = Keyboard.Text;
                     campoRespuesta.TextColor = Color.White;
+                    campoRespuesta.AutomationId = "testPreguntaTextoBloqueNuevaInspeccion" + contAutomationId + "Entry";
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
             }
+
+            contAutomationId = 1;
 
             if (preguntasBoolean.Count > 0)
             {
@@ -170,10 +177,13 @@ namespace InspectionManager.Vistas
                     texto.TextColor = Color.White;
                     CheckBox respuesta = new CheckBox();
                     respuesta.IsChecked = false;
+                    respuesta.AutomationId = "testPreguntaBooleanBloqueNuevaInspeccion" + contAutomationId + "CheckBox";
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(respuesta);
                 }
             }
+
+            contAutomationId = 1;
 
             if (preguntasInt.Count > 0)
             {
@@ -194,6 +204,7 @@ namespace InspectionManager.Vistas
                     campoRespuesta.PlaceholderColor = Color.White;
                     campoRespuesta.Keyboard = Keyboard.Numeric;
                     campoRespuesta.TextColor = Color.White;
+                    campoRespuesta.AutomationId = "testPreguntaValorBloqueNuevaInspeccion" + contAutomationId + "Entry";
                     layoutPreguntas.Children.Add(texto);
                     layoutPreguntas.Children.Add(campoRespuesta);
                 }
@@ -209,14 +220,16 @@ namespace InspectionManager.Vistas
             {
                 Text = "Cancelar",
                 BackgroundColor = Color.PaleGoldenrod,
-                HorizontalOptions = LayoutOptions.StartAndExpand
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                AutomationId = "testCancelarPreguntaBloqueNuevaInspeccionButton"
             };
 
             Button foto = new Button
             {
                 ImageSource = "add_foto_black.png",
                 BackgroundColor = Color.PaleGoldenrod,
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                AutomationId = "testFotoPreguntaBloqueNuevaInspeccionButton"
             };
 
             Button aceptar = new Button
@@ -224,6 +237,7 @@ namespace InspectionManager.Vistas
                 Text = "Aceptar",
                 BackgroundColor = Color.PaleGoldenrod,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
+                AutomationId = "testAceptarPreguntaBloqueNuevaInspeccionButton"
             };
 
             cancelar.Clicked += ProcesarCancelar;
@@ -247,7 +261,7 @@ namespace InspectionManager.Vistas
             List<IPregunta<bool>> preguntasBooleanRespondidas = new List<IPregunta<bool>>();
             List<IPregunta<int>> preguntasIntRespondidas = new List<IPregunta<int>>();
 
-            foreach(View v in layoutPreguntas.Children)
+            foreach (View v in layoutPreguntas.Children)
             {
                 Type tipo = v.GetType();
 
@@ -279,7 +293,8 @@ namespace InspectionManager.Vistas
                         preguntasIntRespondidas.Add(preguntaIntRespondida);
                         numeroPreguntasBoolean--;
                     }
-                }else if (tipo.Equals(typeof(CheckBox)))
+                }
+                else if (tipo.Equals(typeof(CheckBox)))
                 {
                     var respuesta = (CheckBox)v;
                     IPregunta<bool> preguntaBooleanRespondida = new PreguntaBoolean(preguntasBoolean[numeroPreguntasBoolean - 1].Nombre);

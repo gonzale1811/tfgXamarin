@@ -28,6 +28,6 @@
         </ListView.ItemTemplate>
 
         </ListView>
-        <Button Text="Cancelar" BackgroundColor="PaleGoldenrod" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
+        <Button Text="Cancelar" AutomationId="testCancelarPlantillaNuevaInspeccionButton" BackgroundColor="PaleGoldenrod" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ProcesarCancelar"/>
     </StackLayout>
 </ContentPage>

@@ -44,8 +44,8 @@
             <StackLayout x:Name="stackLayoutMainPage" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Label Text="Seleccione una acción" TextColor="White" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Vertical">
-                    <Button x:Name="addInspeccionButton" ContentLayout="Top,0" BackgroundColor="PaleGoldenrod" Text="Crear nueva inspección" Clicked="ProcesarCrearInspeccion" VerticalOptions="Start" ImageSource="add_inspeccion_black.png"/>
-                    <Button x:Name="addPlantillaButton" ContentLayout="Top,0" BackgroundColor="PaleGoldenrod" Text="Crear nueva plantilla" Clicked="ProcesarCrearPlantilla" VerticalOptions="End" ImageSource="add_plantilla_black.png"/>
+                    <Button x:Name="addInspeccionButton" AutomationId="testAddInspeccionButton" ContentLayout="Top,0" BackgroundColor="PaleGoldenrod" Text="Crear nueva inspección" Clicked="ProcesarCrearInspeccion" VerticalOptions="Start" ImageSource="add_inspeccion_black.png"/>
+                    <Button x:Name="addPlantillaButton" AutomationId="testAddPlantillaButton" ContentLayout="Top,0" BackgroundColor="PaleGoldenrod" Text="Crear nueva plantilla" Clicked="ProcesarCrearPlantilla" VerticalOptions="End" ImageSource="add_plantilla_black.png"/>
                 </StackLayout>
             </StackLayout>
         </ContentPage>
@@ -53,18 +53,18 @@
             <StackLayout x:Name="stackLayoutPerfil" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="Mis Datos" TextColor="White" FontSize="Large" VerticalOptions="Center"
                 HorizontalOptions="Center"/>
-            <Entry x:Name="dniEntry" IsReadOnly="True" TextColor="White"/>
-            <Entry x:Name="nombreEntry" IsReadOnly="True" TextColor="White"/>
-            <Entry x:Name="apellidosEntry" IsReadOnly="True" TextColor="White"/>
-            <Entry x:Name="usernameEntry" IsReadOnly="True" TextColor="White"/>
-            <Entry x:Name="passwordEntry" IsReadOnly="True" IsPassword="True" TextColor="White"/>
-            <DatePicker x:Name="fechaNacimientoPicker" Format="dd/MM/yyyy" FontAttributes="Bold" DateSelected="ProcesarFechaNacimiento" TextColor="White"/>
+            <Entry x:Name="dniEntry" AutomationId="testDniDatosPerfilEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="nombreEntry" AutomationId="testNombreDatosPerfilEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="apellidosEntry" AutomationId="testApellidosDatosPerfilEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="usernameEntry" AutomationId="testUsernameDatosPerfilEntry" IsReadOnly="True" TextColor="White"/>
+            <Entry x:Name="passwordEntry" AutomationId="testPasswordDatosPerfilEntry" IsReadOnly="True" IsPassword="True" TextColor="White"/>
+            <DatePicker x:Name="fechaNacimientoPicker" AutomationId="testFechaDeNacimientoDatosPerfilEntry" Format="dd/MM/yyyy" FontAttributes="Bold" DateSelected="ProcesarFechaNacimiento" TextColor="White"/>
             <StackLayout Orientation="Horizontal">
-                <Button x:Name="cerrarSesionButton" Text="Cerrar sesion" BackgroundColor="PaleGoldenrod" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
-                <Button x:Name="editarPerfilButton" Text="Editar perfil" BackgroundColor="PaleGoldenrod" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
-                <Button x:Name="guardarPerfilButton" Text="Guardar perfil" BackgroundColor="PaleGoldenrod" ImageSource="edit_black.png" Clicked="ProcesarGuardarPerfil" HorizontalOptions="End" IsEnabled="False" IsVisible="False"/>
+                <Button x:Name="cerrarSesionButton" AutomationId="testCerrarSesionButton" Text="Cerrar sesion" BackgroundColor="PaleGoldenrod" ImageSource="logout_black.png" Clicked="ProcesarCerrarSesion" HorizontalOptions="Start"/>
+                <Button x:Name="editarPerfilButton" AutomationId="testEditarPerfilButton" Text="Editar perfil" BackgroundColor="PaleGoldenrod" ImageSource="edit_black.png" Clicked="ProcesarEditarPerfil" HorizontalOptions="End"/>
+                <Button x:Name="guardarPerfilButton" AutomationId="testGuardarPerfilEditadoButton" Text="Guardar perfil" BackgroundColor="PaleGoldenrod" ImageSource="edit_black.png" Clicked="ProcesarGuardarPerfil" HorizontalOptions="End" IsEnabled="False" IsVisible="False"/>
             </StackLayout>
-            <Label x:Name="errorLabel" FontSize="Medium" IsVisible="False" HorizontalTextAlignment="Center"/>
+            <Label x:Name="errorLabel" AutomationId="testErrorPerfilLabel" FontSize="Medium" IsVisible="False" HorizontalTextAlignment="Center"/>
         </StackLayout>
         </ContentPage>
     </TabbedPage.Children>

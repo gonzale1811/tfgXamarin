@@ -30,8 +30,8 @@
         </ListView.ItemTemplate>
       </ListView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Button x:Name="cancelarButton" Text="Cancelar" HorizontalOptions="Start" VerticalOptions="Center" Clicked="ProcesarCancelar" BackgroundColor="PaleGoldenrod"/>
-            <Button x:Name="finalizarButton" Text="Finalizar" IsEnabled="False" HorizontalOptions="End" VerticalOptions="Center" Clicked="ProcesarFinalizar" BackgroundColor="PaleGoldenrod"/>
+            <Button x:Name="cancelarButton" Text="Cancelar" AutomationId="testCancelarBloqueNuevaInspeccionButton" HorizontalOptions="Start" VerticalOptions="Center" Clicked="ProcesarCancelar" BackgroundColor="PaleGoldenrod"/>
+            <Button x:Name="finalizarButton" Text="Finalizar" AutomationId="testFinalizarNuevaInspeccionButton" IsEnabled="False" HorizontalOptions="End" VerticalOptions="Center" Clicked="ProcesarFinalizar" BackgroundColor="PaleGoldenrod"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

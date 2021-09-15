@@ -69,8 +69,6 @@ namespace InspectionManager.Droid.Servicios
                     {
                         var fecha = item.Get("FechaNacimiento").ToString();
 
-                        //DateTime fechaNacimiento = Convert.ToDateTime(fecha);
-
                         inspectorActual = new Inspector(item.Get("DNI").ToString(), item.Get("Nombre").ToString(), item.Get("Apellidos").ToString(), emailObtenido, item.Get("Password").ToString(), fecha);
 
                         List<string> inspeccionesObtenidas = new List<string>();
@@ -724,11 +722,7 @@ namespace InspectionManager.Droid.Servicios
                 {
                     var fechaI = document.Get("fechaInicio").ToString();
 
-                    //DateTime fechaInicio = Convert.ToDateTime(fechaI);
-
                     var fechaF = document.Get("fechaFin").ToString();
-
-                    //DateTime fechaFin = Convert.ToDateTime(fechaF);
 
                     Inspeccion obtenida = new Inspeccion(Guid.Parse(document.Get("idInspeccion").ToString()), document.Get("nombre").ToString(), fechaI, fechaF);
 

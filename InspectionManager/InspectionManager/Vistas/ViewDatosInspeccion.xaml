@@ -8,16 +8,16 @@
     <ContentPage.Content>
         <StackLayout x:Name="commonLayout" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
             <Label Text="Datos inspeccion" TextColor="White" TextDecorations="Underline" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-            <Entry x:Name="nombreEntry" Placeholder="Nombre" PlaceholderColor="White" TextColor="White"/>
-            <DatePicker x:Name="fechaInicioPicker" Format="dd/MM/yyyy" DateSelected="FechaSeleccionadaInicio" TextColor="White"/>
-            <DatePicker x:Name="fechaFinPicker" Format="dd/MM/yyyy" DateSelected="FechaSeleccionadaFin" TextColor="White"/>
-            <Entry x:Name="calleEntry" Placeholder="Calle" Keyboard="Text" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="numeroEntry" Placeholder="Numero" Keyboard="Numeric" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="localidadEntry" Placeholder="Localidad" Keyboard="Text" PlaceholderColor="White" TextColor="White"/>
-            <Entry x:Name="codigoPostalEntry" Placeholder="Codigo postal" Keyboard="Numeric" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="nombreEntry" AutomationId="testNombreNuevaInspeccionEntry" Placeholder="Nombre" PlaceholderColor="White" TextColor="White"/>
+            <DatePicker x:Name="fechaInicioPicker" AutomationId="testFechaInicioNuevaInspeccionDatePicker" Format="dd/MM/yyyy" DateSelected="FechaSeleccionadaInicio" TextColor="White"/>
+            <DatePicker x:Name="fechaFinPicker" AutomationId="testFechaFinNuevaInspeccionDatePicker" Format="dd/MM/yyyy" DateSelected="FechaSeleccionadaFin" TextColor="White"/>
+            <Entry x:Name="calleEntry" AutomationId="testCalleNuevaInspeccionEntry" Placeholder="Calle" Keyboard="Text" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="numeroEntry" AutomationId="testNumeroNuevaInspeccionEntry" Placeholder="Numero" Keyboard="Numeric" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="localidadEntry" AutomationId="testLocalidadNuevaInspeccionEntry" Placeholder="Localidad" Keyboard="Text" PlaceholderColor="White" TextColor="White"/>
+            <Entry x:Name="codigoPostalEntry" AutomationId="testCodigoPostalNuevaInspeccionEntry" Placeholder="Codigo postal" Keyboard="Numeric" PlaceholderColor="White" TextColor="White"/>
             <StackLayout x:Name="otherButtonsLayout" Orientation="Horizontal">
-                <Button x:Name="cancelButton" Text="Cancelar" Clicked="ProcesarCancelarCreacion" HorizontalOptions="StartAndExpand" BackgroundColor="PaleGoldenrod"/>
-                <Button x:Name="addBloqueButton" Text="Seleccionar plantilla" Clicked="ProcesarAddBloque" HorizontalOptions="Center" VerticalOptions="EndAndExpand" BackgroundColor="PaleGoldenrod"/>
+                <Button x:Name="cancelButton" AutomationId="testCancelarNuevaInspeccionButton" Text="Cancelar" Clicked="ProcesarCancelarCreacion" HorizontalOptions="StartAndExpand" BackgroundColor="PaleGoldenrod"/>
+                <Button x:Name="addBloqueButton" AutomationId="testSeleccionarPlantillaNuevaInspeccionButton" Text="Seleccionar plantilla" Clicked="ProcesarAddBloque" HorizontalOptions="Center" VerticalOptions="EndAndExpand" BackgroundColor="PaleGoldenrod"/>
             </StackLayout>
             <Label x:Name="errorLabel" IsVisible="False" FontSize="Medium" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>
