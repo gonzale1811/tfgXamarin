@@ -24,6 +24,7 @@ com.google.android.material.tabs.TabLayout;/Users/david/Documents/David/Universi
 com.google.android.material.tabs.TabLayout;obj/Release/res/layout/tabbar.xml
 declare-styleable;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/attrs.xml
 external-cache-path;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
+external-files-path;obj/Release/res/xml/file_paths.xml
 external-path;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj/Release/res/mipmap-anydpi-v26/icon.xml
 foreground;obj/Release/res/mipmap-anydpi-v26/icon_round.xml
@@ -31,7 +32,10 @@ FrameLayout;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrime
 item;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/styles.xml
 LinearLayout;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/layout/bottomtablayout.xml
 paths;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/48/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
+paths;obj/Release/res/xml/file_paths.xml
 resources;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/googsvcsjson/values/goog_svcs_json.xml
+resources;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/123/jl/res/values/strings.xml
+resources;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/145/jl/res/values/strings.xml
 resources;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/attrs.xml
 resources;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/strings.xml
 resources;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/styles.xml
@@ -42,6 +46,8 @@ set;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG
 set;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/anim/exittoleft.xml
 set;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/anim/exittoright.xml
 string;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/googsvcsjson/values/goog_svcs_json.xml
+string;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/123/jl/res/values/strings.xml
+string;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/145/jl/res/values/strings.xml
 string;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/strings.xml
 style;/Users/david/Documents/David/Universidad/CuartoCurso/SegundoCuatrimestre/TFG/Proyecto/tfgXamarin/InspectionManager/InspectionManager.Android/obj/Release/lp/56/jl/res/values/styles.xml
 style;obj/Release/res/values/styles.xml

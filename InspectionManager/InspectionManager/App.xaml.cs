@@ -18,14 +18,14 @@ namespace InspectionManager
 
             auth = DependencyService.Get<IFirebaseAuthService>();
 
-            if (auth.IsUserSigned())
+            /*if (auth.IsUserSigned())
             {
                 MainPage = new NavigationPage(new ViewMenuPrincipal());
             }
             else
-            {
+            {*/
                 MainPage = new NavigationPage(new ViewLogin());
-            }
+            //}
             //MainPage = new NavigationPage(new ViewPlantillas());
         }
 

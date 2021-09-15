@@ -38,7 +38,7 @@ namespace InspectionManager.Droid.Servicios
             {
                 { "Apellidos", inspector.Apellidos },
                 { "DNI", inspector.Dni },
-                { "FechaNacimiento", inspector.FechaNacimiento.ToString() },
+                { "FechaNacimiento", inspector.FechaNacimiento.ToString("dd/MM/yyyy") },
                 { "Inspecciones", mapaInspecciones},
                 { "Nombre", inspector.Nombre },
                 { "Password", inspector.Password },
@@ -111,8 +111,8 @@ namespace InspectionManager.Droid.Servicios
             {
                 {"idInspeccion",inspeccion.IdInspeccion.ToString() },
                 {"nombre", inspeccion.Nombre },
-                {"fechaInicio", inspeccion.FechaInicio.ToString() },
-                {"fechaFin", inspeccion.FechaFin.ToString() },
+                {"fechaInicio", inspeccion.FechaInicio },
+                {"fechaFin", inspeccion.FechaFin },
                 {"direccion", direccion },
                 {"bloques", bloques }
             };
@@ -724,13 +724,13 @@ namespace InspectionManager.Droid.Servicios
                 {
                     var fechaI = document.Get("fechaInicio").ToString();
 
-                    DateTime fechaInicio = Convert.ToDateTime(fechaI);
+                    //DateTime fechaInicio = Convert.ToDateTime(fechaI);
 
                     var fechaF = document.Get("fechaFin").ToString();
 
-                    DateTime fechaFin = Convert.ToDateTime(fechaF);
+                    //DateTime fechaFin = Convert.ToDateTime(fechaF);
 
-                    Inspeccion obtenida = new Inspeccion(Guid.Parse(document.Get("idInspeccion").ToString()), document.Get("nombre").ToString(), fechaInicio, fechaFin);
+                    Inspeccion obtenida = new Inspeccion(Guid.Parse(document.Get("idInspeccion").ToString()), document.Get("nombre").ToString(), fechaI, fechaF);
 
                     var direccion = document.Get("direccion") != null ? document.Get("direccion") : null;
 
@@ -856,10 +856,10 @@ namespace InspectionManager.Droid.Servicios
             nombre = new iTextSharp.text.Cell(new Phrase(inspeccion.Nombre, _fuenteEstandar));
             nombre.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             nombre.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            fechaInicio = new iTextSharp.text.Cell(new Phrase(inspeccion.FechaInicio.ToString(), _fuenteEstandar));
+            fechaInicio = new iTextSharp.text.Cell(new Phrase(inspeccion.FechaInicio, _fuenteEstandar));
             fechaInicio.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             fechaInicio.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
-            fechaFin = new iTextSharp.text.Cell(new Phrase(inspeccion.FechaFin.ToString(), _fuenteEstandar));
+            fechaFin = new iTextSharp.text.Cell(new Phrase(inspeccion.FechaFin, _fuenteEstandar));
             fechaFin.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             fechaFin.VerticalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
             calle = new iTextSharp.text.Cell(new Phrase(inspeccion.DireccionInspeccion.Calle, _fuenteEstandar));

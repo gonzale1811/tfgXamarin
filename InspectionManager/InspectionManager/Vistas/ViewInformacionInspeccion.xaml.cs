@@ -27,12 +27,12 @@ namespace InspectionManager.Vistas
             bloquesInspeccion = consult.GetBloquesByInspeccion(inspeccion);
 
             nombreEntry.Text = "Nombre: "+inspeccion.Nombre;
-            fechaInicioPicker.Date = inspeccion.FechaInicio;
-            fechaInicioPicker.MinimumDate = inspeccion.FechaInicio;
-            fechaInicioPicker.MaximumDate = inspeccion.FechaInicio;
-            fechaFinPicker.Date = inspeccion.FechaFin;
-            fechaFinPicker.MinimumDate = inspeccion.FechaFin;
-            fechaFinPicker.MaximumDate = inspeccion.FechaFin;
+            fechaInicioPicker.Date = Convert.ToDateTime(inspeccion.FechaInicio);
+            fechaInicioPicker.MinimumDate = Convert.ToDateTime(inspeccion.FechaInicio);
+            fechaInicioPicker.MaximumDate = Convert.ToDateTime(inspeccion.FechaInicio);
+            fechaFinPicker.Date = Convert.ToDateTime(inspeccion.FechaFin);
+            fechaFinPicker.MinimumDate = Convert.ToDateTime(inspeccion.FechaFin);
+            fechaFinPicker.MaximumDate = Convert.ToDateTime(inspeccion.FechaFin);
             calleEntry.Text = "Calle: "+inspeccion.DireccionInspeccion.Calle;
             numeroEntry.Text = "Número: "+inspeccion.DireccionInspeccion.Numero;
             localidadEntry.Text = "Localidad: "+inspeccion.DireccionInspeccion.Localidad;
@@ -60,10 +60,10 @@ namespace InspectionManager.Vistas
         {
             nombreEntry.Text = inspeccion.Nombre;
             nombreEntry.IsReadOnly = false;
-            fechaInicioPicker.MinimumDate = inspeccion.FechaInicio;
+            fechaInicioPicker.MinimumDate = Convert.ToDateTime(inspeccion.FechaInicio);
             fechaInicioPicker.MaximumDate = new DateTime(3000, 1, 1);
             nuevaFechaInicio = fechaInicioPicker.Date;
-            fechaFinPicker.MinimumDate = inspeccion.FechaInicio.AddDays(1);
+            fechaFinPicker.MinimumDate = Convert.ToDateTime(inspeccion.FechaInicio).AddDays(1);
             fechaFinPicker.MaximumDate = new DateTime(3000, 1, 1);
             nuevaFechaFin = fechaFinPicker.Date;
             calleEntry.Text = inspeccion.DireccionInspeccion.Calle;
@@ -93,7 +93,7 @@ namespace InspectionManager.Vistas
 
             if (ComprobarCampos())
             {
-                Inspeccion nuevaInspeccion = new Inspeccion(inspeccion.IdInspeccion, nombreEntry.Text, nuevaFechaInicio, nuevaFechaFin);
+                Inspeccion nuevaInspeccion = new Inspeccion(inspeccion.IdInspeccion, nombreEntry.Text, nuevaFechaInicio.ToString("dd/MM/yyyy"), nuevaFechaFin.ToString("dd/MM/yyyy"));
                 nuevaInspeccion.DireccionInspeccion.Calle = calleEntry.Text;
 
                 if (String.IsNullOrWhiteSpace(numeroEntry.Text))
@@ -117,10 +117,10 @@ namespace InspectionManager.Vistas
 
                 nombreEntry.Text = "Nombre: " + nuevaInspeccion.Nombre;
                 nombreEntry.IsReadOnly = true;
-                fechaInicioPicker.MinimumDate = inspeccion.FechaInicio;
-                fechaInicioPicker.MaximumDate = inspeccion.FechaInicio;
-                fechaFinPicker.MinimumDate = inspeccion.FechaFin;
-                fechaFinPicker.MaximumDate = inspeccion.FechaFin;
+                fechaInicioPicker.MinimumDate = Convert.ToDateTime(inspeccion.FechaInicio);
+                fechaInicioPicker.MaximumDate = Convert.ToDateTime(inspeccion.FechaInicio);
+                fechaFinPicker.MinimumDate = Convert.ToDateTime(inspeccion.FechaFin);
+                fechaFinPicker.MaximumDate = Convert.ToDateTime(inspeccion.FechaFin);
                 calleEntry.Text = "Calle: " + nuevaInspeccion.DireccionInspeccion.Calle;
                 calleEntry.IsReadOnly = true;
                 numeroEntry.Text = "Número: " + nuevaInspeccion.DireccionInspeccion.Numero;

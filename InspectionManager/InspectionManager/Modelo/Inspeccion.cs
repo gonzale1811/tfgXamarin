@@ -7,12 +7,12 @@ namespace InspectionManager.Modelo
     {
         public Guid IdInspeccion { get; }
         public string Nombre { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+        public string FechaInicio { get; set; }
+        public string FechaFin { get; set; }
         public Direccion DireccionInspeccion { get; set; }
         public List<string> Bloques { get; set; }
 
-        public Inspeccion(string nombre, DateTime fechaInicio, DateTime fechaFin, Direccion direccionInspeccion)
+        public Inspeccion(string nombre, string fechaInicio, string fechaFin, Direccion direccionInspeccion)
         {
             IdInspeccion = Guid.NewGuid();
             Nombre = nombre;
@@ -22,7 +22,7 @@ namespace InspectionManager.Modelo
             Bloques = new List<string>();
         }
 
-        public Inspeccion(Guid idInspeccion, string nombre, DateTime fechaInicio, DateTime fechaFin)
+        public Inspeccion(Guid idInspeccion, string nombre, string fechaInicio, string fechaFin)
         {
             IdInspeccion = idInspeccion;
             Nombre = nombre;

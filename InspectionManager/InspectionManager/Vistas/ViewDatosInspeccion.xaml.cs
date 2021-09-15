@@ -64,7 +64,7 @@ namespace InspectionManager.Vistas
                     direccionInspeccion = new Direccion(calleEntry.Text, numeroEntry.Text, localidadEntry.Text, codigoPostalEntry.Text);
                 }
 
-                Inspeccion nuevaInspeccion = new Inspeccion(nombreEntry.Text, fechaInicio, fechaFin, direccionInspeccion);
+                Inspeccion nuevaInspeccion = new Inspeccion(nombreEntry.Text, fechaInicio.ToString("dd/MM/yyyy"), fechaFin.ToString("dd/MM/yyyy"), direccionInspeccion);
                 propietario.Inspecciones.Add(nuevaInspeccion.IdInspeccion.ToString());
                 consult.AddInspeccion(nuevaInspeccion);
                 consult.AddInspeccionToInspector(propietario, nuevaInspeccion);
