@@ -5,17 +5,9 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
-            <Node name="InspectionManager" expanded="True">
-              <Node name="Vistas" expanded="True">
-                <Node name="ViewBloquesInspeccion.xaml" expanded="True" />
-                <Node name="ViewInformacionInspeccion.xaml" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="InspectionManager.Android" expanded="True">
-              <Node name="Servicios" expanded="True">
-                <Node name="FirebaseConsultService.cs" selected="True" />
-              </Node>
-            </Node>
+            <Node name="InspectionManager.Android" selected="True" />
+            <Node name="InspectionManager.iOS" expanded="True" />
+            <Node name="InspectionManagerTest" expanded="True" />
           </Node>
         </State>
       </Pad>
