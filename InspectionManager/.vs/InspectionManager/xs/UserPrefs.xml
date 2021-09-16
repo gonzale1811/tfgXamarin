@@ -6,7 +6,6 @@
         <State name="__root__">
           <Node name="InspectionManager" expanded="True">
             <Node name="InspectionManager.Android" selected="True" />
-            <Node name="InspectionManager.iOS" expanded="True" />
             <Node name="InspectionManagerTest" expanded="True" />
           </Node>
         </State>
