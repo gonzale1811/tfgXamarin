@@ -44,7 +44,8 @@ namespace InspectionManager.Vistas
             bool eliminar = await DisplayAlert("Precaución", "Eliminar la inspección es una acción permanente, ¿desea continuar?", "Si", "No");
             if (eliminar)
             {
-                usuario.Inspecciones.Remove(inspeccion.IdInspeccion.ToString());
+                int index = usuario.Inspecciones.IndexOf(inspeccion.IdInspeccion.ToString());
+                usuario.Inspecciones.RemoveAt(index);
                 consult.DeleteInspeccion(usuario, inspeccion, bloquesInspeccion);
                 await Navigation.PushModalAsync(new NavigationPage(new ViewMenuPrincipal()));
             }

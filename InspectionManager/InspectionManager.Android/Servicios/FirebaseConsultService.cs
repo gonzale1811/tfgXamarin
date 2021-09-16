@@ -1245,11 +1245,15 @@ namespace InspectionManager.Droid.Servicios
             DocumentReference documentReference = DatabaseConnection.GetInstance.Collection("Inspectores").Document(inspector.Dni);
 
             HashMap inspecciones = new HashMap();
-            int cont = 0;
 
-            foreach(string i in inspector.Inspecciones)
+            if (inspector.Inspecciones.Count > 0)
             {
-                inspecciones.Put(cont.ToString(), i);
+                int cont = 0;
+
+                foreach (string i in inspector.Inspecciones)
+                {
+                    inspecciones.Put(cont.ToString(), i);
+                }
             }
 
             documentReference.Update("Inspecciones", inspecciones);
